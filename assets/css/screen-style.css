@@ -6,6 +6,27 @@
 }
 
 body {
-  background-color: aliceblue;
+  background-color: #5395ce;
+  height: 100vh;
+}
+
+.contFluid {
+  background-color: aquamarine;
+  height: 100%;
+}
+
+header {
+  background-color: red;
+}
+
+footer {
+  background-color: azure;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+footer h1 {
+  float: right;
 }
 /*# sourceMappingURL=screen-style.css.map */

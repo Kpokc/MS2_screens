@@ -13,9 +13,73 @@
     <title>SSL/RHENUS</title>
 </head>
 <body>
-    <div class="container-fluid">
-        <h1>Hello World</h1>
+
+    <div class="container-fluid contFluid">
+        <header class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <h1 id="time_span">Time Here</h1>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <!-- Button trigger ADD modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalAdd" id="addRowToDb">
+                                    ADD
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                     <!-- Button trigger DELETE modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" id="delRowFromDb">
+                                    DELETE
+                                    </button>
+                                </li>
+                                <!--<li class="nav-item">-->
+                                     <!-- Button trigger UPDATE modal -->
+                                <!--    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate">-->
+                                <!--    UPDATE-->
+                                <!--    </button>-->
+                                <!--</li>-->
+                                <li class="nav-item">
+                                    <!-- Button trigger LOGOUT modal -->
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLogout">
+                                    LOG OUT
+                                    </button>
+                                </li>
+                                <li class="nav-item">
+                                     <!--Button trigger LOGOUT modal -->
+                                    <button type="button" class="btn btn-primary" id="radioBtn">
+                                    RADIO
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <section class="row">
+            <div class="col-xxl-6 col-xl-6 col-12">
+                <h1>Section 1</h1>
+            </div>
+            <div class="col-xxl-6 col-xl-6 col-12">
+                <h1>Section 2</h1>
+            </div>
+        </section>
+
+        <footer class="row">
+            <div class="col-12">
+                <h1>Footer</h1>
+            </div>
+        </footer>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
 </body>
 </html>

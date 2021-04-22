@@ -5,5 +5,25 @@
 }
 
 body {
-    background-color: aliceblue;
+    background-color: rgb(83, 149, 206);
+    height: 100vh;
+}
+
+.contFluid {
+    background-color: aquamarine;
+    height: 100%;
+}
+
+header {
+    background-color: red;
+}
+
+footer {
+    background-color: azure;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    h1 {
+        float: right;
+    }
 }
