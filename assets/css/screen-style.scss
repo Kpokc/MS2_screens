@@ -18,6 +18,31 @@ header {
     background-color: red;
 }
 
+.msg-card {
+    .card-header {
+        background-color: bisque;
+        display: flex;
+        padding: 5px;
+        .card-header-inner {
+            padding: 5px;
+        }
+    }
+    .card-body{
+        display: flex;
+        max-height: none;
+        padding: 5px;
+        background-color: yellow;
+        .body-section-left,
+        .body-section-right {
+            padding: 5px;
+            width: 70%;
+        }
+        .body-section-left {
+            width: 30%;
+        }
+    }
+}
+
 footer {
     background-color: azure;
     position: fixed;

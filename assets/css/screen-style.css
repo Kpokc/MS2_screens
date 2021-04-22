@@ -19,6 +19,37 @@ header {
   background-color: red;
 }
 
+.msg-card .card-header {
+  background-color: bisque;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 5px;
+}
+
+.msg-card .card-header .card-header-inner {
+  padding: 5px;
+}
+
+.msg-card .card-body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  max-height: none;
+  padding: 5px;
+  background-color: yellow;
+}
+
+.msg-card .card-body .body-section-left,
+.msg-card .card-body .body-section-right {
+  padding: 5px;
+  width: 70%;
+}
+
+.msg-card .card-body .body-section-left {
+  width: 30%;
+}
+
 footer {
   background-color: azure;
   position: fixed;
