@@ -32,16 +32,18 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 50%;
+  -webkit-box-shadow: 0 5px 10px 0 #1e2021;
+          box-shadow: 0 5px 10px 0 #1e2021;
 }
 
 .login-logo::after {
-  background-color: #445261;
   position: absolute;
-  content: '';
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+  background-color: #445261;
+  content: '';
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -72,20 +74,19 @@ form label {
 }
 
 form input {
-  background: rgba(232, 232, 232, 0.5);
   width: 90%;
   margin: 0 auto;
-  display: block;
   margin-top: 15px;
+  display: block;
   outline: none;
   border: none;
-  color: #f7f7f7;
   padding: 5px;
   font-size: 18px;
+  color: #ffe8b0;
   border-radius: 5px;
+  background: rgba(232, 232, 232, 0.5);
   -webkit-box-shadow: 0 10px 10px 0 #445261;
           box-shadow: 0 10px 10px 0 #445261;
-  color: #ffe8b0;
 }
 
 form input[type=submit] {
