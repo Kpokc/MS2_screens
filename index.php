@@ -1,3 +1,10 @@
+<?php
+//if both declared forward to login.php
+if(isset($_SESSION['username']) and isset($_SESSION['password'])){
+    header("location: login.php");
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
