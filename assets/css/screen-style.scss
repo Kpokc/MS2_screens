@@ -93,7 +93,13 @@ body {
 footer {
     bottom: 0;
     width: 100%;
-    h1 {
+    margin-top: 14px;
+    .company, .copyrights {
+        padding: 5px;
         float: right;
+        text-shadow: 1px 1px 1px #000014;
+    }
+    .copyrights {
+        float: left;
     }
 }

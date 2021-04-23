@@ -114,9 +114,16 @@ body {
 footer {
   bottom: 0;
   width: 100%;
+  margin-top: 14px;
 }
 
-footer h1 {
+footer .company, footer .copyrights {
+  padding: 5px;
   float: right;
+  text-shadow: 1px 1px 1px #000014;
+}
+
+footer .copyrights {
+  float: left;
 }
 /*# sourceMappingURL=screen-style.css.map */
