@@ -1,6 +1,6 @@
 <?php
 
-//if POST method detected - assign variables 
+//if POST method detected - assign variables to session
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $_SESSION['username'];
     $_SESSION['password'];  

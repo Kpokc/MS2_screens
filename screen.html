@@ -29,9 +29,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     <title>SSL/RHENUS</title>
 </head>
 <body>
-    
-    <!-- Glass effect on body's background -->
-    <div class="glass"></div>
 
     <div class="container-fluid contFluid">
         <header class="row sticky-top">
@@ -86,9 +83,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <main class="row">
             <div class="col-xxl-6 col-xl-6 col-12">
                 
-                <!--Returns Picks/Receipts tables-->
+                <!--Retrieve Picks/Receipts tables-->
                 
-                <ul>
+                <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
                         callPicksReceipts($_SESSION['login_user'], $_SESSION['login_pass']);
                         echo $html;
@@ -99,9 +96,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             
             <div class="col-xxl-6 col-xl-6 col-12">
 
-                <!--Returns Deliveries/Collections tables-->
+                <!--Retrieve Deliveries/Collections tables-->
                 
-                <ul>
+                <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
                         callDeliveryCollection($_SESSION['login_user'], $_SESSION['login_pass']);
                         echo $html;
