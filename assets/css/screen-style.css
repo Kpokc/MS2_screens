@@ -38,6 +38,7 @@ body {
 }
 
 .bg-light #time_span {
+  display: none;
   position: absolute;
 }
 
