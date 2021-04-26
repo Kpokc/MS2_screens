@@ -87,8 +87,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                        callPicksReceipts($_SESSION['login_user'], $_SESSION['login_pass']);
-                        echo $html;
+                        callPicksReceipts();
                     ?>
                 </ul>
 
@@ -100,8 +99,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                        callDeliveryCollection($_SESSION['login_user'], $_SESSION['login_pass']);
-                        echo $html;
+                        callDeliveryCollection();
                     ?>
                 </ul>
 

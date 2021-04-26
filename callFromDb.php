@@ -2,19 +2,19 @@
 include('login.php');
 
 // Forward to "Log In" page if session error
-if(!isset($_SESSION['login_user']))
+if(!isset($_SESSION['login_user']) or !isset($_SESSION['login_pass']))
 {
     header("location: index.php"); 
 }
 else {
     
     //Retrieve only Picks and Receipts
-    function callPicksReceipts($user, $pass){
+    function callPicksReceipts(){
 	            
                 //DB variables
             	$hostname="localhost";
-            	$username=$user;
-            	$password=$pass;
+            	$username = $_SESSION['login_user'];
+                $password = $_SESSION['login_pass'];
             	$dbname="pick_test";
 
 	            //Connect To Database
@@ -83,12 +83,12 @@ else {
     }
     
     //Retrieve only Deliveries/Collections/Transfers
-    function callDeliveryCollection($user, $pass){
+    function callDeliveryCollection(){
 
                 //DB variables
             	$hostname="localhost";
-            	$username=$user;
-            	$password=$pass;
+            	$username = $_SESSION['login_user'];
+                $password = $_SESSION['login_pass'];
             	$dbname="pick_test";
 
 	            //Connect To Database
