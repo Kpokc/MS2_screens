@@ -12,7 +12,6 @@ else {
     $username = $_SESSION['login_user'];
     $password = $_SESSION['login_pass'];
     $dbname="pick_test";
-    $pick_id = $_POST["pick_id"];
     
     //Connect To Database
     mysqli_connect($hostname,$username, $password) or die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.')</script></html>");
@@ -23,6 +22,8 @@ else {
     if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
     }
+
+    $pick_id = $_POST["pick_id"];
         
     $sql = "DELETE FROM message WHERE u_id = $pick_id";
      
