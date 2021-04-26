@@ -128,7 +128,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .msg-card .card-header .card-header-inner {
   padding: 5px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 .msg-card .card-body {
@@ -153,11 +153,6 @@ h1, h2, h3, h4, h5, h6 {
   width: 25%;
   border-right: 1px solid #dedede;
   text-transform: uppercase;
-}
-
-.msg-card .card-body .body-section-left .card-body-inner {
-  width: 90%;
-  margin: 0 auto;
 }
 
 footer {

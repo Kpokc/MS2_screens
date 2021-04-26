@@ -1,7 +1,7 @@
 <?php
 
 //retrieve from db
-include('callFromDB.php');
+include('callFromDb.php');
 
 //if username and password empty redirect to index.php 
 if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
@@ -13,6 +13,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,14 +22,19 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     <meta name="keywords" content="N/A">
     <meta name="author" content="Pavel Makarov">
 
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/screen-style.css">
 
     <title>SSL/RHENUS</title>
 </head>
+
 <body>
+
+    <!-- Glass effect on body's background -->
+    <div class="glass"></div>
 
     <div class="container-fluid contFluid">
         <header class="row sticky-top">
@@ -45,32 +51,36 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
                                     <!-- Button trigger ADD modal -->
-                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal" data-bs-target="#exampleModalAdd" id="addRowToDb">
-                                    ADD
+                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalAdd" id="addRowToDb">
+                                        ADD
                                     </button>
                                 </li>
                                 <li class="nav-item">
-                                     <!-- Button trigger DELETE modal -->
-                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal" data-bs-target="#exampleModalDelete" id="delRowFromDb">
-                                    DELETE
+                                    <!-- Button trigger DELETE modal -->
+                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalDelete" id="delRowFromDb">
+                                        DELETE
                                     </button>
                                 </li>
                                 <li class="nav-item">
-                                     <!-- Button trigger UPDATE modal -->
-                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate">
-                                   UPDATE
-                                   </button>
+                                    <!--Button trigger UPDATE modal -->
+                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalUpdate">
+                                        UPDATE
+                                    </button>
                                 </li>
                                 <li class="nav-item">
                                     <!-- Button trigger LOGOUT modal -->
-                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal" data-bs-target="#exampleModalLogout">
-                                    LOG OUT
+                                    <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModalLogout">
+                                        LOG OUT
                                     </button>
                                 </li>
                                 <li class="nav-item">
-                                     <!--Button trigger LOGOUT modal -->
+                                    <!--Button trigger RADIO modal -->
                                     <button type="button" class="btn btn-primary top-menu-bttn" id="radioBtn">
-                                    RADIO
+                                        RADIO
                                     </button>
                                 </li>
                             </ul>
@@ -82,24 +92,22 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
         <main class="row">
             <div class="col-xxl-6 col-xl-6 col-12">
-                
-                <!--Retrieve Picks/Receipts tables-->
-                
+
+                <!--Returns Picks/Receipts tables-->
+
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                        callPicksReceipts();
+                    callPicksReceipts();
                     ?>
                 </ul>
 
             </div>
-            
+
             <div class="col-xxl-6 col-xl-6 col-12">
 
-                <!--Retrieve Deliveries/Collections tables-->
-                
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                        callDeliveryCollection();
+                    callDeliveryCollection();
                     ?>
                 </ul>
 
@@ -113,168 +121,167 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </footer>
     </div>
-    
-     <!-- Modal ADD FORM-->
-                
-     <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                  <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i class='far fa-thumbs-up'></i></span></div>
-              <form action="add.php" method="POST" id="addRowToDbForm">
-                  <label for="select">Select:</label>
-                  <select id="select" name="select">
-                      <option value="pick">Pick</option>
-                      <option value="receipt">Receipt</option>
-                      <option value="delivery">Delivery</option>
-                      <option value="collection">Collection</option>
-                      <option value="transfer">Transfer</option>
-                  </select><br><br>
-                  
-                  <label for="pick_id">Job ID:</label><br>
-                  <input type="number" name="pick_id" id="pick_id" required><br><br>
-                  <label for="vendor">Vendors Name:</label><br>
-                  <input type="text" name="vendor" id="vendor" required><br><br>
-                  <label for="urgent">Urgent Status:</label>
-                  <select id="urgent" name="urgent">
-                      <option value="no">No</option>
-                      <option value="yes">Yes</option>
-                  </select><br><br>
-                  
-                  <label for="message">Message:</label><br>
-                  <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
-                  <hr>
-                  <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
-                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
-                  
-              </form>
-            </div>
-            <div class="modal-footer">
-               
-            </div>
-          </div>
-        </div>
-      </div>
-     
-      <!-- \.Modal ADD FORM -->
-      
-      <!-- Modal DELETE FORM-->
-                
-      <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i class='far fa-thumbs-up'></i></span></div>
-              <form action="delete.php" method="POST" id="delRowFromDbForm">
-                                              <input type="hidden" name="user" value="pmadmin"/>
-                  <!-- <input type="hidden" name="pass" value="pmadmin123" /> -->
-                  <label for="pick_id_del">UID Nr:</label><br>
-                  <input type="number" name="pick_id" id="pick_id_del" required><br>
-                  
-                  <!--table children nr.5 -> unic ID fom SQL DB used as tabel unic ID(main.js Delete by click)-->
-                   <!--Deleting should be done by this uniq ID as "Pick Id" is not uniq -->
-                  <!--<input type="hidden" name="uniq_id" id="uniq_id"><br>-->
-                  
-                  <hr>
-                  <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
-                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
-                  
-              </form>
-            </div>
-            <div class="modal-footer">
-               
-            </div>
-          </div>
-        </div>
-      </div>
-     
-      <!-- \.Modal DELETE FORM -->
-      
-      <!-- Modal UPDATE FORM-->
-      
-      <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <!-- Modal ADD FORM-->
+    <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                    <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i class='far fa-thumbs-up'></i></span></div>
-                <form action="update.php" method="POST" id="addRowToDbForm">
-                    <label for="unique_id">UID Nr:</label><br>
-                    <input type="number" name="unique_id" id="unique_del" required><br><br>
-                    <label for="select">Select:</label>
-                    <select id="select" name="select">
-                        <option value="pick">Pick</option>
-                        <option value="receipt">Receipt</option>
-                        <option value="delivery">Delivery</option>
-                        <option value="collection">Collection</option>
-                        <option value="transfer">Transfer</option>
-                    </select><br><br>
-                    
-                    <label for="pick_id">Job ID:</label><br>
-                    <input type="number" name="pick_id" id="pick_id" required><br><br>
-                    <label for="vendor">Vendors Name:</label><br>
-                    <input type="text" name="vendor" id="vendor" required><br><br>
-                    <label for="urgent">Urgent Status:</label>
-                    <select id="urgent" name="urgent">
-                        <option value="no">No</option>
-                        <option value="yes">Yes</option>
-                    </select><br><br>
-                    
-                    <label for="message">Message:</label><br>
-                    <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
-                    <hr>
-                    <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
-                    <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
-                    
-                </form>
-              </div>
-              <div class="modal-footer">
-                 
-              </div>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span
+                            style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i
+                                class='far fa-thumbs-up'></i></span></div>
+                    <form action="add.php" method="POST" id="addRowToDbForm">
+                        <label for="select">Select:</label>
+                        <select id="select" name="select">
+                            <option value="pick">Pick</option>
+                            <option value="receipt">Receipt</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="collection">Collection</option>
+                            <option value="transfer">Transfer</option>
+                        </select><br><br>
+
+                        <label for="pick_id">Job ID:</label><br>
+                        <input type="number" name="pick_id" id="pick_id" required><br><br>
+                        <label for="vendor">Vendors Name:</label><br>
+                        <input type="text" name="vendor" id="vendor" required><br><br>
+                        <label for="urgent">Urgent Status:</label>
+                        <select id="urgent" name="urgent">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select><br><br>
+
+                        <label for="message">Message:</label><br>
+                        <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
+                        <hr>
+                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
+                        <button type="button" class="btn btn-secondary button-in-modal"
+                            data-bs-dismiss="modal">CLOSE</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
             </div>
-          </div>
-      </div>
-     
-      <!-- \.Modal UPDATE FORM -->
-      
-      <!-- Modal LOGOUT FORM-->
-      
-      <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <form action="logout.php" method="POST">
-                  <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOGOUT?</p>
-                  <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
-                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
-                  
-              </form>
-            </div>
-            <div class="modal-footer">
-               
-            </div>
-          </div>
         </div>
-      </div>
-     
-      <!-- \.Modal LOGOUT FORM -->
+    </div>
+    </div>
+    <!-- \.Modal ADD FORM -->
+
+    <!-- Modal DELETE FORM-->
+    <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span
+                            style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i
+                                class='far fa-thumbs-up'></i></span></div>
+                    <form action="delete.php" method="POST" id="delRowFromDbForm">
+                        <!--<input type="hidden" name="user" value="pmadmin"/>-->
+                        <!--<input type="hidden" name="pass" value="pmadmin123" />-->
+                        <label for="pick_id_del">UD Nr:</label><br>
+                        <input type="number" name="pick_id" id="pick_id_del" required><br>
+                        <hr>
+                        <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
+                        <button type="button" class="btn btn-secondary button-in-modal"
+                            data-bs-dismiss="modal">CLOSE</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- \.Modal DELETE FORM -->
+
+    <!-- Modal UPDATE FORM-->
+    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class='modal-body okDiv' style='padding: 5rem; display:none;'>
+                        <span
+                            style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'>
+                            <i class='far fa-thumbs-up'></i>
+                        </span>
+                    </div>
+                    <form action="update.php" method="POST" id="addRowToDbForm">
+                        <label for="unique_id">UID Nr:</label><br>
+                        <input type="number" name="unique_id" id="unique_id" required><br><br>
+                        <label for="select">Select:</label>
+                        <select id="select" name="select">
+                            <option value="pick">Pick</option>
+                            <option value="receipt">Receipt</option>
+                            <option value="delivery">Delivery</option>
+                            <option value="collection">Collection</option>
+                            <option value="transfer">Transfer</option>
+                        </select><br><br>
+
+                        <label for="pick_id">Job ID:</label><br>
+                        <input type="number" name="pick_id" id="pick_id" required><br><br>
+                        <label for="vendor">Vendors Name:</label><br>
+                        <input type="text" name="vendor" id="vendor" required><br><br>
+                        <label for="urgent">Urgent Status:</label>
+                        <select id="urgent" name="urgent">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select><br><br>
+
+                        <label for="message">Message:</label><br>
+                        <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
+                        <hr>
+                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
+                        <button type="button" class="btn btn-secondary button-in-modal"
+                            data-bs-dismiss="modal">CLOSE</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- \.Modal UPDATE FORM -->
+
+    <!-- Modal LOGOUT FORM-->
+    <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="logout.php" method="POST">
+                        <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOG OUT?</p>
+                        <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
+                        <button type="button" class="btn btn-secondary button-in-modal"
+                            data-bs-dismiss="modal">CLOSE</button>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- \.Modal LOGOUT FORM -->
 
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
 
 </body>
+
 </html>

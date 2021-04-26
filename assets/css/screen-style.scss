@@ -43,7 +43,6 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-
 .bg-light {
     background-color: #1a73e8!important;
     box-shadow: $shadow;
@@ -64,7 +63,6 @@ h1,h2,h3,h4,h5,h6{
             }
     }
 }
-
 
 .modal {
     color: #000014;
@@ -111,7 +109,7 @@ h1,h2,h3,h4,h5,h6{
         border-bottom: $border;
         .card-header-inner {
             padding: 5px;
-            margin-left: 20px;
+            margin-left: 10px;
         }
     }
     .card-body{
@@ -131,10 +129,6 @@ h1,h2,h3,h4,h5,h6{
             width: 25%;
             border-right: $border;
             text-transform: uppercase;
-            .card-body-inner {
-                width: 90%;
-                margin: 0 auto;
-            }
         }
     }
 }
