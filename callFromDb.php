@@ -44,10 +44,10 @@ else {
 
                             <div class='card-header'>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["job"]." : UD</h4>
+                                    <h4>".$row["job"]." : UID</h4>
                                 </div>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["u_id"]."</h4>
+                                    <h4>(".$row["u_id"].")</h4>
                                 </div>
                             </div>
 
@@ -75,7 +75,7 @@ else {
                   }
                 } else {
                     // Return zero div if DB table is empty
-                    echo "<div class='zeroResult'><h3>0 results</h3></div>";
+                    echo "<div class='zeroResult'><h4>0 results</h4></div>";
                 }
                 // Close Connection
                 $conn->close();
@@ -117,16 +117,16 @@ else {
 
                             <div class='card-header'>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["job"]." : UD</h4>
+                                    <h4>".$row["job"]." : UID</h4>
                                 </div>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["u_id"]."</h4>
+                                    <h4>(".$row["u_id"].")</h4>
                                 </div>
                             </div>
 
                             <div class='card-body'>
                                 <div class='body-section-left'>
-                                    <div class='card-body-vendor'>
+                                    <div class='.card-body-inner'>
                                         ".$row["vendor"]."
                                     </div>
                                     <div class='card-body-inner'>
@@ -148,7 +148,7 @@ else {
                   }
                 } else {
                     // Return zero div if DB table is empty
-                    echo "<div class='zeroResult'><h3>0 results</h3></div>";
+                    echo "<div class='zeroResult'><h4>0 results</h4></div>";
                 }
                 // Close Connection
                 $conn->close();

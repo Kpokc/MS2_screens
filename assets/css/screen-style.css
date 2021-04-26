@@ -19,6 +19,12 @@ body {
   letter-spacing: 0.5px;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  text-transform: uppercase;
+  padding: 2px;
+  margin: 0px;
+}
+
 .burger-menu {
   width: 100%;
   text-align: right;
@@ -81,6 +87,18 @@ body {
   transition: 0.3s;
 }
 
+.zeroResult {
+  margin: 0 auto;
+  margin-top: 15px;
+  text-align: center;
+  border-radius: 5px;
+  width: 135px;
+  -webkit-box-shadow: 0 3px 4px 0 #000014;
+          box-shadow: 0 3px 4px 0 #000014;
+  border: 1px solid #dedede;
+  background: #696764;
+}
+
 .msg-card {
   list-style-type: none;
   margin-top: 15px;
@@ -134,6 +152,12 @@ body {
 .msg-card .card-body .body-section-left {
   width: 25%;
   border-right: 1px solid #dedede;
+  text-transform: uppercase;
+}
+
+.msg-card .card-body .body-section-left .card-body-inner {
+  width: 90%;
+  margin: 0 auto;
 }
 
 footer {
