@@ -1,3 +1,12 @@
+<?php
+
+//if POST method detected - assign variables 
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    $_SESSION['username'];
+    $_SESSION['password'];  
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -1,3 +1,18 @@
+<?php
+
+//session login and password
+include('login.php');
+//retrieve from db
+include('callFromDB.php');
+
+//if username and password empty redirect to index.php 
+if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
+{
+    header("location: index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

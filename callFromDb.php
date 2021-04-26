@@ -32,7 +32,7 @@ $conn = new mysqli($hostname, $username, $password, $dbname);
                     <div class='card-body'>
                         <div class='body-section-left'>
                             <div class='card-body-vendor'>
-                                MEDTRONIC
+                                ".$row["vendor"]."
                             </div>
                             <div class='card-body-inner'>
                                 ".$row["time"]."
