@@ -1,7 +1,5 @@
 <?php
 
-//session login and password
-include('login.php');
 //retrieve from db
 include('callFromDB.php');
 
@@ -87,67 +85,28 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
         <main class="row">
             <div class="col-xxl-6 col-xl-6 col-12">
-
-                <li class="msg-card">
-                    <div class="card-header">
-                        <div class="card-header-inner">
-                            <h4>Receipt : UD</h4>
-                        </div>
-                        <div class="card-header-inner">
-                            <h4>333</h4>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="body-section-left">
-                            <div class="card-body-vendor">
-                                MEDTRONIC
-                            </div>
-                            <div class="card-body-inner">
-                                20:12:12
-                            </div>
-                            <div class="card-body-inner">
-                                ID: 845
-                            </div>
-                        </div>
-                        <div class="body-section-right">
-                            <div class="messege">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur neque officiis quas? Esse quia ad, ducimus rem ipsum aperiam illum eaque, odit quibusdam dicta possimus dolores quam. Facere, ad dolorem.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                
+                <!--Returns Picks/Receipts tables-->
+                
+                <ul>
+                    <?php
+                        callPicksReceipts($_SESSION['login_user'], $_SESSION['login_pass']);
+                        echo $html;
+                    ?>
+                </ul>
 
             </div>
+            
             <div class="col-xxl-6 col-xl-6 col-12">
+
+                <!--Returns Deliveries/Collections tables-->
                 
-                <li class="msg-card">
-                    <div class="card-header">
-                        <div class="card-header-inner">
-                            <h4>Receipt : UD</h4>
-                        </div>
-                        <div class="card-header-inner">
-                            <h4>333</h4>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="body-section-left">
-                            <div class="card-body-vendor">
-                                MEDTRONIC
-                            </div>
-                            <div class="card-body-inner">
-                                20:12:12
-                            </div>
-                            <div class="card-body-inner">
-                                ID: 845
-                            </div>
-                        </div>
-                        <div class="body-section-right">
-                            <div class="messege">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur neque officiis quas? Esse quia ad, ducimus rem ipsum aperiam illum eaque, odit quibusdam dicta possimus dolores quam. Facere, ad dolorem.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <ul>
+                    <?php
+                        callDeliveryCollection($_SESSION['login_user'], $_SESSION['login_pass']);
+                        echo $html;
+                    ?>
+                </ul>
 
             </div>
         </main>
