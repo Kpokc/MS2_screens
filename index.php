@@ -1,3 +1,12 @@
+<?php
+
+//if POST method detected - assign variables to session
+if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
+    $_SESSION['username'];
+    $_SESSION['password'];  
+};
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,7 +25,7 @@
         <div class="login-logo">
             <i class="fas fa-key"></i>
         </div>
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
                 <label for="password">Password</label>

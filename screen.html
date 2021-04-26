@@ -1,3 +1,16 @@
+<?php
+
+//retrieve from db
+include('callFromDB.php');
+
+//if username and password empty redirect to index.php 
+if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
+{
+    header("location: index.php");
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,22 +21,25 @@
     <meta name="keywords" content="N/A">
     <meta name="author" content="Pavel Makarov">
 
+<<<<<<< HEAD
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+=======
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
+>>>>>>> a989bcedf041116a00670c526f8e8d83e6a49fdb
     <link rel="stylesheet" href="assets/css/screen-style.css">
 
     <title>SSL/RHENUS</title>
 </head>
 <body>
-    
-    <!-- Glass effect on body's background -->
-    <div class="glass"></div>
 
     <div class="container-fluid contFluid">
-        <header class="row">
+        <header class="row sticky-top">
             <div class="col-12">
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <div class="container-fluid">
-                        <h1 id="time_span">12:32:14</h1>
+                    <div class="burger-menu">
+                        <h1 id="time_span"></h1>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -43,12 +59,12 @@
                                     DELETE
                                     </button>
                                 </li>
-                                <!--<li class="nav-item">-->
+                                <li class="nav-item">
                                      <!-- Button trigger UPDATE modal -->
-                                <!--    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate">-->
-                                <!--    UPDATE-->
-                                <!--    </button>-->
-                                <!--</li>-->
+                                   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate">
+                                   UPDATE
+                                   </button>
+                                </li>
                                 <li class="nav-item">
                                     <!-- Button trigger LOGOUT modal -->
                                     <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal" data-bs-target="#exampleModalLogout">
@@ -70,77 +86,182 @@
 
         <main class="row">
             <div class="col-xxl-6 col-xl-6 col-12">
-
-                <li class="msg-card">
-                    <div class="card-header">
-                        <div class="card-header-inner">
-                            <h4>Receipt UD:</h4>
-                        </div>
-                        <div class="card-header-inner">
-                            <h4>333</h4>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="body-section-left">
-                            <div class="card-body-vendor">
-                                MEDTRONIC
-                            </div>
-                            <div class="card-body-inner">
-                                20:12:12
-                            </div>
-                            <div class="card-body-inner">
-                                ID: 845
-                            </div>
-                        </div>
-                        <div class="body-section-right">
-                            <div class="messege">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur neque officiis quas? Esse quia ad, ducimus rem ipsum aperiam illum eaque, odit quibusdam dicta possimus dolores quam. Facere, ad dolorem.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                
+                <!--Retrieve Picks/Receipts tables-->
+                
+                <ul style="padding-left:1rem; padding-right:1rem;">
+                    <?php
+                        callPicksReceipts();
+                    ?>
+                </ul>
 
             </div>
+            
             <div class="col-xxl-6 col-xl-6 col-12">
+
+                <!--Retrieve Deliveries/Collections tables-->
                 
-                <li class="msg-card">
-                    <div class="card-header">
-                        <div class="card-header-inner">
-                            <h4>Receipt UD:</h4>
-                        </div>
-                        <div class="card-header-inner">
-                            <h4>333</h4>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <div class="body-section-left">
-                            <div class="card-body-vendor">
-                                MEDTRONIC
-                            </div>
-                            <div class="card-body-inner">
-                                20:12:12
-                            </div>
-                            <div class="card-body-inner">
-                                ID: 845
-                            </div>
-                        </div>
-                        <div class="body-section-right">
-                            <div class="messege">
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur neque officiis quas? Esse quia ad, ducimus rem ipsum aperiam illum eaque, odit quibusdam dicta possimus dolores quam. Facere, ad dolorem.</h3>
-                            </div>
-                        </div>
-                    </div>
-                </li>
+                <ul style="padding-left:1rem; padding-right:1rem;">
+                    <?php
+                        callDeliveryCollection();
+                    ?>
+                </ul>
 
             </div>
         </main>
 
         <footer class="row">
             <div class="col-12">
-                <h1>Footer</h1>
+                <h6 class="copyrights">Copyrights@ 2021 sslirl.com</h6>
+                <h6 class="company">SSL / RHENUS</h6>
             </div>
         </footer>
     </div>
+<<<<<<< HEAD
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+=======
+    
+     <!-- Modal ADD FORM-->
+                
+     <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                  <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i class='far fa-thumbs-up'></i></span></div>
+              <form action="insert.php" method="POST" id="addRowToDbForm">
+                  <label for="select">Select:</label>
+                  <select id="select" name="select">
+                      <option value="pick">Pick</option>
+                      <option value="receipt">Receipt</option>
+                      <option value="delivery">Delivery</option>
+                      <option value="collection">Collection</option>
+                      <option value="transfer">Transfer</option>
+                  </select><br><br>
+                  
+                  <label for="pick_id">Job ID:</label><br>
+                  <input type="number" name="pick_id" id="pick_id" required><br><br>
+                  <label for="vendor">Vendors Name:</label><br>
+                  <input type="text" name="vendor" id="vendor" required><br><br>
+                  <label for="urgent">Urgent Status:</label>
+                  <select id="urgent" name="urgent">
+                      <option value="no">No</option>
+                      <option value="yes">Yes</option>
+                  </select><br><br>
+                  
+                  <label for="message">Message:</label><br>
+                  <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
+                  <hr>
+                  <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
+                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                  
+              </form>
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <!-- \.Modal ADD FORM -->
+      
+      <!-- Modal DELETE FORM-->
+                
+      <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i class='far fa-thumbs-up'></i></span></div>
+              <form action="delete.php" method="POST" id="delRowFromDbForm">
+                                              <input type="hidden" name="user" value="pmadmin"/>
+                  <input type="hidden" name="pass" value="pmadmin123" />
+                  <label for="pick_id_del">UD Nr:</label><br>
+                  <input type="number" name="pick_id" id="pick_id_del" required><br>
+                  
+                  <!--table children nr.5 -> unic ID fom SQL DB used as tabel unic ID(main.js Delete by click)-->
+                   <!--Deleting should be done by this uniq ID as "Pick Id" is not uniq -->
+                  <!--<input type="hidden" name="uniq_id" id="uniq_id"><br>-->
+                  
+                  <hr>
+                  <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
+                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                  
+              </form>
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <!-- \.Modal DELETE FORM -->
+      
+      <!-- Modal UPDATE FORM-->
+      
+      <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="update.php" method="POST">
+                  <label for="id">UD Nr:</label><br>
+                  <input type="text" name="id" id="id"><br>
+                  
+                  <hr>
+                  <button type="submit" class="btn btn-primary button-in-modal">UPDATE</button>
+                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                  
+              </form>
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <!-- \.Modal UPDATE FORM -->
+      
+      <!-- Modal LOGOUT FORM-->
+      
+      <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <form action="logout.php" method="POST">
+                  <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOGOUT?</p>
+                  <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
+                  <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                  
+              </form>
+            </div>
+            <div class="modal-footer">
+               
+            </div>
+          </div>
+        </div>
+      </div>
+     
+      <!-- \.Modal LOGOUT FORM -->
+
+    <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+
+>>>>>>> a989bcedf041116a00670c526f8e8d83e6a49fdb
 </body>
 </html>
