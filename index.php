@@ -1,10 +1,3 @@
-<?php
-//if both declared forward to login.php
-if(isset($_SESSION['username']) and isset($_SESSION['password'])){
-    header("location: login.php");
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +16,7 @@ if(isset($_SESSION['username']) and isset($_SESSION['password'])){
         <div class="login-logo">
             <i class="fas fa-key"></i>
         </div>
-            <form action="" method="post">
+            <form action="login.php" method="post">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username">
                 <label for="password">Password</label>
