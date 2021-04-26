@@ -57,6 +57,20 @@ body {
   text-shadow: 0px 1px 0px #1a73e8;
 }
 
+.modal {
+  color: #000014;
+}
+
+.modal textarea {
+  width: 100%;
+}
+
+.modal .button-in-modal {
+  width: 49%;
+  float: right;
+  margin: 1px;
+}
+
 .msg-card {
   list-style-type: none;
   margin-top: 15px;
