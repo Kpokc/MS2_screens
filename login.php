@@ -23,7 +23,7 @@ $stmt->store_result();
 if($stmt->fetch()) //fetching the contents of the row {
 $_SESSION['login_user'] = $username; // Initializing Session
 $_SESSION['login_pass'] = $password;
-header("location: screen.php"); // Redirecting To Profile Page
+header("location: screen.php"); // Redirecting To Screen Page
 }
 mysqli_close($conn); // Closing Connection
 }
