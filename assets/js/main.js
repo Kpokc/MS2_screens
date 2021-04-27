@@ -113,7 +113,7 @@ $("li").dblclick(function(){
 
     var cardToDelete = $(this).clone();
     var cardClientWidth = $(this).innerWidth();
-    cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto");
+    cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone");
     // Trigger DELETE button
     $("#delRowFromDb").trigger("click");
     // Insert uniq id into delete input field
@@ -122,6 +122,14 @@ $("li").dblclick(function(){
         $("#exampleModalDelete").append(cardToDelete);
     });
 
+    $(document).click(function(e){
+        let target = e.target;
+        if($(target).attr("id") === "exampleModalDelete" || $(target).attr("value") === "DELETE" || $(target).attr("class") === "btn btn-secondary"){
+            console.log(target);
+            $(".cardToDeleteClone").remove();
+            $(target).val("");
+        }
+    });
     
 });
 
