@@ -23,7 +23,7 @@ else {
     die("Connection failed: " . $conn->connect_error);
     }
 
-    $unique_id = $_POST["unique_id"];
+    $unique_id = $_POST["uniq_id"];
     $pick_id = $_POST["pick_id"];
     $job = $_POST["select"];
     $urg_status = $_POST["urgent"];

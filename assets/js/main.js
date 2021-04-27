@@ -62,7 +62,6 @@ $("#addRowToDbForm").submit(function(event){
         urgent: $("#urgent").val(),
         message: $("#message").val()
     };
-
         $.ajax({
             type: "POST",
             url: "add.php",
@@ -95,6 +94,38 @@ $("#delRowFromDbForm").submit(function(event){
         $.ajax({
             type: "POST",
             url: "delete.php",
+            data: formData,
+            dataType: "json",
+            encode: true,
+                complete: function(response){
+                    if(response.status == "200"){
+                        console.log(response.status + " OK");
+                    } else {
+                        console.log(response.status + " Some error");   
+                    }
+                },
+        });
+});
+
+// Update message
+$("#updateRow").submit(function(event){
+
+    // Prevent form to refresh page
+    event.preventDefault();
+    // Prevent from double execution
+    event.stopImmediatePropagation();
+
+    var formData = {
+        uniq_id : $("#unique_id").val(),
+        select: $("#select_upd").val(),
+        pick_id: $("#pick_id_upd").val(),
+        vendor: $("#vendor_upd").val(),
+        urgent: $("#urgent_upd").val(),
+        message: $("#message_upd").val()
+    };
+        $.ajax({
+            type: "POST",
+            url: "update.php",
             data: formData,
             dataType: "json",
             encode: true,

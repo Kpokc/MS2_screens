@@ -218,12 +218,12 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                             <i class='far fa-thumbs-up'></i>
                         </span>
                     </div>
-                    <form action="update.php" method="POST" id="addRowToDbForm">
+                    <form action="update.php" method="POST" id="updateRow">
                         <label for="unique_id">UID Nr:</label><br>
                         <input type="number" name="unique_id" id="unique_id" required>
                         <br><br>
                         <label for="select">Select:</label>
-                        <select class="top-select" id="select" name="select">
+                        <select class="top-select" id="select_upd" name="select">
                             <option value="pick">Pick</option>
                             <option value="receipt">Receipt</option>
                             <option value="delivery">Delivery</option>
@@ -234,15 +234,15 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <br><br>
 
                         <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id" required>
+                        <input type="number" name="pick_id" id="pick_id_upd" required>
                         <aside class="current-data">Current</aside>
                         <br><br>
                         <label for="vendor">Vendors Name:</label><br>
-                        <input type="text" name="vendor" id="vendor" required>
+                        <input type="text" name="vendor" id="vendor_upd" required>
                         <aside class="current-data">Current</aside>
                         <br><br>
                         <label for="urgent">Urgent Status:</label>
-                        <select class="bottom-select" id="urgent" name="urgent">
+                        <select class="bottom-select" id="urgent_upd" name="urgent">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
@@ -250,7 +250,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <br><br>
 
                         <label for="message">Message:</label><br>
-                        <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
+                        <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
                         <hr>
                         <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
                         <button type="button" class="btn btn-secondary button-in-modal"
