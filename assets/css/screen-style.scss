@@ -35,6 +35,13 @@ h1,h2,h3,h4,h5,h6{
     margin: 0px;
 }
 
+#time_span{
+    position: absolute;
+    z-index: 10;
+    left: 25px;
+    top: 5px;
+}
+
 .burger-menu {
     width: 100%;
     text-align: right;
@@ -47,10 +54,6 @@ h1,h2,h3,h4,h5,h6{
     background-color: #1a73e8!important;
     box-shadow: $shadow;
     border-radius: 5px;
-    #time_span{
-        display: none;
-        position: absolute;
-    }
     .navbar-nav {
         margin: 0 auto;
     }
