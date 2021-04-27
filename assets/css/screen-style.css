@@ -134,6 +134,10 @@ h1, h2, h3, h4, h5, h6 {
           box-shadow: 0 4px 10px 0px #000014;
 }
 
+.msg-card .urgent-status {
+  display: none;
+}
+
 .msg-card .card-header {
   background-color: #696764;
   display: -webkit-box;

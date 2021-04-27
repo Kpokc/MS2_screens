@@ -41,7 +41,7 @@ else {
                   while($row = $result->fetch_assoc()) {
                     // Insert data to <li> card
                     echo "<li class='msg-card'>
-
+                            <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
                                     <h4>".$row["job"]." : UID</h4>
@@ -114,7 +114,7 @@ else {
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                     echo "<li class='msg-card'>
-
+                            <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
                                     <h4>".$row["job"]." : UID</h4>
