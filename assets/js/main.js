@@ -67,14 +67,14 @@ $("#delRowFromDbForm").submit(function(event){
             type: "POST",
             url: "delete.php",
             data: formData,
-            success: function(data) {
-                if(data.status == 'success'){
-                    alert("Thank you for subscribing!");
-                }else if(data.status == 'error'){
-                    alert("Error on query!");
-                }
-            },
             dataType: "json",
             encode: true,
+                complete: function(response){
+                    if(response.status == "200"){
+                        console.log(response.status + " OK");
+                    } else {
+                        console.log(response.status + " Some error");   
+                    }
+                },
         });
 });
