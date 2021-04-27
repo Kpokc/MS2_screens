@@ -40,7 +40,7 @@ else {
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                     // Insert data to <li> card
-                    echo "<li class='msg-card'>
+                    echo "<li class='msg-card' id='".$row["u_id"]."'>
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
@@ -113,7 +113,7 @@ else {
                 // Output Data of Each Row if any exists
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
-                    echo "<li class='msg-card'>
+                    echo "<li class='msg-card' id='".$row["u_id"]."'>
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>

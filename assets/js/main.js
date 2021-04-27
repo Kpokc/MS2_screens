@@ -107,6 +107,24 @@ $("#delRowFromDbForm").submit(function(event){
         });
 });
 
+$("li").dblclick(function(){
+    // Get card uniq id
+    var cardId = $(this).attr("id");
+
+    var cardToDelete = $(this).clone();
+    var cardClientWidth = $(this).innerWidth();
+    cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto");
+    // Trigger DELETE button
+    $("#delRowFromDb").trigger("click");
+    // Insert uniq id into delete input field
+    $("#delRowFromDbForm").ready(function(){
+        $("#pick_id_del").val(cardId);
+        $("#exampleModalDelete").append(cardToDelete);
+    });
+
+    
+});
+
 // Update message
 $("#updateRow").submit(function(event){
 
