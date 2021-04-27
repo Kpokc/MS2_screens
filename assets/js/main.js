@@ -47,22 +47,51 @@ function urgentIntoRed(){
     }
 }
 
-// Delete message from DB
-$("#delRowFromDbForm").submit(function(event){
-    
-    // Get uniq_id from input field 
-    var idToDel = $("form")[1].children[2].value;
-    
-    var formData = {
-        uniq_id : idToDel
-    };
+// Add message to DB
+$("#addRowToDbForm").submit(function(event){
 
     // Prevent form to refresh page
     event.preventDefault();
-    
     // Prevent from double execution
     event.stopImmediatePropagation();
 
+    var formData = {
+        select: $("#select").val(),
+        pick_id: $("#pick_id").val(),
+        vendor: $("#vendor").val(),
+        urgent: $("#urgent").val(),
+        message: $("#message").val()
+    };
+
+        $.ajax({
+            type: "POST",
+            url: "add.php",
+            data: formData,
+            dataType: "json",
+            encode: true,
+                complete: function(response){
+                    if(response.status == "200"){
+                        console.log(response.status + " OK");
+                    } else {
+                        console.log(response.status + " Some error");   
+                    }
+                },
+        });
+});
+
+
+// Delete message from DB
+$("#delRowFromDbForm").submit(function(event){
+
+    // Prevent form to refresh page
+    event.preventDefault();
+    // Prevent from double execution
+    event.stopImmediatePropagation();
+    
+    // Get uniq_id from input field 
+    var formData = {
+        uniq_id : $("#pick_id_del").val()
+    };
         $.ajax({
             type: "POST",
             url: "delete.php",
