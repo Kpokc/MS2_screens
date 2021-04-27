@@ -35,6 +35,13 @@ h1,h2,h3,h4,h5,h6{
     margin: 0px;
 }
 
+#time_span{
+    position: absolute;
+    z-index: 10;
+    left: 25px;
+    top: 5px;
+}
+
 .burger-menu {
     width: 100%;
     text-align: right;
@@ -47,10 +54,6 @@ h1,h2,h3,h4,h5,h6{
     background-color: #1a73e8!important;
     box-shadow: $shadow;
     border-radius: 5px;
-    #time_span{
-        display: none;
-        position: absolute;
-    }
     .navbar-nav {
         margin: 0 auto;
     }
@@ -68,6 +71,17 @@ h1,h2,h3,h4,h5,h6{
     color: #000014;
     textarea {
         width: 100%;
+    }
+    .top-select{
+        width: 130px;
+    }
+    .bottom-select{
+        width: 75px;
+    }
+    .current-data {
+        position: absolute;
+        transform: translate(230px, -25px);
+        text-decoration: underline;
     }
     .button-in-modal {
         width: 49%;
@@ -102,6 +116,9 @@ h1,h2,h3,h4,h5,h6{
         transform: translateY(-2px);
         box-shadow: 0 4px 10px 0px #000014;
     }
+    .urgent-status{
+        display: none;
+    }
     .card-header {
         background-color: $background;
         display: flex;
@@ -124,12 +141,21 @@ h1,h2,h3,h4,h5,h6{
             padding: 5px;
             width: 75%;
             padding-left: 15px;
+            word-wrap: break-word
         }
         .body-section-left {
             width: 25%;
             border-right: $border;
             text-transform: uppercase;
         }
+    }
+}
+
+.jq-urgent {
+    box-shadow: red 0px 3px 10px 2px;
+    &:hover{
+        transform: translateY(-2px);
+        box-shadow: red 0px 5px 12px 4px;
     }
 }
 

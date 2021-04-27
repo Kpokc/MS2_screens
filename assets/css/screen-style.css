@@ -25,6 +25,13 @@ h1, h2, h3, h4, h5, h6 {
   margin: 0px;
 }
 
+#time_span {
+  position: absolute;
+  z-index: 10;
+  left: 25px;
+  top: 5px;
+}
+
 .burger-menu {
   width: 100%;
   text-align: right;
@@ -39,11 +46,6 @@ h1, h2, h3, h4, h5, h6 {
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
   border-radius: 5px;
-}
-
-.bg-light #time_span {
-  display: none;
-  position: absolute;
 }
 
 .bg-light .navbar-nav {
@@ -70,6 +72,21 @@ h1, h2, h3, h4, h5, h6 {
 
 .modal textarea {
   width: 100%;
+}
+
+.modal .top-select {
+  width: 130px;
+}
+
+.modal .bottom-select {
+  width: 75px;
+}
+
+.modal .current-data {
+  position: absolute;
+  -webkit-transform: translate(230px, -25px);
+          transform: translate(230px, -25px);
+  text-decoration: underline;
 }
 
 .modal .button-in-modal {
@@ -117,6 +134,10 @@ h1, h2, h3, h4, h5, h6 {
           box-shadow: 0 4px 10px 0px #000014;
 }
 
+.msg-card .urgent-status {
+  display: none;
+}
+
 .msg-card .card-header {
   background-color: #696764;
   display: -webkit-box;
@@ -147,12 +168,25 @@ h1, h2, h3, h4, h5, h6 {
   padding: 5px;
   width: 75%;
   padding-left: 15px;
+  word-wrap: break-word;
 }
 
 .msg-card .card-body .body-section-left {
   width: 25%;
   border-right: 1px solid #dedede;
   text-transform: uppercase;
+}
+
+.jq-urgent {
+  -webkit-box-shadow: red 0px 3px 10px 2px;
+          box-shadow: red 0px 3px 10px 2px;
+}
+
+.jq-urgent:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: red 0px 5px 12px 4px;
+          box-shadow: red 0px 5px 12px 4px;
 }
 
 footer {
