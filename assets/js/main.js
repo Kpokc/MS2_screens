@@ -33,16 +33,48 @@ $(document).ready(function(){
     urgentIntoRed();
 });
 
+
 //Highlight urgent messages by red color and push them up in dom tree
-
-
 function urgentIntoRed(){
     var arrOfStatus = $(".urgent-status");
     
     for (i = 0; i < arrOfStatus.length; i++){
         if(arrOfStatus[i].textContent === "yes"){
-           let card = $(arrOfStatus[i]).parent();
-           card.css("box-shadow","red 0px 3px 10px 2px");
+            $(arrOfStatus[i]).siblings(".card-header").css("color","red");
+            let card = $(arrOfStatus[i]).parent();
+            card.addClass("jq-urgent");
         }
     }
 }
+
+// Delete message from DB
+$("#delRowFromDbForm").submit(function(event){
+    
+    // Get uniq_id from input field 
+    var idToDel = $("form")[1].children[2].value;
+    
+    var formData = {
+        uniq_id : idToDel
+    };
+
+    // Prevent form to refresh page
+    event.preventDefault();
+    
+    // Prevent from double execution
+    event.stopImmediatePropagation();
+
+        $.ajax({
+            type: "POST",
+            url: "delete.php",
+            data: formData,
+            success: function(data) {
+                if(data.status == 'success'){
+                    alert("Thank you for subscribing!");
+                }else if(data.status == 'error'){
+                    alert("Error on query!");
+                }
+            },
+            dataType: "json",
+            encode: true,
+        });
+});

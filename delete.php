@@ -23,19 +23,23 @@ else {
     die("Connection failed: " . $conn->connect_error);
     }
 
-    $pick_id = $_POST["pick_id"];
+    $pick_id = $_POST["uniq_id"];
+    
+    $sql = "SELECT u_id FROM message WHERE u_id = $pick_id";
+   
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0){
         
-    $sql = "DELETE FROM message WHERE u_id = $pick_id";
-     
-    if(mysqli_query($conn, $sql)){
-        // Back to Screen page
-        //Later DELETE this line
-        header("location: screen.php");
+        $sql = "DELETE FROM message WHERE u_id = $pick_id";
+        mysqli_query($conn, $sql);
         $conn->close();
-     } else{
+        
+        var_dump(http_response_code(200));
+    } else{
          // Return Error
-         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-         $conn->close();
-     }
+        var_dump(http_response_code(400));
+        $conn->close();
+    }
 }
 ?>
