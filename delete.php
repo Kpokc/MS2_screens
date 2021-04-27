@@ -23,21 +23,21 @@ else {
     die("Connection failed: " . $conn->connect_error);
     }
 
+    // Uniq ID number POST from form 
     $pick_id = $_POST["uniq_id"];
     
+    // If below statement succeed then main query will executes
     $sql = "SELECT u_id FROM message WHERE u_id = $pick_id";
-   
     $result = $conn->query($sql);
-    
     if ($result->num_rows > 0){
-        
+        // Main query
         $sql = "DELETE FROM message WHERE u_id = $pick_id";
         mysqli_query($conn, $sql);
         $conn->close();
-        
+        // Update server response to positive
         var_dump(http_response_code(200));
     } else{
-         // Return Error
+         // Update server response to Error
         var_dump(http_response_code(400));
         $conn->close();
     }
