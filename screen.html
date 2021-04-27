@@ -136,7 +136,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                                 class='far fa-thumbs-up'></i></span></div>
                     <form action="add.php" method="POST" id="addRowToDbForm">
                         <label for="select">Select:</label>
-                        <select id="select" name="select">
+                        <select class="top-select" id="select" name="select">
                             <option value="pick">Pick</option>
                             <option value="receipt">Receipt</option>
                             <option value="delivery">Delivery</option>
@@ -149,7 +149,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <label for="vendor">Vendors Name:</label><br>
                         <input type="text" name="vendor" id="vendor" required><br><br>
                         <label for="urgent">Urgent Status:</label>
-                        <select id="urgent" name="urgent">
+                        <select class="bottom-select" id="urgent" name="urgent">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select><br><br>
@@ -220,25 +220,34 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     </div>
                     <form action="update.php" method="POST" id="addRowToDbForm">
                         <label for="unique_id">UID Nr:</label><br>
-                        <input type="number" name="unique_id" id="unique_id" required><br><br>
+                        <input type="number" name="unique_id" id="unique_id" required>
+                        <br><br>
                         <label for="select">Select:</label>
-                        <select id="select" name="select">
+                        <select class="top-select" id="select" name="select">
                             <option value="pick">Pick</option>
                             <option value="receipt">Receipt</option>
                             <option value="delivery">Delivery</option>
                             <option value="collection">Collection</option>
                             <option value="transfer">Transfer</option>
-                        </select><br><br>
+                        </select>
+                        <aside class="current-data">Current</aside>
+                        <br><br>
 
                         <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id" required><br><br>
+                        <input type="number" name="pick_id" id="pick_id" required>
+                        <aside class="current-data">Current</aside>
+                        <br><br>
                         <label for="vendor">Vendors Name:</label><br>
-                        <input type="text" name="vendor" id="vendor" required><br><br>
+                        <input type="text" name="vendor" id="vendor" required>
+                        <aside class="current-data">Current</aside>
+                        <br><br>
                         <label for="urgent">Urgent Status:</label>
-                        <select id="urgent" name="urgent">
+                        <select class="bottom-select" id="urgent" name="urgent">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
-                        </select><br><br>
+                        </select>
+                        <aside class="current-data">Current</aside>
+                        <br><br>
 
                         <label for="message">Message:</label><br>
                         <textarea name="message" id="message" rows="4" cols="50"></textarea><br>

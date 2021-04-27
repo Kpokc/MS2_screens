@@ -72,6 +72,21 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
+.modal .top-select {
+  width: 130px;
+}
+
+.modal .bottom-select {
+  width: 75px;
+}
+
+.modal .current-data {
+  position: absolute;
+  -webkit-transform: translate(230px, -25px);
+          transform: translate(230px, -25px);
+  text-decoration: underline;
+}
+
 .modal .button-in-modal {
   width: 49%;
   float: right;
