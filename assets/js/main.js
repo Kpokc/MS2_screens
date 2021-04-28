@@ -31,6 +31,7 @@ function timer(){
 $(document).ready(function(){
     //When document loaded call below function
     urgentIntoRed();
+
 });
 
 
@@ -157,13 +158,15 @@ $("#upload-bttn").click(function(){
     $("#updateRow").ready(function(){
         $("#unique_id").on("input", function(){
 
+            $(".cardToDeleteClone").remove();
+
             $("#urgent_upd").val("");
             $("#select_upd").val("");
             $("#vendor_upd").val("");
             $("#pick_id_upd").val("");
             $("#message_upd").val("");
 
-            console.log($("#unique_id").val());
+            //console.log($("#unique_id").val());
             var cardId = $("#unique_id").val();
             var arrayli = $("li");
             for (i = 0; i < arrayli.length; i++){
@@ -176,6 +179,16 @@ $("#upload-bttn").click(function(){
                     $("#vendor_upd").val(textArray[6]);
                     $("#pick_id_upd").val(textArray[9]);
                     $("#message_upd").val(textArray[10]);
+
+                    // Clone message card
+                    var cardToDelete = $(arrayli[i]).clone();
+                    // Cloned card width depends on user screen
+                    var cardClientWidth = $(arrayli[i]).innerWidth();
+                    // Add css styling to clone and add a class to delete it later
+                    cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");
+                    // Add card to modal window
+                    $("#exampleModalUpdate").append(cardToDelete);
+
                     console.log(textArray);
                 }
             }
@@ -191,6 +204,7 @@ $("#upload-bttn").click(function(){
                 if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("id") === "closeBttn"){
                     //remove div with the table
                     $(".cardToDeleteClone").remove();
+
                     $("aside").css("color","black").text("Current");
                     
                     $("#unique_id").val("");
