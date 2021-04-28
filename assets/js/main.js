@@ -155,6 +155,13 @@ $("li").dblclick(function(){
 $("#upload-bttn").click(function(){
     $("#updateRow").ready(function(){
         $("#unique_id").on("input", function(){
+
+            $("#urgent_upd").val("");
+            $("#select_upd").val("");
+            $("#vendor_upd").val("");
+            $("#pick_id_upd").val("");
+            $("#message_upd").val("");
+            
             console.log($("#unique_id").val());
             var cardId = $("#unique_id").val();
             var arrayli = $("li");
