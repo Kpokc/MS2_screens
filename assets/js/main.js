@@ -74,11 +74,13 @@ function urgentIntoRed(){
                     complete: function(response){
                         // Response OK (SQL query executed)
                         if(response.status == "200"){
-                            messageSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageSent());
                             $(".modal-form").fadeOut(200);
                         } else {
                             // Response BAD (SQL query wasn't executed)
-                            messageNotSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageNotSent());
                         }
                     },
             });
@@ -110,10 +112,12 @@ function urgentIntoRed(){
                     complete: function(response){
                         // Response OK (SQL query executed)
                         if(response.status == "200"){
-                            messageSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageSent());
                         } else {
                             // Response BAD (SQL query wasn't executed)
-                            messageNotSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageNotSent());
                         }
                     },
             });
@@ -251,10 +255,11 @@ function urgentIntoRed(){
                     complete: function(response){
                         // Response OK (SQL query executed)
                         if(response.status == "200"){
-                            messageSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageSent());
                         } else {
-                            // Response BAD (SQL query wasn't executed)
-                            messageNotSent();
+                            //Call back - first message then refresh
+                            reloadeMainSection(messageNotSent());
                         }
                     },
             });
@@ -263,7 +268,7 @@ function urgentIntoRed(){
     /////////  \.UPDATE FUNCTIONS ///////////////////
 }
 
-////// Div Show/ Hide functions for DELETE/ADD/UPDATE confirmation message
+////// Div Show/ Hide / Reload functions for DELETE/ADD/UPDATE confirmation message
 
 function messageSent(){
     // Hide "form" / show message sent div "ok-div"
@@ -312,4 +317,10 @@ function clean(){
     $("#vendor_upd").val("");
     $("#pick_id_upd").val("");
     $("#message_upd").val("");
+}
+
+function reloadeMainSection(){
+    $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
+        urgentIntoRed();
+    });
 }
