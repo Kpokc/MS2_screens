@@ -74,6 +74,7 @@ $("#addRowToDbForm").submit(function(event){
                     // Response OK (SQL query executed)
                     if(response.status == "200"){
                         messageSent();
+                        $(".modal-form").fadeOut(200);
                     } else {
                         // Response BAD (SQL query wasn't executed)
                         messageNotSent();
@@ -247,27 +248,36 @@ $("#updateRow").submit(function(event){
 ////// Div Show/ Hide functions for DELETE/ADD/UPDATE confirmation message
 
 function messageSent(){
-    // Hide "form" / show message sent div "OK"
-    $("#delRowFromDbForm").css("display","none");
+    // Hide "form" / show message sent div "ok-div"
+    $(".modal-form").css("display","none");
     $(".ok-div").css("display","block");
     
-   //Hide message sent div "OK", show back "form", hide modal window -  within 1 sec                
+   //Hide modal window -  within 1 sec                
    setTimeout(function() {
-       $("#exampleModalDelete").modal("hide");
-       $(".ok-div").css("display","none");
-       $("#delRowFromDbForm").css("display","block");
+       $(".modal").modal("hide");
    }, 1000);
+   
+   // Hide "ok-div" / show "form"
+   setTimeout(function() {
+       $(".ok-div").css("display","none");
+       $(".modal-form").css("display","block");
+   }, 1500);
 }
 
 function messageNotSent(){
-   // Hide "form" / show message sent div "OK"
-   $("#delRowFromDbForm").css("display","none");
+   // Hide "form" / show message sent div "not-ok-div"
+   $(".modal-form").css("display","none");
    $(".not-ok-div").css("display","block");
    
-   // Hide message sent div "OK", show back "form", hide modal window -  within 1 sec                
+   
+   // Hide modal window -  within 1 sec                
    setTimeout(function() {
-       $("#exampleModalDelete").modal("hide");
-       $(".not-ok-div").css("display","none");
-       $("#delRowFromDbForm").css("display","block");
+       $(".modal").modal("hide");
     }, 1000);
+    
+    // Hide "not-ok-div", show back "form"
+    setTimeout(function() {
+       $(".not-ok-div").css("display","none");
+       $(".modal-form").css("display","block");
+   }, 1500);
 }
