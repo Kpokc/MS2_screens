@@ -36,14 +36,13 @@ else {
     $sql = "INSERT INTO message (date, time, pick_id, job, urgent, vendor, msg) VALUES ('$date', '$time', '$pick_id', '$job', '$urg_status', '$vendor', '$message')";
      
     if(mysqli_query($conn, $sql)){
-        // Back to Screen page
-        //Later DELETE this line
-        header("location: screen.php");
         $conn->close();
+        // Server response to positive
+        var_dump(http_response_code(200));
      } else{
-         // Return Error
-         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-         $conn->close();
+        $conn->close();
+        // Update server response to Error
+        var_dump(http_response_code(400));
      }
 }
 ?>

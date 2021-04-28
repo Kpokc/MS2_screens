@@ -153,6 +153,7 @@ $("#updateRow").submit(function(event){
     // Prevent from double execution
     event.stopImmediatePropagation();
 
+    // Get data from input fields
     var formData = {
         uniq_id : $("#unique_id").val(),
         select: $("#select_upd").val(),
@@ -161,24 +162,28 @@ $("#updateRow").submit(function(event){
         urgent: $("#urgent_upd").val(),
         message: $("#message_upd").val()
     };
+        // send request to update.php
         $.ajax({
             type: "POST",
             url: "update.php",
             data: formData,
             dataType: "json",
             encode: true,
+                // Get response from server
                 complete: function(response){
+                    // Response OK (SQL query executed)
                     if(response.status == "200"){
-                        console.log(response.status + " OK");
+                        messageSent();
                     } else {
-                        console.log(response.status + " Some error");   
+                        // Response BAD (SQL query wasn't executed)
+                        messageNotSent();
                     }
                 },
         });
 });
 
 
-////// Div Show/ Hide functions for DELETE/ADD/UPDATE 
+////// Div Show/ Hide functions for DELETE/ADD/UPDATE confirmation message
 
 function messageSent(){
     // Hide "form" / show message sent div "OK"
