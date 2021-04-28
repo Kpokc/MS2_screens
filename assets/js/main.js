@@ -112,12 +112,12 @@ function urgentIntoRed(){
                     complete: function(response){
                         // Response OK (SQL query executed)
                         if(response.status == "200"){
-                            //Call back - first message then refresh
-                            reloadeMainSection(messageSent());
+                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
+                            reloadeMainSection(messageSent($(".cardToDeleteClone").remove(clean($("#pick_id_del").val("")))));
                         } else {
                             // Response BAD (SQL query wasn't executed)
-                            //Call back - first message then refresh
-                            reloadeMainSection(messageNotSent());
+                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
+                            reloadeMainSection(messageNotSent($(".cardToDeleteClone").remove(clean($("#pick_id_del").val("")))));
                         }
                     },
             });
@@ -149,6 +149,8 @@ function urgentIntoRed(){
                 if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
                     //remove div with the table
                     $(".cardToDeleteClone").remove();
+                    //input id field clear
+                    $("#pick_id_del").val("")
                 }
         });
     });
@@ -255,11 +257,11 @@ function urgentIntoRed(){
                     complete: function(response){
                         // Response OK (SQL query executed)
                         if(response.status == "200"){
-                            //Call back - first message then refresh
-                            reloadeMainSection(messageSent());
+                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
+                            reloadeMainSection(messageSent($(".cardToDeleteClone").remove(clean($("#unique_id").val("")))));
                         } else {
-                            //Call back - first message then refresh
-                            reloadeMainSection(messageNotSent());
+                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
+                            reloadeMainSection(messageNotSent($(".cardToDeleteClone").remove(clean($("#unique_id").val("")))));
                         }
                     },
             });
