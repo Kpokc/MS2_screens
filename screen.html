@@ -229,7 +229,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBttn"></button>
                 </div>
                 <div class="modal-body">
                     <!--Hidden div message sent - response from server OK-->
@@ -258,31 +258,31 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                             <option value="collection">Collection</option>
                             <option value="transfer">Transfer</option>
                         </select>
-                        <aside class="current-data">Current</aside>
+                        <aside class="current-data-1">Current</aside>
                         <br><br>
 
                         <label for="pick_id">Job ID:</label><br>
                         <input type="number" name="pick_id" id="pick_id_upd" required>
-                        <aside class="current-data">Current</aside>
+                        <aside class="current-data-2">Current</aside>
                         <br><br>
                         <label for="vendor">Vendors Name:</label><br>
                         <input type="text" name="vendor" id="vendor_upd" required>
-                        <aside class="current-data">Current</aside>
+                        <aside class="current-data-3">Current</aside>
                         <br><br>
                         <label for="urgent">Urgent Status:</label>
                         <select class="bottom-select" id="urgent_upd" name="urgent">
                             <option value="no">No</option>
                             <option value="yes">Yes</option>
                         </select>
-                        <aside class="current-data">Current</aside>
+                        <aside class="current-data-4">Current</aside>
                         <br><br>
 
                         <label for="message">Message:</label><br>
+                        <aside class="current-data-5">Current</aside>
                         <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
                         <hr>
                         <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
+                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal" id="closeBttn">CLOSE</button>
                     </form>
                 </div>
                 <div class="modal-footer">

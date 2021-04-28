@@ -137,14 +137,14 @@ $("li").dblclick(function(){
 
     // Below EvenListener will check if DELETE function was aborted
     $("#exampleModalDelete").click(function(e){
-            // Get clicked target "id" value
-            let tr = e.target;
-            // If value equals any of "close" button or modal window it self
+        // Get clicked target "id" value
+        let tr = e.target;
+        // If value equals any of "close" button or modal window it self
             if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
                 //remove div with the table
                 $(".cardToDeleteClone").remove();
             }
-        });
+    });
 });
 
 /////////  \.DELETE FUNCTIONS ///////////////////
@@ -161,7 +161,7 @@ $("#upload-bttn").click(function(){
             $("#vendor_upd").val("");
             $("#pick_id_upd").val("");
             $("#message_upd").val("");
-            
+
             console.log($("#unique_id").val());
             var cardId = $("#unique_id").val();
             var arrayli = $("li");
@@ -179,6 +179,28 @@ $("#upload-bttn").click(function(){
                 }
             }
         });
+        $("input").on("input", function(){
+            $(this).next().css("color","red").text("Changed");
+        });
+
+        $("#exampleModalUpdate").click(function(e){
+            // Get clicked target "id" value
+            let tr = e.target;
+            // If value equals any of "close" button or modal window it self
+                if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("id") === "closeBttn"){
+                    //remove div with the table
+                    $(".cardToDeleteClone").remove();
+                    $("aside").css("color","black").text("Current");
+                    
+                    $("#unique_id").val("");
+                    $("#urgent_upd").val("");
+                    $("#select_upd").val("");
+                    $("#vendor_upd").val("");
+                    $("#pick_id_upd").val("");
+                    $("#message_upd").val("");
+                }
+        });
+
     });
 });
 

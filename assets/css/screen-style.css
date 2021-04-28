@@ -82,7 +82,11 @@ h1, h2, h3, h4, h5, h6 {
   width: 75px;
 }
 
-.modal .current-data {
+.modal .current-data-1,
+.modal .current-data-2,
+.modal .current-data-3,
+.modal .current-data-4,
+.modal .current-data-5 {
   position: absolute;
   -webkit-transform: translate(230px, -25px);
           transform: translate(230px, -25px);
