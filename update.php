@@ -29,21 +29,19 @@ else {
     $urg_status = $_POST["urgent"];
     $vendor = $_POST["vendor"];
     $message = $_POST["message"];
-    
         
     $sql = "UPDATE message 
             SET pick_id = '$pick_id', job = '$job', urgent = '$urg_status', vendor = '$vendor', msg = '$message'
             WHERE u_id = '$unique_id'";
      
     if(mysqli_query($conn, $sql)){
-        // Back to Screen page
-        //Later DELETE this line
-        header("location: screen.php");
         $conn->close();
+        // Update server response to positive
+        var_dump(http_response_code(200));
      } else{
-         // Return Error
-         echo "ERROR: Could not able to execute $sql. " . mysqli_error($conn);
-         $conn->close();
+        $conn->close();
+        // Update server response to Error
+        var_dump(http_response_code(400));
      }
 }
 ?>

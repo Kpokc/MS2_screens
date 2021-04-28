@@ -54,7 +54,7 @@ $("#addRowToDbForm").submit(function(event){
     event.preventDefault();
     // Prevent from double execution
     event.stopImmediatePropagation();
-
+    // Get data from input fields
     var formData = {
         select: $("#select").val(),
         pick_id: $("#pick_id").val(),
@@ -62,17 +62,21 @@ $("#addRowToDbForm").submit(function(event){
         urgent: $("#urgent").val(),
         message: $("#message").val()
     };
+        // send request to add.php
         $.ajax({
             type: "POST",
             url: "add.php",
             data: formData,
             dataType: "json",
             encode: true,
+                // Get response from server
                 complete: function(response){
+                    // Response OK (SQL query executed)
                     if(response.status == "200"){
-                        console.log(response.status + " OK");
+                        messageSent();
                     } else {
-                        console.log(response.status + " Some error");   
+                        // Response BAD (SQL query wasn't executed)
+                        messageNotSent();
                     }
                 },
         });

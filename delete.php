@@ -37,7 +37,7 @@ else {
         // Update server response to positive
         var_dump(http_response_code(200));
     } else{
-         // Update server response to Error
+        // Update server response to Error
         var_dump(http_response_code(400));
         $conn->close();
     }
