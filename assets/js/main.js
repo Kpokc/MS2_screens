@@ -160,7 +160,15 @@ $("#upload-bttn").click(function(){
             var arrayli = $("li");
             for (i = 0; i < arrayli.length; i++){
                 if($(arrayli[i]).attr("id") === cardId){
-                    console.log($(arrayli[i]));
+                    let k = $(arrayli[i]).text();
+                    k = k.replace(/\s+/g, ' ');
+                    let textArray = k.split(" ");
+                    $("#urgent_upd").val(textArray[1]);
+                    $("#select_upd").val(textArray[2]);
+                    $("#vendor_upd").val(textArray[6]);
+                    $("#pick_id_upd").val(textArray[9]);
+                    $("#message_upd").val(textArray[10]);
+                    console.log(textArray);
                 }
             }
         });
