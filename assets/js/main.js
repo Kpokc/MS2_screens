@@ -149,6 +149,24 @@ $("li").dblclick(function(){
 
 /////////  \.DELETE FUNCTIONS ///////////////////
 
+///////////// UPDATE FUNCTIONS ///////////////////
+
+// Update message input field listener
+$("#upload-bttn").click(function(){
+    $("#updateRow").ready(function(){
+        $("#unique_id").on("input", function(){
+            console.log($("#unique_id").val());
+            var cardId = $("#unique_id").val();
+            var arrayli = $("li");
+            for (i = 0; i < arrayli.length; i++){
+                if($(arrayli[i]).attr("id") === cardId){
+                    console.log($(arrayli[i]));
+                }
+            }
+        });
+    });
+});
+
 // Update message
 $("#updateRow").submit(function(event){
 
@@ -185,6 +203,8 @@ $("#updateRow").submit(function(event){
                 },
         });
 });
+
+/////////  \.UPDATE FUNCTIONS ///////////////////
 
 
 ////// Div Show/ Hide functions for DELETE/ADD/UPDATE confirmation message
