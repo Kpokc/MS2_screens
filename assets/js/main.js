@@ -44,6 +44,12 @@ function urgentIntoRed(){
             $(arrOfStatus[i]).siblings(".card-header").css("color","red");
             let card = $(arrOfStatus[i]).parent();
             card.addClass("jq-urgent");
+            $(arrOfStatus[i]).prepend((arrOfStatus[5]));
+
+            // move urgent to top of the tree
+            let tableToMove = $(arrOfStatus[i]).parent(); //ul
+            let whereToMove = tableToMove.parent();
+            $(tableToMove).insertBefore($(whereToMove).children()[0]);
         }
     }
 
