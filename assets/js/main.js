@@ -122,15 +122,15 @@ $("li").dblclick(function(){
         $("#exampleModalDelete").append(cardToDelete);
     });
 
-    $(document).click(function(e){
-        let target = e.target;
-        if($(target).attr("id") === "exampleModalDelete" || $(target).attr("value") === "DELETE" || $(target).attr("class") === "btn btn-secondary"){
-            console.log(target);
+    $("#exampleModalDelete").click(function(e){
+            let tr = e.target;
+            console.log($(tr).attr("id"));
+            if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
+            
+            //remove div with the table
             $(".cardToDeleteClone").remove();
-            $(target).val("");
-        }
-    });
-    
+            }
+        });
 });
 
 // Update message
