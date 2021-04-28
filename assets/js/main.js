@@ -79,29 +79,35 @@ $("#addRowToDbForm").submit(function(event){
 });
 
 
-// Delete message from DB
+///////////// DELETE FUNCTIONS ///////////////////
+
+// Delete message from DB (button)
 $("#delRowFromDbForm").submit(function(event){
 
-    // Prevent form to refresh page
+    // Prevent Form to refresh page
     event.preventDefault();
-    // Prevent from double execution
+    // Prevent From to double execution
     event.stopImmediatePropagation();
     
-    // Get uniq_id from input field 
+    // Get uniq_id from input field
     var formData = {
         uniq_id : $("#pick_id_del").val()
     };
+        // send request to delete.php
         $.ajax({
             type: "POST",
             url: "delete.php",
             data: formData,
             dataType: "json",
             encode: true,
+                // Get response from server
                 complete: function(response){
+                    // Response OK (SQL query executed)
                     if(response.status == "200"){
-                        console.log(response.status + " OK");
+                        messageSent();
                     } else {
-                        console.log(response.status + " Some error");   
+                        // Response BAD (SQL query wasn't executed)
+                        messageNotSent();
                     }
                 },
         });
@@ -110,28 +116,34 @@ $("#delRowFromDbForm").submit(function(event){
 $("li").dblclick(function(){
     // Get card uniq id
     var cardId = $(this).attr("id");
-
+    // Clone message card
     var cardToDelete = $(this).clone();
+    // Cloned card width depends on user screen
     var cardClientWidth = $(this).innerWidth();
+    // Add css styling to clone and add a class to delete it later
     cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone");
     // Trigger DELETE button
     $("#delRowFromDb").trigger("click");
     // Insert uniq id into delete input field
     $("#delRowFromDbForm").ready(function(){
         $("#pick_id_del").val(cardId);
+        // Add cloned message to modal window
         $("#exampleModalDelete").append(cardToDelete);
     });
 
+    // Below EvenListener will check if DELETE function was aborted
     $("#exampleModalDelete").click(function(e){
+            // Get clicked target "id" value
             let tr = e.target;
-            console.log($(tr).attr("id"));
+            // If value equals any of "close" button or modal window it self
             if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
-            
-            //remove div with the table
-            $(".cardToDeleteClone").remove();
+                //remove div with the table
+                $(".cardToDeleteClone").remove();
             }
         });
 });
+
+/////////  \.DELETE FUNCTIONS ///////////////////
 
 // Update message
 $("#updateRow").submit(function(event){
@@ -164,3 +176,32 @@ $("#updateRow").submit(function(event){
                 },
         });
 });
+
+
+////// Div Show/ Hide functions for DELETE/ADD/UPDATE 
+
+function messageSent(){
+    // Hide "form" / show message sent div "OK"
+    $("#delRowFromDbForm").css("display","none");
+    $(".ok-div").css("display","block");
+    
+   //Hide message sent div "OK", show back "form", hide modal window -  within 1 sec                
+   setTimeout(function() {
+       $("#exampleModalDelete").modal("hide");
+       $(".ok-div").css("display","none");
+       $("#delRowFromDbForm").css("display","block");
+   }, 1000);
+}
+
+function messageNotSent(){
+   // Hide "form" / show message sent div "OK"
+   $("#delRowFromDbForm").css("display","none");
+   $(".not-ok-div").css("display","block");
+   
+   // Hide message sent div "OK", show back "form", hide modal window -  within 1 sec                
+   setTimeout(function() {
+       $("#exampleModalDelete").modal("hide");
+       $(".not-ok-div").css("display","none");
+       $("#delRowFromDbForm").css("display","block");
+    }, 1000);
+}

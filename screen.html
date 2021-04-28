@@ -180,12 +180,21 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <div class='modal-body okDiv' style='padding: 5rem; display:none;'><span
-                            style='position: absolute;left: 60%;top: 40%;transform: translate(-50%, -50%);font-size: 70px;'><i
-                                class='far fa-thumbs-up'></i></span></div>
+                    <!--Hidden div message sent - response from server OK-->
+                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                        <span>
+                            <i class='far fa-thumbs-up'></i>
+                            <p class="message-sent-text">MESSAGE SENT!</p>
+                        </span>
+                    </div>
+                    <!--Hidden div message not sent - response from server ERROR-->
+                    <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
+                        <span>
+                            <i class="fas fa-times"></i>
+                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
+                        </span>
+                    </div>
                     <form action="delete.php" method="POST" id="delRowFromDbForm">
-                        <!--<input type="hidden" name="user" value="pmadmin"/>-->
-                        <!--<input type="hidden" name="pass" value="pmadmin123" />-->
                         <label for="pick_id_del">UD Nr:</label><br>
                         <input type="number" name="pick_id" id="pick_id_del" required><br>
                         <hr>

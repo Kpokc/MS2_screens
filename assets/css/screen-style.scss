@@ -7,6 +7,13 @@
     transition: 0.3s;
 }
 
+@mixin position-absolute-center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
 $background: #696764;
 $shadow: 0 3px 4px 0 #000014;
 $border: 1px solid #dedede;
@@ -157,6 +164,21 @@ h1,h2,h3,h4,h5,h6{
         transform: translateY(-2px);
         box-shadow: red 0px 5px 12px 4px;
     }
+}
+
+.fa-thumbs-up, 
+.fa-times {
+    @include position-absolute-center;
+    top: 45%;
+    font-size: 70px;
+}
+
+.message-sent-text {
+    @include position-absolute-center;
+    font-size: 24px;
+    top: 95%;
+    width: 100%;
+    text-align: center;
 }
 
 footer {
