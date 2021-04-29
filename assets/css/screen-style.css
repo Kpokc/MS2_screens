@@ -182,15 +182,16 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .jq-urgent {
-  -webkit-box-shadow: red 0px 3px 10px 2px;
-          box-shadow: red 0px 3px 10px 2px;
+  -webkit-box-shadow: 0 2px 10px 3px #1a73e8;
+          box-shadow: 0 2px 10px 3px #1a73e8;
+  color: #f7f7f7;
 }
 
 .jq-urgent:hover {
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);
-  -webkit-box-shadow: red 0px 5px 12px 4px;
-          box-shadow: red 0px 5px 12px 4px;
+  -webkit-box-shadow: 0 2px 10px 6px #1a73e8;
+          box-shadow: 0 2px 10px 6px #1a73e8;
 }
 
 .fa-thumbs-up,

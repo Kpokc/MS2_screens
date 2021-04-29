@@ -34,6 +34,13 @@ $(document).ready(function(){
 
 });
 
+// Reload page every 200 seconds. (to keep web browser session up)
+setInterval(function(){
+    $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
+        urgentIntoRed();
+    })
+},200000);
+
 
 //Highlight urgent messages by red color and push them up in dom tree
 function urgentIntoRed(){
@@ -129,6 +136,48 @@ function urgentIntoRed(){
             });
     });
 
+    // DELETE message input field listener (append message user wants to delete at the bottom of the delete form)
+    $("#delRowFromDb").click(function(){
+        $("#delRowFromDbForm").ready(function(){
+            $("#pick_id_del").on("input", function(){
+
+                //remove div with the table
+                $(".cardToDeleteClone").remove();
+
+                // Get Uniq Id from input field
+                var cardId = $("#pick_id_del").val();
+                // Array of all "li" in DOM
+                var arrayli = $("li");
+                // Loop throughout all "li" looking for "id" to equals "cardId"
+                for (i = 0; i < arrayli.length; i++){
+                    if($(arrayli[i]).attr("id") === cardId){
+                        // Clone message card
+                        var cardToDelete = $(arrayli[i]).clone();
+                        // Cloned card width depends on user screen
+                        var cardClientWidth = $(arrayli[i]).innerWidth();
+                        // Add css styling to clone and add a class to delete it later
+                        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");
+                        // Add card to modal window
+                        $("#exampleModalDelete").append(cardToDelete);
+                    }
+                }
+
+                // Below EvenListener will check if DELETE function was aborted
+                $("#exampleModalDelete").click(function(e){
+                    // Get clicked target "id" value
+                    let tr = e.target;
+                    // If value equals any of "close" button or modal window it self
+                        if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
+                            //remove div with the table
+                            $(".cardToDeleteClone").remove();
+                            //input id field clear
+                            $("#pick_id_del").val("")
+                        }
+                });
+            });
+        });
+    });
+
     $("li").dblclick(function(){
         // Get card uniq id
         var cardId = $(this).attr("id");
@@ -137,7 +186,7 @@ function urgentIntoRed(){
         // Cloned card width depends on user screen
         var cardClientWidth = $(this).innerWidth();
         // Add css styling to clone and add a class to delete it later
-        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone");
+        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");;
         // Trigger DELETE button
         $("#delRowFromDb").trigger("click");
         // Insert uniq id into delete input field
@@ -165,7 +214,7 @@ function urgentIntoRed(){
 
     ///////////// UPDATE FUNCTIONS ///////////////////
 
-    // Update message input field listener
+    // UPDATE message input field listener (append message user wants to update at the bottom of the delete form)
     $("#upload-bttn").click(function(){
         // Wait till form loads
         $("#updateRow").ready(function(){
