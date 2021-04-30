@@ -48,9 +48,11 @@ function urgentIntoRed(){
     
     for (i = 0; i < arrOfStatus.length; i++){
         if(arrOfStatus[i].textContent === "yes"){
-            $(arrOfStatus[i]).siblings(".card-header").css("color","red");
-            let card = $(arrOfStatus[i]).parent();
-            card.addClass("jq-urgent");
+            // add text neon effect
+            $(arrOfStatus[i]).siblings(".card-header").addClass("glow-text");
+            let card = $(arrOfStatus[i]).parent().addClass("borders-red");
+            // add glowing effect
+            $(arrOfStatus[i]).prev().css("display", "block");
             $(arrOfStatus[i]).prepend((arrOfStatus[5]));
 
             // move urgent to top of the tree

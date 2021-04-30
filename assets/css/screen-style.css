@@ -122,7 +122,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .msg-card {
   list-style-type: none;
-  margin-top: 15px;
+  margin-top: 25px;
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
   -webkit-transition: 0.3s;
@@ -181,17 +181,53 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.jq-urgent {
-  -webkit-box-shadow: 0 2px 10px 3px #1a73e8;
-          box-shadow: 0 2px 10px 3px #1a73e8;
-  color: #f7f7f7;
+.glow {
+  position: absolute;
+  width: 900px;
+  height: 150px;
+  -webkit-transform: translate(0px, 0px);
+          transform: translate(0px, 0px);
+  background-image: -webkit-gradient(linear, left top, right top, from(#ee0606), to(#f8f8f8));
+  background-image: linear-gradient(90deg, #ee0606, #f8f8f8);
+  background-size: 200% 200%;
+  -webkit-animation: gradient 3s ease infinite;
+          animation: gradient 3s ease infinite;
+  -webkit-filter: blur(10px);
+          filter: blur(10px);
+  z-index: -1;
 }
 
-.jq-urgent:hover {
-  -webkit-transform: translateY(-2px);
-          transform: translateY(-2px);
-  -webkit-box-shadow: 0 2px 10px 6px #1a73e8;
-          box-shadow: 0 2px 10px 6px #1a73e8;
+.borders-red {
+  border: 1px solid #ee0606;
+}
+
+.glow-text {
+  color: #f8f8f8;
+  text-shadow: 0 0 10px #ee0611, 0 0 15px #ee0611, 0 0 20px #ee0611, 0 0 25px #ee0611;
+}
+
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .fa-thumbs-up,
