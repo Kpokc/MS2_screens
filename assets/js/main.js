@@ -62,6 +62,14 @@ function urgentIntoRed(){
         }
     }
 
+    // On resize correct ".glow" width and height 
+    $( window ).resize(function(){
+        // any top card
+        let card = $("li")[5];
+        // ".glow" div width equals ".card" 
+        $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
+    });
+
 
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
