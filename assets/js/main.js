@@ -32,6 +32,8 @@ $(document).ready(function(){
     //When document loaded call below function
     urgentIntoRed();
 
+    glowSize();
+
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
@@ -64,10 +66,7 @@ function urgentIntoRed(){
 
     // On resize correct ".glow" width and height 
     $( window ).resize(function(){
-        // any top card
-        let card = $("li")[5];
-        // ".glow" div width equals ".card" 
-        $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
+        glowSize();
     });
 
 
@@ -390,4 +389,11 @@ function reloadeMainSection(){
     $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
         urgentIntoRed();
     });
+}
+
+function glowSize(){
+    // any top card
+    let card = $("li")[5];
+    // ".glow" div width equals ".card" 
+    $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
 }
