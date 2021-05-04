@@ -167,6 +167,7 @@ h1,h2,h3,h4,h5,h6{
             @media screen and (max-width: 415px) {
                 width: 100%;
                 border-right: none;
+                border-top: $border;
                 border-bottom: $border;
             }
         }
@@ -177,14 +178,9 @@ h1,h2,h3,h4,h5,h6{
     display: none;
     @media screen and (max-width: 415px){
         display: block;
-        font-size: 32px;
-        position: absolute;
-        transform: translate(35px, -3px);
+        transform: translateY(2px);
+        position: relative;
         transition: 0.3s;
-        &:hover {
-            transform: translate(35px, -3px) rotateX(180deg);
-            background-color: #dedede;
-        }
     }
 }
 

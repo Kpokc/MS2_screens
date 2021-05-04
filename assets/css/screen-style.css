@@ -198,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
   .msg-card .card-body .body-section-left {
     width: 100%;
     border-right: none;
+    border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
   }
 }
@@ -209,17 +210,11 @@ h1, h2, h3, h4, h5, h6 {
 @media screen and (max-width: 415px) {
   .fa-caret-square-down {
     display: block;
-    font-size: 32px;
-    position: absolute;
-    -webkit-transform: translate(35px, -3px);
-            transform: translate(35px, -3px);
+    -webkit-transform: translateY(2px);
+            transform: translateY(2px);
+    position: relative;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-  }
-  .fa-caret-square-down:hover {
-    -webkit-transform: translate(35px, -3px) rotateX(180deg);
-            transform: translate(35px, -3px) rotateX(180deg);
-    background-color: #dedede;
   }
 }
 

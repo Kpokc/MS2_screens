@@ -47,12 +47,6 @@ $( window ).resize(function(){
         glowSize(hideShowCardBody($(".glow").innerWidth(0)));
 });
 
-$(".fa-caret-square-down").click(function(){
-    $(this).parent().parent().parent().next().fadeIn(300);
-    console.log($(this).parent().parent().parent().next());
-});
-
-
 //Highlight urgent messages by red color and push them up in dom tree
 function urgentIntoRed(){
     var arrOfStatus = $(".urgent-status");
@@ -72,6 +66,23 @@ function urgentIntoRed(){
             $(tableToMove).insertBefore($(whereToMove).children()[0]);
         }
     }
+
+    // Hide and show card-body by clicking arrow
+    $(".fa-caret-square-down").click(function(){
+        if($(".fa-caret-square-down").attr("id") == "closed"){
+            //card-body show - 200mls delay
+            $(this).parent().parent().parent().next().fadeIn(300);
+            // Flip arrow by 180 deg
+            $(".fa-caret-square-down").attr("id","opened").css("transform","translateY(2px) rotateX(180deg)");
+        }
+        else if($(".fa-caret-square-down").attr("id") == "opened"){
+            //card-body hide - 200mls delay
+            $(this).parent().parent().parent().next().fadeOut(300);
+            // Flip arrow back to 0 deg
+            $(".fa-caret-square-down").attr("id","closed").css("transform","translateY(2px) rotateX(0deg)");
+        }
+    
+    });
 
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
