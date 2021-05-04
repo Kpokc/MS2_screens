@@ -30,10 +30,8 @@ function timer(){
 
 $(document).ready(function(){
     //When document loaded call below function
+    glowSize(hideShowCardBody());
     urgentIntoRed();
-
-    glowSize();
-
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
@@ -42,6 +40,11 @@ setInterval(function(){
         urgentIntoRed();
     })
 },200000);
+
+// On resize correct ".glow" width and height and hide card body
+$( window ).resize(function(){
+        glowSize(hideShowCardBody($(".glow").innerWidth(0)));
+});
 
 
 //Highlight urgent messages by red color and push them up in dom tree
@@ -63,12 +66,6 @@ function urgentIntoRed(){
             $(tableToMove).insertBefore($(whereToMove).children()[0]);
         }
     }
-
-    // On resize correct ".glow" width and height 
-    $( window ).resize(function(){
-        glowSize();
-    });
-
 
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
@@ -396,4 +393,16 @@ function glowSize(){
     let card = $("li")[5];
     // ".glow" div width equals ".card" 
     $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
+}
+
+function hideShowCardBody(){
+    // If window size lower than 415 hide card message body
+    if(window.innerWidth < 415){
+        $(".card-body").hide();
+        $(".card-header").css("border-bottom", "none");
+        console.log(111);
+    } if (window.innerWidth > 415) {
+        $(".card-body").show();
+        $(".card-header").css("border-bottom", "1px solid #dedede");
+    }
 }
