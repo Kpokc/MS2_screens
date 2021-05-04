@@ -74,6 +74,10 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+.rowToReload {
+    margin-bottom: 35px;
+}
+
 .modal {
     color: #000014;
     textarea {
@@ -241,10 +245,17 @@ footer {
     width: 100%;
     margin-top: 14px;
     margin-left: 0px;
+    transition: 0.3sec;
     .company, .copyrights {
+        color: #1a73e8;
         padding: 5px;
         float: right;
         text-shadow: 1px 1px 1px #000014;
+    }
+    .company{
+        @media screen and (max-width: 415px) {
+            display: none;
+        }
     }
     .copyrights {
         float: left;

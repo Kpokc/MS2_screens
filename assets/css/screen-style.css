@@ -66,6 +66,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
+.rowToReload {
+  margin-bottom: 35px;
+}
+
 .modal {
   color: #000014;
 }
@@ -296,12 +300,21 @@ footer {
   width: 100%;
   margin-top: 14px;
   margin-left: 0px;
+  -webkit-transition: 0.3sec;
+  transition: 0.3sec;
 }
 
 footer .company, footer .copyrights {
+  color: #1a73e8;
   padding: 5px;
   float: right;
   text-shadow: 1px 1px 1px #000014;
+}
+
+@media screen and (max-width: 415px) {
+  footer .company {
+    display: none;
+  }
 }
 
 footer .copyrights {

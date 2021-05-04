@@ -69,20 +69,31 @@ function urgentIntoRed(){
 
     // Hide and show card-body by clicking arrow
     $(".fa-caret-square-down").click(function(){
-        if($(".fa-caret-square-down").attr("id") == "closed"){
+        if($(this).attr("id") == "closed"){
             //card-body show - 200mls delay
             $(this).parent().parent().parent().next().fadeIn(300);
             // Flip arrow by 180 deg
-            $(".fa-caret-square-down").attr("id","opened").css("transform","translateY(2px) rotateX(180deg)");
+            $(this).attr("id","opened").css("transform","translateY(2px) rotateX(180deg)");
         }
-        else if($(".fa-caret-square-down").attr("id") == "opened"){
+        else if($(this).attr("id") == "opened"){
             //card-body hide - 200mls delay
             $(this).parent().parent().parent().next().fadeOut(300);
             // Flip arrow back to 0 deg
-            $(".fa-caret-square-down").attr("id","closed").css("transform","translateY(2px) rotateX(0deg)");
+            $(this).attr("id","closed").css("transform","translateY(2px) rotateX(0deg)");
         }
-    
     });
+
+    // Show footer when user scrolled to the bottom of the page
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 10) {
+            $("footer").css("height","35px");
+        }
+        else  {
+            $("footer").css("height","0px");
+        }
+    });
+
+    
 
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
