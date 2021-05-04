@@ -32,6 +32,13 @@ h1, h2, h3, h4, h5, h6 {
   top: 5px;
 }
 
+@media screen and (max-width: 415px) {
+  #time_span {
+    left: 30px;
+    top: 14px;
+  }
+}
+
 .burger-menu {
   width: 100%;
   text-align: right;
@@ -66,8 +73,13 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
+.bg-light .top-menu-bttn:focus {
+  -webkit-box-shadow: 0 0 0 0px;
+          box-shadow: 0 0 0 0px;
+}
+
 .rowToReload {
-  margin-bottom: 35px;
+  margin-bottom: 25px;
 }
 
 .modal {
@@ -112,6 +124,16 @@ h1, h2, h3, h4, h5, h6 {
   transition: 0.3s;
 }
 
+.navbar-toggler {
+  -webkit-box-shadow: 0 0 0 2px;
+          box-shadow: 0 0 0 2px;
+}
+
+.navbar-toggler:focus {
+  -webkit-box-shadow: 0 0 0 0px;
+          box-shadow: 0 0 0 0px;
+}
+
 .zeroResult {
   margin: 0 auto;
   margin-top: 15px;
@@ -153,11 +175,21 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   padding: 2px;
   border-bottom: 1px solid #dedede;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .msg-card .card-header .card-header-inner {
   padding: 5px;
   margin-left: 10px;
+}
+
+@media screen and (max-width: 415px) {
+  .msg-card .card-header .card-header-inner h4 {
+    font-size: 14px;
+    float: left;
+  }
 }
 
 .msg-card .card-body {
@@ -198,6 +230,12 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
+@media screen and (max-width: 1490px) {
+  .msg-card .card-body .body-section-left {
+    width: 40%;
+  }
+}
+
 @media screen and (max-width: 415px) {
   .msg-card .card-body .body-section-left {
     width: 100%;
@@ -207,16 +245,20 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.fa-caret-square-down {
+.icon-inner {
+  position: absolute;
+}
+
+.icon-inner .fa-caret-square-down {
+  position: relative;
   display: none;
+  left: 210px;
 }
 
 @media screen and (max-width: 415px) {
-  .fa-caret-square-down {
+  .icon-inner .fa-caret-square-down {
     display: block;
-    -webkit-transform: translateY(2px);
-            transform: translateY(2px);
-    position: relative;
+    font-size: 24px;
     -webkit-transition: 0.3s;
     transition: 0.3s;
   }
@@ -224,8 +266,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .glow {
   position: absolute;
-  width: 900px;
-  height: 150px;
+  width: 0px;
+  height: 0px;
   -webkit-transform: translate(0px, 0px);
           transform: translate(0px, 0px);
   background-image: -webkit-gradient(linear, left top, right top, from(#ee0606), to(#f8f8f8));
@@ -300,6 +342,7 @@ footer {
   width: 100%;
   margin-top: 14px;
   margin-left: 0px;
+  height: 0px;
   -webkit-transition: 0.3sec;
   transition: 0.3sec;
 }

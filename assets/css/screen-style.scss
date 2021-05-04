@@ -47,6 +47,10 @@ h1,h2,h3,h4,h5,h6{
     z-index: 10;
     left: 25px;
     top: 5px;
+    @media screen and (max-width: 415px){
+        left: 30px;
+        top: 14px;
+    }
 }
 
 .burger-menu {
@@ -71,11 +75,14 @@ h1,h2,h3,h4,h5,h6{
             &:hover{
                 @include button-hover();
             }
+            &:focus{
+                box-shadow: 0 0 0 0px;
+            }
     }
 }
 
 .rowToReload {
-    margin-bottom: 35px;
+    margin-bottom: 25px;
 }
 
 .modal {
@@ -109,6 +116,13 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+.navbar-toggler {
+    box-shadow: 0 0 0 2px;
+    &:focus{
+        box-shadow: 0 0 0 0px;
+    }
+}
+
 .zeroResult {
     margin: 0 auto;
     margin-top: 15px;
@@ -139,9 +153,16 @@ h1,h2,h3,h4,h5,h6{
         display: flex;
         padding: 2px;
         border-bottom: $border;
+        align-items: center;
         .card-header-inner {
             padding: 5px;
             margin-left: 10px;
+            h4{
+                @media screen and (max-width: 415px) {
+                    font-size: 14px;
+                    float: left;
+                }
+            }
         }
     }
     .card-body{
@@ -168,6 +189,9 @@ h1,h2,h3,h4,h5,h6{
             width: 25%;
             border-right: $border;
             text-transform: uppercase;
+            @media screen and (max-width: 1490px) {
+                width: 40%;
+            }
             @media screen and (max-width: 415px) {
                 width: 100%;
                 border-right: none;
@@ -178,20 +202,24 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-.fa-caret-square-down {
-    display: none;
-    @media screen and (max-width: 415px){
-        display: block;
-        transform: translateY(2px);
+.icon-inner {
+    position: absolute;
+    .fa-caret-square-down {
         position: relative;
-        transition: 0.3s;
+        display: none;
+        left: 210px;
+        @media screen and (max-width: 415px){
+            display: block;
+            font-size: 24px;
+            transition: 0.3s;
+        }
     }
 }
 
 .glow {
     position: absolute;
-    width: 900px;
-    height: 150px;
+    width: 0px;
+    height: 0px;
     transform: translate(0px, 0px);
     background-image: linear-gradient(90deg, #ee0606,#f8f8f8 );
     background-size: 2000%;
@@ -245,6 +273,7 @@ footer {
     width: 100%;
     margin-top: 14px;
     margin-left: 0px;
+    height: 0px;
     transition: 0.3sec;
     .company, .copyrights {
         color: #1a73e8;

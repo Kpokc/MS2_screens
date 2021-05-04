@@ -73,13 +73,13 @@ function urgentIntoRed(){
             //card-body show - 200mls delay
             $(this).parent().parent().parent().next().fadeIn(300);
             // Flip arrow by 180 deg
-            $(this).attr("id","opened").css("transform","translateY(2px) rotateX(180deg)");
+            $(this).attr("id","opened").css("transform","rotateX(180deg)");
         }
         else if($(this).attr("id") == "opened"){
             //card-body hide - 200mls delay
             $(this).parent().parent().parent().next().fadeOut(300);
             // Flip arrow back to 0 deg
-            $(this).attr("id","closed").css("transform","translateY(2px) rotateX(0deg)");
+            $(this).attr("id","closed").css("transform","rotateX(0deg)");
         }
     });
 
@@ -413,6 +413,7 @@ function clean(){
 function reloadeMainSection(){
     $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
         urgentIntoRed();
+        glowSize();
     });
 }
 
