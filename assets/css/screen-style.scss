@@ -173,6 +173,21 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+.fa-caret-square-down {
+    display: none;
+    @media screen and (max-width: 415px){
+        display: block;
+        font-size: 32px;
+        position: absolute;
+        transform: translate(35px, -3px);
+        transition: 0.3s;
+        &:hover {
+            transform: translate(35px, -3px) rotateX(180deg);
+            background-color: #dedede;
+        }
+    }
+}
+
 .glow {
     position: absolute;
     width: 900px;

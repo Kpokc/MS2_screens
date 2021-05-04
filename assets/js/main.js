@@ -37,13 +37,19 @@ $(document).ready(function(){
 // Reload page every 200 seconds. (to keep web browser session up)
 setInterval(function(){
     $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
-        urgentIntoRed();
+        urgentIntoRed(glowSize(hideShowCardBody($(".glow").innerWidth(0))));
+        
     })
 },200000);
 
 // On resize correct ".glow" width and height and hide card body
 $( window ).resize(function(){
         glowSize(hideShowCardBody($(".glow").innerWidth(0)));
+});
+
+$(".fa-caret-square-down").click(function(){
+    $(this).parent().parent().parent().next().fadeIn(300);
+    console.log($(this).parent().parent().parent().next());
 });
 
 
@@ -400,7 +406,6 @@ function hideShowCardBody(){
     if(window.innerWidth < 415){
         $(".card-body").hide();
         $(".card-header").css("border-bottom", "none");
-        console.log(111);
     } if (window.innerWidth > 415) {
         $(".card-body").show();
         $(".card-header").css("border-bottom", "1px solid #dedede");
