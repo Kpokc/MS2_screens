@@ -147,17 +147,28 @@ h1,h2,h3,h4,h5,h6{
         font-size: 18px;
         font-weight: 700;
         background-color: $background;
+        @media screen and (max-width: 415px) {
+            display: block;
+        }
         .body-section-left,
         .body-section-right {
             padding: 5px;
             width: 75%;
             padding-left: 15px;
-            word-wrap: break-word
+            word-wrap: break-word;
+            @media screen and (max-width: 415px) {
+                width: 100%;
+            }
         }
         .body-section-left {
             width: 25%;
             border-right: $border;
             text-transform: uppercase;
+            @media screen and (max-width: 415px) {
+                width: 100%;
+                border-right: none;
+                border-bottom: $border;
+            }
         }
     }
 }
@@ -170,7 +181,7 @@ h1,h2,h3,h4,h5,h6{
     background-image: linear-gradient(90deg, #ee0606,#f8f8f8 );
     background-size: 2000%;
     animation: gradient 2s ease infinite;
-    filter: blur(10px);
+    filter: blur(15px);
     z-index: -1;
 }
 

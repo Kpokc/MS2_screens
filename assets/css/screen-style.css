@@ -167,6 +167,12 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #696764;
 }
 
+@media screen and (max-width: 415px) {
+  .msg-card .card-body {
+    display: block;
+  }
+}
+
 .msg-card .card-body .body-section-left,
 .msg-card .card-body .body-section-right {
   padding: 5px;
@@ -175,10 +181,25 @@ h1, h2, h3, h4, h5, h6 {
   word-wrap: break-word;
 }
 
+@media screen and (max-width: 415px) {
+  .msg-card .card-body .body-section-left,
+  .msg-card .card-body .body-section-right {
+    width: 100%;
+  }
+}
+
 .msg-card .card-body .body-section-left {
   width: 25%;
   border-right: 1px solid #dedede;
   text-transform: uppercase;
+}
+
+@media screen and (max-width: 415px) {
+  .msg-card .card-body .body-section-left {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #dedede;
+  }
 }
 
 .glow {
@@ -192,8 +213,8 @@ h1, h2, h3, h4, h5, h6 {
   background-size: 2000%;
   -webkit-animation: gradient 2s ease infinite;
           animation: gradient 2s ease infinite;
-  -webkit-filter: blur(10px);
-          filter: blur(10px);
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
   z-index: -1;
 }
 
