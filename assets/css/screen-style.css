@@ -127,8 +127,6 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler {
   -webkit-box-shadow: 0 0 0 2px;
           box-shadow: 0 0 0 2px;
-  margin-right: 10px;
-  background-color: #dedede;
 }
 
 .navbar-toggler:focus {
@@ -194,25 +192,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-.msg-card .card-header .icon-inner {
-  position: absolute;
-}
-
-.msg-card .card-header .icon-inner .fa-caret-square-down {
-  position: relative;
-  display: none;
-  left: 0px;
-}
-
-@media screen and (max-width: 415px) {
-  .msg-card .card-header .icon-inner .fa-caret-square-down {
-    display: block;
-    font-size: 24px;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-  }
-}
-
 .msg-card .card-body {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -266,18 +245,36 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.icon-inner {
+  position: absolute;
+}
+
+.icon-inner .fa-caret-square-down {
+  position: relative;
+  display: none;
+  left: 210px;
+}
+
 @media screen and (max-width: 415px) {
-  .uid-inner {
-    position: absolute;
-  }
-  .uid-inner .uid-number {
-    position: relative;
-    display: none;
-    left: 0px;
+  .icon-inner .fa-caret-square-down {
+    display: block;
+    font-size: 24px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
   }
 }
 
-@media screen and (max-width: 415px) and (max-width: 415px) {
+.uid-inner {
+  position: absolute;
+}
+
+.uid-inner .uid-number {
+  position: relative;
+  display: block;
+  left: 210px;
+}
+
+@media screen and (max-width: 415px) {
   .uid-inner .uid-number {
     display: block;
     font-size: 24px;

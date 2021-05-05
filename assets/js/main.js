@@ -30,24 +30,20 @@ function timer(){
 
 $(document).ready(function(){
     //When document loaded call below function
-    glowSize(iconPosition(hideShowCardBody()));
-    urgentIntoRed();
-    //iconPosition();
+    urgentIntoRed(glowSize(iconPosition(hideShowCardBody())));
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
 setInterval(function(){
     $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
         urgentIntoRed(glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0)))));
-        //iconPosition();
     })
 },200000);
 
 // On resize correct ".glow" width and height and hide card body
 $( window ).resize(function(){
-        glowSize(hideShowCardBody($(".glow").innerWidth(0)));
-        //iconPosition();
-        console.log("resized");
+        glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0))));
+        $(".fa-caret-square-down").attr("id","closed").css("transform","rotateX(0deg)");
 });
 
 //Highlight urgent messages by red color and push them up in dom tree
@@ -419,8 +415,7 @@ function clean(){
 // reload main section
 function reloadeMainSection(){
     $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
-        urgentIntoRed();
-        glowSize(iconPosition(hideShowCardBody()));
+        urgentIntoRed(glowSize(iconPosition(hideShowCardBody())));
     });
 }
 
@@ -437,7 +432,6 @@ function hideShowCardBody(){
     if(window.innerWidth < 415){
         $(".card-body").hide();
         $(".card-header").css("border-bottom", "none");
-        iconPosition();
     } if (window.innerWidth > 415) {
         $(".card-body").show();
         $(".card-header").css("border-bottom", "1px solid #dedede");
@@ -446,13 +440,19 @@ function hideShowCardBody(){
 
 // Place arrow at correct distance from left side
 function iconPosition(){
-    // get current width on the screen 
+    if(window.innerWidth < 415){
+        // get current width on the screen 
     let cardWidth = $(".card-header").innerWidth();
     // 47px average icon + padding + margin attributes
     let coordinates = cardWidth - 60;
     // add position to icon
     $(".fa-caret-square-down").css("left",coordinates);
     // UID coordinates
-    let coordinates2 = cardWidth/2-30;
+    let coordinates2 = (cardWidth/2) -30;
     $(".uid-number").css("left",coordinates2);
+    }
+    if(window.innerWidth > 415){
+        $(".fa-caret-square-down").css("left","210px");
+        $(".uid-number").css("left","210px");
+    }
 }

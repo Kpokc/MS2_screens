@@ -118,8 +118,6 @@ h1,h2,h3,h4,h5,h6{
 
 .navbar-toggler {
     box-shadow: 0 0 0 2px;
-    margin-right: 10px;
-    background-color: #dedede;
     &:focus{
         box-shadow: 0 0 0 0px;
     }
@@ -165,23 +163,8 @@ h1,h2,h3,h4,h5,h6{
                     float: left;
                 }
             }
-            
-        }
-        .icon-inner {
-            position: absolute;
-            .fa-caret-square-down {
-                position: relative;
-                display: none;
-                left: 0px;
-                @media screen and (max-width: 415px){
-                    display: block;
-                    font-size: 24px;
-                    transition: 0.3s;
-                }
-            }
         }
     }
-
     .card-body{
         display: flex;
         max-height: none;
@@ -219,18 +202,30 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-@media screen and (max-width: 415px) {
-    .uid-inner {
-        position: absolute;
-        .uid-number{
-            position: relative;
-            display: none;
-            left: 0px;
-            @media screen and (max-width: 415px){
-                display: block;
-                font-size: 24px;
-                transition: 0.3s;
-            }
+.icon-inner {
+    position: absolute;
+    .fa-caret-square-down {
+        position: relative;
+        display: none;
+        left: 210px;
+        @media screen and (max-width: 415px){
+            display: block;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+    }
+}
+
+.uid-inner {
+    position: absolute;
+    .uid-number {
+        position: relative;
+        display: block;
+        left: 210px;
+        @media screen and (max-width: 415px){
+            display: block;
+            font-size: 24px;
+            transition: 0.3s;
         }
     }
 }
