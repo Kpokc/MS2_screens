@@ -23,6 +23,12 @@ body {
           box-shadow: 0 10px 10px 0 #1e2021;
 }
 
+@media screen and (max-width: 415px) {
+  .container {
+    width: 90%;
+  }
+}
+
 .login-logo {
   background-color: gold;
   position: inherit;

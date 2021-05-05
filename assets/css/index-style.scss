@@ -22,6 +22,9 @@ body {
     border-radius: 10px;
     background: rgba(232,232,232,0.15);
     box-shadow: 0 10px 10px 0 #1e2021;
+    @media screen and (max-width: 415px){ 
+        width: 90%;        
+       }
 }
 
 .login-logo{
