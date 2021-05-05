@@ -32,13 +32,14 @@ $(document).ready(function(){
     //When document loaded call below function
     glowSize(hideShowCardBody());
     urgentIntoRed();
+    iconPosition();
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
 setInterval(function(){
     $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
         urgentIntoRed(glowSize(hideShowCardBody($(".glow").innerWidth(0))));
-        
+        iconPosition();
     })
 },200000);
 
@@ -412,10 +413,12 @@ function clean(){
     $("#message_upd").val("");
 }
 
+// 
 function reloadeMainSection(){
     $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
         urgentIntoRed();
         glowSize();
+        iconPosition();
     });
 }
 
@@ -435,4 +438,13 @@ function hideShowCardBody(){
         $(".card-body").show();
         $(".card-header").css("border-bottom", "1px solid #dedede");
     }
+}
+
+function iconPosition(){
+    // get current width on the screen 
+    let cardWidth = $(".card-header").innerWidth();
+    // 47px average icon + padding + margin attributes
+    let coordinates = cardWidth - 60;
+    console.log(coordinates + " coordinates");
+    $(".fa-caret-square-down").css("left",coordinates);
 }
