@@ -163,8 +163,37 @@ h1,h2,h3,h4,h5,h6{
                     float: left;
                 }
             }
+            @media screen and (max-width: 415px) {
+                .uid-inner {
+                    position: absolute;
+                    .uid-number{
+                        position: relative;
+                        display: none;
+                        left: 120px;
+                        @media screen and (max-width: 415px){
+                            display: block;
+                            font-size: 24px;
+                            transition: 0.3s;
+                        }
+                    }
+                }
+            }
+        }
+        .icon-inner {
+            position: absolute;
+            .fa-caret-square-down {
+                position: relative;
+                display: none;
+                left: 210px;
+                @media screen and (max-width: 415px){
+                    display: block;
+                    font-size: 24px;
+                    transition: 0.3s;
+                }
+            }
         }
     }
+
     .card-body{
         display: flex;
         max-height: none;
@@ -198,20 +227,6 @@ h1,h2,h3,h4,h5,h6{
                 border-top: $border;
                 border-bottom: $border;
             }
-        }
-    }
-}
-
-.icon-inner {
-    position: absolute;
-    .fa-caret-square-down {
-        position: relative;
-        display: none;
-        left: 210px;
-        @media screen and (max-width: 415px){
-            display: block;
-            font-size: 24px;
-            transition: 0.3s;
         }
     }
 }

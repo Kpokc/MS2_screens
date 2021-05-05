@@ -124,6 +124,8 @@ function urgentIntoRed(){
                             //Call back - first message then refresh
                             reloadeMainSection(messageSent());
                             $(".modal-form").fadeOut(200);
+                            $("input").val("");
+                            $("textarea").val("");
                         } else {
                             // Response BAD (SQL query wasn't executed)
                             //Call back - first message then refresh
