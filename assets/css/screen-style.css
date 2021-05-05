@@ -127,6 +127,8 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler {
   -webkit-box-shadow: 0 0 0 2px;
           box-shadow: 0 0 0 2px;
+  margin-right: 10px;
+  background-color: #dedede;
 }
 
 .navbar-toggler:focus {

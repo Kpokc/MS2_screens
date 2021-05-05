@@ -30,23 +30,24 @@ function timer(){
 
 $(document).ready(function(){
     //When document loaded call below function
-    glowSize(hideShowCardBody());
+    glowSize(iconPosition(hideShowCardBody()));
     urgentIntoRed();
-    iconPosition();
+    //iconPosition();
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
 setInterval(function(){
     $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
-        urgentIntoRed(glowSize(hideShowCardBody($(".glow").innerWidth(0))));
-        iconPosition();
+        urgentIntoRed(glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0)))));
+        //iconPosition();
     })
 },200000);
 
 // On resize correct ".glow" width and height and hide card body
 $( window ).resize(function(){
         glowSize(hideShowCardBody($(".glow").innerWidth(0)));
-        iconPosition();
+        //iconPosition();
+        console.log("resized");
 });
 
 //Highlight urgent messages by red color and push them up in dom tree
@@ -419,8 +420,7 @@ function clean(){
 function reloadeMainSection(){
     $('.divToLoadInto').fadeOut(300).load(' .rowToReload').fadeIn(300, function(){
         urgentIntoRed();
-        glowSize();
-        iconPosition();
+        glowSize(iconPosition(hideShowCardBody()));
     });
 }
 
@@ -437,6 +437,7 @@ function hideShowCardBody(){
     if(window.innerWidth < 415){
         $(".card-body").hide();
         $(".card-header").css("border-bottom", "none");
+        iconPosition();
     } if (window.innerWidth > 415) {
         $(".card-body").show();
         $(".card-header").css("border-bottom", "1px solid #dedede");
