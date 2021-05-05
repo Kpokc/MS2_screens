@@ -192,26 +192,6 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-@media screen and (max-width: 415px) {
-  .msg-card .card-header .card-header-inner .uid-inner {
-    position: absolute;
-  }
-  .msg-card .card-header .card-header-inner .uid-inner .uid-number {
-    position: relative;
-    display: none;
-    left: 120px;
-  }
-}
-
-@media screen and (max-width: 415px) and (max-width: 415px) {
-  .msg-card .card-header .card-header-inner .uid-inner .uid-number {
-    display: block;
-    font-size: 24px;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-  }
-}
-
 .msg-card .card-header .icon-inner {
   position: absolute;
 }
@@ -281,6 +261,26 @@ h1, h2, h3, h4, h5, h6 {
     border-right: none;
     border-top: 1px solid #dedede;
     border-bottom: 1px solid #dedede;
+  }
+}
+
+@media screen and (max-width: 415px) {
+  .uid-inner {
+    position: absolute;
+  }
+  .uid-inner .uid-number {
+    position: relative;
+    display: none;
+    left: 120px;
+  }
+}
+
+@media screen and (max-width: 415px) and (max-width: 415px) {
+  .uid-inner .uid-number {
+    display: block;
+    font-size: 24px;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
   }
 }
 
