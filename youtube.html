@@ -8,8 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hello World</h1>
-    
     <script src="https://apis.google.com/js/api.js"></script>
     <script>
       
@@ -40,8 +38,12 @@
         })
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
-                    //console.log("Response", response);
-                    $("#results").text("result " + response);
+                    console.log("Response", response.result.items);
+                    // document.getElementById("results").innerHTML = response.result.items;
+                    var data = response.result.items;
+                    data.forEach(function(element){
+                        document.getElementById("results").innerHTML += "<p>" +element.id.videoId +"</p>";
+                    })
                   },
                   function(err) { console.error("Execute error", err); });
       }
@@ -49,9 +51,10 @@
         gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
       });
     </script>
+    <h1>Hello Youtude</h1>
     <button onclick="loadClient()">load</button>
     <button onclick="execute()">execute</button>
-    <ul id="results"></ul>
+    <div id="results"></div>
     
 </body>
 </html>
