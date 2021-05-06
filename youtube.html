@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -19,12 +19,12 @@
        * https://developers.google.com/explorer-help/guides/code_samples#javascript
        */
     
-      function authenticate() {
-        return gapi.auth2.getAuthInstance()
-            .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-            .then(function() { console.log("Sign-in successful"); },
-                  function(err) { console.error("Error signing in", err); });
-      }
+    //   function authenticate() {
+    //     return gapi.auth2.getAuthInstance()
+    //         .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+    //         .then(function() { console.log("Sign-in successful"); },
+    //               function(err) { console.error("Error signing in", err); });
+    //   }
       function loadClient() {
         gapi.client.setApiKey("AIzaSyA7Vvjwmyq18LBM1uW-yns8Lsey1whsWGc");
         return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
@@ -40,15 +40,18 @@
         })
             .then(function(response) {
                     // Handle the results here (response.result has the parsed body).
-                    console.log("Response", response);
+                    //console.log("Response", response);
+                    $("#results").text("result " + response);
                   },
                   function(err) { console.error("Execute error", err); });
       }
       gapi.load("client:auth2", function() {
-        gapi.auth2.init({client_id: "146989147364-nevtsss9l8uck85lbrpovqi23o6k9u27.apps.googleusercontent.com"});
+        gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
       });
     </script>
-    <button onclick="authenticate().then(loadClient)">authorize and load</button>
+    <button onclick="loadClient()">load</button>
     <button onclick="execute()">execute</button>
+    <ul id="results"></ul>
+    
 </body>
 </html>
