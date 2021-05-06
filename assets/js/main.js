@@ -31,6 +31,8 @@ function timer(){
 $(document).ready(function(){
     //When document loaded call below function
     urgentIntoRed(glowSize(iconPosition(hideShowCardBody())));
+    // Switch between warehouse and drivers sections plus focus and 'display none block' for one of the sections
+    switchTablesButtons(switchTablesBtnOnReload(window.innerWidth));
 });
 
 // Reload page every 200 seconds. (to keep web browser session up)
@@ -43,7 +45,10 @@ setInterval(function(){
 // On resize correct ".glow" width and height and hide card body
 $( window ).resize(function(){
         glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0))));
+        // after each window resize flip arrow icon back to normal position
         $(".fa-caret-square-down").attr("id","closed").css("transform","rotateX(0deg)");
+        // Switch between warehouse and drivers sections plus focus and 'display none block' for one of the sections
+        switchTablesButtons(switchTablesBtnOnReload(window.innerWidth));
 });
 
 //Highlight urgent messages by red color and push them up in dom tree
@@ -454,5 +459,31 @@ function iconPosition(){
     if(window.innerWidth > 415){
         $(".fa-caret-square-down").css("left","210px");
         $(".uid-number").css("left","210px");
+    }
+}
+
+// witch between warehouse and drivers sections buttons
+function switchTablesButtons(){
+    $(".switch").click(function(){
+        if($(this).attr("id") == "warehouse"){
+            $(".sectionOne").css("display","block");
+            $(".sectionTwo").css("display","none");
+        }
+        if($(this).attr("id") == "drivers"){
+            $(".sectionOne").css("display","none");
+            $(".sectionTwo").css("display","block");
+        }
+    });
+}
+
+function switchTablesBtnOnReload(e){
+    if (e < 1199){
+        $("#warehouse").focus();
+        $(".sectionOne").css("display","block");
+        $(".sectionTwo").css("display","none");
+    }
+    if (e > 1199){
+        $(".sectionOne").css("display","block");
+        $(".sectionTwo").css("display","block");
     }
 }

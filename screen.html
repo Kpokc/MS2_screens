@@ -90,8 +90,14 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </header>
 
+        <!-- Switch between warehouse and drivers sections buttons. -->
+        <div class="switchTablesButtons">
+            <button class="switch" id="warehouse">WAREHOUSE</button>
+            <button class="switch" id="drivers">DRIVRES</button>
+        </div>
+        
         <main class="row divToLoadInto">
-            <div class="col-xxl-6 col-xl-6 col-12 rowToReload">
+            <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
 
                 <!--Returns Picks/Receipts tables-->
 
@@ -394,7 +400,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
             </div>
 
-            <div class="col-xxl-6 col-xl-6 col-12 rowToReload">
+            <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
 
                 <!-- <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php

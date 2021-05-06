@@ -81,10 +81,6 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-.rowToReload {
-    margin-bottom: 25px;
-}
-
 .modal {
     color: #000014;
     textarea {
@@ -123,6 +119,29 @@ h1,h2,h3,h4,h5,h6{
     &:focus{
         box-shadow: 0 0 0 0px;
     }
+}
+
+.switchTablesButtons {
+    width: 100%;
+    text-align: center;
+    display: none;
+    @media screen and (max-width: 1199px){
+        display: block;
+    }
+    button{
+        margin-top: 25px;
+        background-color: #696764;
+        color: #f7f7f7;
+        border-radius: 5px;
+        width: 120px;
+        &:focus{
+            background: #1a73e8;
+        }
+    }
+}
+
+.rowToReload {
+    margin-bottom: 25px;
 }
 
 .zeroResult {
