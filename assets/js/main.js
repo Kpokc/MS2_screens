@@ -487,3 +487,37 @@ function switchTablesBtnOnReload(e){
         $(".sectionTwo").css("display","block");
     }
 }
+
+$("#youtubBtn").click(function(){
+    
+    getBackButton();
+    function getBackButton(){
+        let element = $("li");
+        for (i = 1; i <= 4; i++){
+            //console.log($(element)[i]);
+            let li = $(element)[i];
+            $(li).css("display","none");
+        }
+        $("#youtube-windov").fadeIn(200, function(){
+            $('.divToLoadInto').fadeOut(200);
+        });
+        $("#backBtn").css("display","block");
+    }
+});
+
+$("#backBtn").click(function(){
+    
+    getBackButton();
+    function getBackButton(){
+        let element = $("li");
+        for (i = 1; i <= 4; i++){
+            //console.log($(element)[i]);
+            let li = $(element)[i];
+            $(li).css("display","block");
+        }
+        $(".divToLoadInto").fadeIn(200, function(){
+            $('#youtube-windov').fadeOut(200);
+        });
+        $("#backBtn").css("display","none");
+    }
+});

@@ -33,9 +33,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
 <body>
 
-    <!-- Glass effect on body's background -->
-    <div class="glass"></div>
-
     <div class="container-fluid contFluid">
         <header class="row sticky-top">
             <div class="col-12">
@@ -49,6 +46,12 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         </button>
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                                <li class="nav-item">
+                                    <!--Button trigger RADIO modal -->
+                                    <button type="button" class="btn btn-primary top-menu-bttn" id="backBtn" style="display: none;">
+                                        BACK
+                                    </button>
+                                </li>
                                 <li class="nav-item">
                                     <!-- Button trigger ADD modal -->
                                     <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
@@ -79,8 +82,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                                 </li>
                                 <li class="nav-item">
                                     <!--Button trigger RADIO modal -->
-                                    <button type="button" class="btn btn-primary top-menu-bttn" id="radioBtn">
-                                        RADIO
+                                    <button type="button" class="btn btn-primary top-menu-bttn" id="youtubBtn">
+                                        YOUTUBE
                                     </button>
                                 </li>
                             </ul>
@@ -90,92 +93,177 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </header>
 
-        <!-- Switch between warehouse and drivers sections buttons. -->
-        <div class="switchTablesButtons">
-            <button class="switch" id="warehouse">WAREHOUSE</button>
-            <button class="switch" id="drivers">DRIVRES</button>
-        </div>
+        <section id="main-content" class="screen">
 
-        <main class="row divToLoadInto">
-            <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
+            <!-- Switch between warehouse and drivers sections buttons. -->
+            <div class="switchTablesButtons">
+                <button class="switch" id="warehouse">WAREHOUSE</button>
+                <button class="switch" id="drivers">DRIVRES</button>
+            </div>
 
-                <!--Returns Picks/Receipts tables-->
+        
+            <main class="row divToLoadInto">
+                <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
 
-                <ul style="padding-left:1rem; padding-right:1rem;">
-                    <li class="msg-card" id="109">
-                            <div class="glow" style="display: none;"></div>
-                            <div class="urgent-status">yes</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>collection : </h4>
-                                </div>
-                                <div class="card-header-inner uid-inner">
-                                    <h4 class="uid-number">UID (109)</h4>
-                                </div>
-                                <div class="card-header-inner icon-inner">
-                                    <span><i class="far fa-caret-square-down" id="closed"></i></span>
-                                </div>
-                            </div>
+                    <!--Returns Picks/Receipts tables-->
 
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
+                    <ul style="padding-left:1rem; padding-right:1rem;">
+                        <li class="msg-card" id="109">
+                                <div class="glow" style="display: none;"></div>
+                                <div class="urgent-status">yes</div>
+                                <div class="card-header">
+                                    <div class="card-header-inner">
+                                        <h4>collection : </h4>
                                     </div>
-                                    <div class="card-body-inner">
-                                        10:52:46
+                                    <div class="card-header-inner uid-inner">
+                                        <h4 class="uid-number">UID (109)</h4>
                                     </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
+                                    <div class="card-header-inner icon-inner">
+                                        <span><i class="far fa-caret-square-down" id="closed"></i></span>
                                     </div>
                                 </div>
 
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
+                                <div class="card-body">
+                                    <div class="body-section-left">
+                                        <div class="card-body-inner">
+                                            FrenchMarket
+                                        </div>
+                                        <div class="card-body-inner">
+                                            10:52:46
+                                        </div>
+                                        <div class="card-body-inner">
+                                            ID: 194 
+                                        </div>
+                                    </div>
+
+                                    <div class="body-section-right">
+                                        <div class="messege">
+                                            126665
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                        </li><li class="msg-card" id="110">
+                            </li><li class="msg-card" id="110">
+                                <div class="urgent-status">no</div>
+                                <div class="card-header">
+                                    <div class="card-header-inner">
+                                        <h4>pick : </h4>
+                                    </div>
+                                    <div class="card-header-inner">
+                                        <h4>UID (110)</h4>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="body-section-left">
+                                        <div class="card-body-inner">
+                                            FrenchMarket
+                                        </div>
+                                        <div class="card-body-inner">
+                                            10:52:48
+                                        </div>
+                                        <div class="card-body-inner">
+                                            ID: 194 
+                                        </div>
+                                    </div>
+
+                                    <div class="body-section-right">
+                                        <div class="messege">
+                                            126665
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li><li class="msg-card" id="111">
+                                <div class="urgent-status">no</div>
+                                <div class="card-header">
+                                    <div class="card-header-inner">
+                                        <h4>pick : UID</h4>
+                                    </div>
+                                    <div class="card-header-inner">
+                                        <h4>(111)</h4>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="body-section-left">
+                                        <div class="card-body-inner">
+                                            FrenchMarket
+                                        </div>
+                                        <div class="card-body-inner">
+                                            10:52:51
+                                        </div>
+                                        <div class="card-body-inner">
+                                            ID: 194 
+                                        </div>
+                                    </div>
+
+                                    <div class="body-section-right">
+                                        <div class="messege">
+                                            126665
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li><li class="msg-card" id="112">
+                                <div class="urgent-status">no</div>
+                                <div class="card-header">
+                                    <div class="card-header-inner">
+                                        <h4>pick : UID</h4>
+                                    </div>
+                                    <div class="card-header-inner">
+                                        <h4>(112)</h4>
+                                    </div>
+                                </div>
+
+                                <div class="card-body">
+                                    <div class="body-section-left">
+                                        <div class="card-body-inner">
+                                            FrenchMarket
+                                        </div>
+                                        <div class="card-body-inner">
+                                            10:52:55
+                                        </div>
+                                        <div class="card-body-inner">
+                                            ID: 194 
+                                        </div>
+                                    </div>
+
+                                    <div class="body-section-right">
+                                        <div class="messege">
+                                            126665
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </li>              
+                        </ul>
+
+                    <!-- <ul style="padding-left:1rem; padding-right:1rem;">
+                        <?php
+                        callPicksReceipts();
+                        ?>
+                    </ul> -->
+
+                </div>
+
+                <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
+
+                    <!-- <ul style="padding-left:1rem; padding-right:1rem;">
+                        <?php
+                        callDeliveryCollection();
+                        ?>
+                    </ul> -->
+
+                    <ul style="padding-left:1rem; padding-right:1rem;">
+                        <li class="msg-card" id="111">
                             <div class="urgent-status">no</div>
                             <div class="card-header">
                                 <div class="card-header-inner">
                                     <h4>pick : </h4>
                                 </div>
                                 <div class="card-header-inner">
-                                    <h4>UID (110)</h4>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:48
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li><li class="msg-card" id="111">
-                            <div class="urgent-status">no</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>pick : UID</h4>
-                                </div>
-                                <div class="card-header-inner">
-                                    <h4>(111)</h4>
+                                    <h4>UID (111)</h4>
                                 </div>
                             </div>
 
@@ -198,95 +286,69 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                                     </div>
                                 </div>
                             </div>
-
-                        </li><li class="msg-card" id="112">
-                            <div class="urgent-status">no</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>pick : UID</h4>
-                                </div>
-                                <div class="card-header-inner">
-                                    <h4>(112)</h4>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:55
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
                         </li>              
-                    </ul>
+                        </ul>
 
-                <!-- <ul style="padding-left:1rem; padding-right:1rem;">
-                    <?php
-                    callPicksReceipts();
-                    ?>
-                </ul> -->
-
-            </div>
-
-            <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
-
-                <!-- <ul style="padding-left:1rem; padding-right:1rem;">
-                    <?php
-                    callDeliveryCollection();
-                    ?>
-                </ul> -->
-
-                <ul style="padding-left:1rem; padding-right:1rem;">
-                    <li class="msg-card" id="111">
-                        <div class="urgent-status">no</div>
-                        <div class="card-header">
-                            <div class="card-header-inner">
-                                <h4>pick : </h4>
-                            </div>
-                            <div class="card-header-inner">
-                                <h4>UID (111)</h4>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="body-section-left">
-                                <div class="card-body-inner">
-                                    FrenchMarket
-                                </div>
-                                <div class="card-body-inner">
-                                    10:52:51
-                                </div>
-                                <div class="card-body-inner">
-                                    ID: 194 
-                                </div>
-                            </div>
-
-                            <div class="body-section-right">
-                                <div class="messege">
-                                    126665
-                                </div>
-                            </div>
-                        </div>
-                    </li>              
-                    </ul>
-
-            </div>
-        </main>
+                </div>
+            </main>
 
 
+        </section>
+
+        <section id="youtube-windov" class="screen" style="display:none;">
+            <script src="https://apis.google.com/js/api.js"></script>
+            <script>
+              
+              /**
+               * Sample JavaScript code for youtube.search.list
+               * See instructions for running APIs Explorer code samples locally:
+               * https://developers.google.com/explorer-help/guides/code_samples#javascript
+               */
+            
+            //   function authenticate() {
+            //     return gapi.auth2.getAuthInstance()
+            //         .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
+            //         .then(function() { console.log("Sign-in successful"); },
+            //               function(err) { console.error("Error signing in", err); });
+            //   }
+              function loadClient() {
+                gapi.client.setApiKey("AIzaSyA7Vvjwmyq18LBM1uW-yns8Lsey1whsWGc");
+                return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+                    .then(function() { console.log("GAPI client loaded for API"); execute();},
+                          function(err) { console.error("Error loading GAPI client for API", err); });
+              }
+              // Make sure the client is loaded and sign-in is complete before calling this method.
+                function execute() {
+                  return gapi.client.youtube.search.list({
+                    "channelType": "any",
+                    "maxResults": 10,
+                    "q": $("#search").val()//"best music 80's"
+                  })
+                      .then(function(response) {
+                              // Handle the results here (response.result has the parsed body).
+                              console.log("Response", response.result.items);
+                              // document.getElementById("results").innerHTML = response.result.items;
+                              var data = response.result.items;
+                              data.forEach(function(element){
+                                  document.getElementById("results").innerHTML += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>";
+                              })
+                            },
+                            function(err) { console.error("Execute error", err); });
+                }
+              gapi.load("client:auth2", function() {
+                gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
+              });
+            </script>
+        
+            <h1>Hello Youtude</h1>
+            <label for="search">Search</label>
+            <input type="text" name="search" id="search">
+            <button onclick="loadClient()">Search</button>
+            <button onclick="execute()">execute</button>
+            <div id="results"></div>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/sD-_MylNvXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+           
+        </section>
         
         <footer class="row">
             <div class="col-12">
@@ -294,202 +356,203 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 <h6 class="company">SSL / RHENUS</h6>
             </div>
         </footer>
-    </div>
 
-    <!-- Modal ADD FORM-->
-    <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                     <!--Hidden div message sent - response from server OK-->
-                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE SENT!</p>
-                        </span>
+        <!-- Modal ADD FORM-->
+        <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!--Hidden div message not sent - response from server ERROR-->
-                    <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                    <div class="modal-body">
+                        <!--Hidden div message sent - response from server OK-->
+                        <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class='far fa-thumbs-up'></i>
+                                <p class="message-sent-text">MESSAGE SENT!</p>
+                            </span>
+                        </div>
+                        <!--Hidden div message not sent - response from server ERROR-->
+                        <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class="fas fa-times"></i>
+                                <p class="message-sent-text">SOMETHING WENT WRONG!</p>
+                            </span>
+                        </div>
+                        <form action="add.php" method="POST" id="addRowToDbForm" class="modal-form">
+                            <label for="select">Select:</label>
+                            <select class="top-select" id="select" name="select">
+                                <option value="pick">Pick</option>
+                                <option value="receipt">Receipt</option>
+                                <option value="delivery">Delivery</option>
+                                <option value="collection">Collection</option>
+                                <option value="transfer">Transfer</option>
+                            </select><br><br>
+
+                            <label for="pick_id">Job ID:</label><br>
+                            <input type="number" name="pick_id" id="pick_id" required><br><br>
+                            <label for="vendor">Vendors Name:</label><br>
+                            <input type="text" name="vendor" id="vendor" required><br><br>
+                            <label for="urgent">Urgent Status:</label>
+                            <select class="bottom-select" id="urgent" name="urgent">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select><br><br>
+
+                            <label for="message">Message:</label><br>
+                            <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
+                            <hr>
+                            <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
+                            <button type="button" class="btn btn-secondary button-in-modal"
+                                data-bs-dismiss="modal">CLOSE</button>
+                        </form>
                     </div>
-                    <form action="add.php" method="POST" id="addRowToDbForm" class="modal-form">
-                        <label for="select">Select:</label>
-                        <select class="top-select" id="select" name="select">
-                            <option value="pick">Pick</option>
-                            <option value="receipt">Receipt</option>
-                            <option value="delivery">Delivery</option>
-                            <option value="collection">Collection</option>
-                            <option value="transfer">Transfer</option>
-                        </select><br><br>
-
-                        <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id" required><br><br>
-                        <label for="vendor">Vendors Name:</label><br>
-                        <input type="text" name="vendor" id="vendor" required><br><br>
-                        <label for="urgent">Urgent Status:</label>
-                        <select class="bottom-select" id="urgent" name="urgent">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select><br><br>
-
-                        <label for="message">Message:</label><br>
-                        <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
-                        <hr>
-                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
+                    <div class="modal-footer">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- \.Modal ADD FORM -->
+        </div>
+        <!-- \.Modal ADD FORM -->
 
-    <!-- Modal DELETE FORM-->
-    <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <!--Hidden div message sent - response from server OK-->
-                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE DELETED!</p>
-                        </span>
+        <!-- Modal DELETE FORM-->
+        <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <!--Hidden div message not sent - response from server ERROR-->
-                    <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                    <div class="modal-body">
+                        <!--Hidden div message sent - response from server OK-->
+                        <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class='far fa-thumbs-up'></i>
+                                <p class="message-sent-text">MESSAGE DELETED!</p>
+                            </span>
+                        </div>
+                        <!--Hidden div message not sent - response from server ERROR-->
+                        <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class="fas fa-times"></i>
+                                <p class="message-sent-text">SOMETHING WENT WRONG!</p>
+                            </span>
+                        </div>
+                        <form action="delete.php" method="POST" id="delRowFromDbForm" class="modal-form">
+                            <label for="pick_id_del">UD Nr:</label><br>
+                            <input type="number" name="pick_id" id="pick_id_del" required><br>
+                            <hr>
+                            <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
+                            <button type="button" class="btn btn-secondary button-in-modal"
+                                data-bs-dismiss="modal">CLOSE</button>
+                        </form>
                     </div>
-                    <form action="delete.php" method="POST" id="delRowFromDbForm" class="modal-form">
-                        <label for="pick_id_del">UD Nr:</label><br>
-                        <input type="number" name="pick_id" id="pick_id_del" required><br>
-                        <hr>
-                        <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
+                    <div class="modal-footer">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- \.Modal DELETE FORM -->
+        </div>
+        <!-- \.Modal DELETE FORM -->
 
-    <!-- Modal UPDATE FORM-->
-    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBttn"></button>
-                </div>
-                <div class="modal-body">
-                    <!--Hidden div message sent - response from server OK-->
-                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE UPDATED!</p>
-                        </span>
+        <!-- Modal UPDATE FORM-->
+        <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBttn"></button>
                     </div>
-                    <!--Hidden div message not sent - response from server ERROR-->
-                    <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
-                            <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                    <div class="modal-body">
+                        <!--Hidden div message sent - response from server OK-->
+                        <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class='far fa-thumbs-up'></i>
+                                <p class="message-sent-text">MESSAGE UPDATED!</p>
+                            </span>
+                        </div>
+                        <!--Hidden div message not sent - response from server ERROR-->
+                        <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
+                            <span>
+                                <i class="fas fa-times"></i>
+                                <p class="message-sent-text">SOMETHING WENT WRONG!</p>
+                            </span>
+                        </div>
+                        <form action="update.php" method="POST" id="updateRow" class="modal-form">
+                            <label for="unique_id">UID Nr:</label><br>
+                            <input type="number" name="unique_id" id="unique_id" required>
+                            <br><br>
+                            <label for="select">Select:</label>
+                            <select class="top-select" id="select_upd" name="select">
+                                <option value="pick">Pick</option>
+                                <option value="receipt">Receipt</option>
+                                <option value="delivery">Delivery</option>
+                                <option value="collection">Collection</option>
+                                <option value="transfer">Transfer</option>
+                            </select>
+                            <aside class="current-data-1">Current</aside>
+                            <br><br>
+
+                            <label for="pick_id">Job ID:</label><br>
+                            <input type="number" name="pick_id" id="pick_id_upd" required>
+                            <aside class="current-data-2">Current</aside>
+                            <br><br>
+                            <label for="vendor">Vendors Name:</label><br>
+                            <input type="text" name="vendor" id="vendor_upd" required>
+                            <aside class="current-data-3">Current</aside>
+                            <br><br>
+                            <label for="urgent">Urgent Status:</label>
+                            <select class="bottom-select" id="urgent_upd" name="urgent">
+                                <option value="no">No</option>
+                                <option value="yes">Yes</option>
+                            </select>
+                            <aside class="current-data-4">Current</aside>
+                            <br><br>
+
+                            <label for="message">Message:</label><br>
+                            <aside class="current-data-5">Current</aside>
+                            <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
+                            <hr>
+                            <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
+                            <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal" id="closeBttn">CLOSE</button>
+                        </form>
                     </div>
-                    <form action="update.php" method="POST" id="updateRow" class="modal-form">
-                        <label for="unique_id">UID Nr:</label><br>
-                        <input type="number" name="unique_id" id="unique_id" required>
-                        <br><br>
-                        <label for="select">Select:</label>
-                        <select class="top-select" id="select_upd" name="select">
-                            <option value="pick">Pick</option>
-                            <option value="receipt">Receipt</option>
-                            <option value="delivery">Delivery</option>
-                            <option value="collection">Collection</option>
-                            <option value="transfer">Transfer</option>
-                        </select>
-                        <aside class="current-data-1">Current</aside>
-                        <br><br>
-
-                        <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id_upd" required>
-                        <aside class="current-data-2">Current</aside>
-                        <br><br>
-                        <label for="vendor">Vendors Name:</label><br>
-                        <input type="text" name="vendor" id="vendor_upd" required>
-                        <aside class="current-data-3">Current</aside>
-                        <br><br>
-                        <label for="urgent">Urgent Status:</label>
-                        <select class="bottom-select" id="urgent_upd" name="urgent">
-                            <option value="no">No</option>
-                            <option value="yes">Yes</option>
-                        </select>
-                        <aside class="current-data-4">Current</aside>
-                        <br><br>
-
-                        <label for="message">Message:</label><br>
-                        <aside class="current-data-5">Current</aside>
-                        <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
-                        <hr>
-                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
-                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal" id="closeBttn">CLOSE</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
+                    <div class="modal-footer">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <!-- \.Modal UPDATE FORM -->
+        </div>
+        <!-- \.Modal UPDATE FORM -->
 
-    <!-- Modal LOGOUT FORM-->
-    <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form action="logout.php" method="POST">
-                        <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOG OUT?</p>
-                        <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
-                    </form>
-                </div>
-                <div class="modal-footer">
+        <!-- Modal LOGOUT FORM-->
+        <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="logout.php" method="POST">
+                            <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOG OUT?</p>
+                            <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
+                            <button type="button" class="btn btn-secondary button-in-modal"
+                                data-bs-dismiss="modal">CLOSE</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- \.Modal LOGOUT FORM -->
+
     </div>
-    <!-- \.Modal LOGOUT FORM -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
