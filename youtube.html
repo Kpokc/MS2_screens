@@ -1,64 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Document</title>
-</head>
-<body>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script>
-      
-      /**
-       * Sample JavaScript code for youtube.search.list
-       * See instructions for running APIs Explorer code samples locally:
-       * https://developers.google.com/explorer-help/guides/code_samples#javascript
-       */
-    
-    //   function authenticate() {
-    //     return gapi.auth2.getAuthInstance()
-    //         .signIn({scope: "https://www.googleapis.com/auth/youtube.force-ssl"})
-    //         .then(function() { console.log("Sign-in successful"); },
-    //               function(err) { console.error("Error signing in", err); });
-    //   }
-      function loadClient() {
-        gapi.client.setApiKey("AIzaSyA7Vvjwmyq18LBM1uW-yns8Lsey1whsWGc");
-        return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
-            .then(function() { console.log("GAPI client loaded for API"); execute();},
-                  function(err) { console.error("Error loading GAPI client for API", err); });
-      }
-      // Make sure the client is loaded and sign-in is complete before calling this method.
-        function execute() {
-          return gapi.client.youtube.search.list({
-            "channelType": "any",
-            "maxResults": 10,
-            "q": $("#search").val()//"best music 80's"
-          })
-              .then(function(response) {
-                      // Handle the results here (response.result has the parsed body).
-                      console.log("Response", response.result.items);
-                      // document.getElementById("results").innerHTML = response.result.items;
-                      var data = response.result.items;
-                      data.forEach(function(element){
-                          document.getElementById("results").innerHTML += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>";
-                      })
-                    },
-                    function(err) { console.error("Execute error", err); });
-        }
-      gapi.load("client:auth2", function() {
-        gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
-      });
-    </script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <h1>Hello Youtude</h1>
-    <label for="search">Search</label>
-    <input type="text" name="search" id="search">
-    <button onclick="loadClient()">Search</button>
-    <button onclick="execute()">execute</button>
-    <div id="results"></div>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/sD-_MylNvXM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    
-</body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.js"
+      integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/screen-style.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="yt-header">
+      <div class="yt-search">
+        <h1>YOUTUBE</h1>
+        <input type="text" name="search" id="search" />
+        <button onclick="loadClient()"><i class="fas fa-search"></i></button>
+      </div>
+    </div>
+
+    <section class="yt-main">
+      <div id="results">
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/y-BWKxp322w"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/u0PrLVWDU4M"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/NBGJqOkjN00"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/zfgpv-uzFjI"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/Qpn-gD5WHEQ"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/undefined"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/1hPWxJWYJ38"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/N7aEr1eR04I"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/fN-FQiUbqlc"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/DsRa5S1fSj8"
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen=""
+          ></iframe>
+      </div>
+    </section>
+
+    <div class="yt-buttons">
+        <button class="switch-btn">Previous</button>
+        <button class="switch-btn">Next</button>
+    </div>
+
+  </body>
 </html>

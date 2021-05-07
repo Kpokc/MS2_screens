@@ -427,7 +427,7 @@ function reloadeMainSection(){
 // Urgent red glowing effect
 function glowSize(){
     // select any top card to get current width
-    let card = $("li")[5];
+    let card = $("li")[6];
     // ".glow" div width equals ".card" 
     $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
 }
@@ -498,8 +498,8 @@ $("#youtubBtn").click(function(){
             let li = $(element)[i];
             $(li).css("display","none");
         }
-        $("#youtube-windov").fadeIn(200, function(){
-            $('.divToLoadInto').fadeOut(200);
+        $("#youtube-windov").fadeIn(0, function(){
+            $('.divToLoadInto').fadeOut(0);
         });
         $("#backBtn").css("display","block");
     }
@@ -515,9 +515,40 @@ $("#backBtn").click(function(){
             let li = $(element)[i];
             $(li).css("display","block");
         }
-        $(".divToLoadInto").fadeIn(200, function(){
-            $('#youtube-windov').fadeOut(200);
+        $(".divToLoadInto").fadeIn(0, function(){
+            $('#youtube-windov').fadeOut(0);
         });
         $("#backBtn").css("display","none");
     }
 });
+
+////// YOUTUBE API ///////
+
+function loadClient() {
+    gapi.client.setApiKey("AIzaSyA7Vvjwmyq18LBM1uW-yns8Lsey1whsWGc");
+    return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
+    .then(function() { console.log("GAPI client loaded for API"); execute();},
+        function(err) { console.error("Error loading GAPI client for API", err); }
+    );
+}
+    // Make sure the client is loaded and sign-in is complete before calling this method.
+    function execute() {
+        return gapi.client.youtube.search.list({
+            "channelType": "any",
+            "maxResults": 10,
+            "q": $("#search").val()//"best music 80's"
+        })
+            .then(function(response) {
+            // Handle the results here (response.result has the parsed body).
+            console.log("Response", response.result.items);
+            // document.getElementById("results").innerHTML = response.result.items;
+            var data = response.result.items;
+            data.forEach(function(element){
+            document.getElementById("results").innerHTML += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>";
+            })
+            },
+            function(err) { console.error("Execute error", err); });
+    }
+        gapi.load("client:auth2", function() {
+            gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
+        });
