@@ -503,23 +503,32 @@ function loadClient() {
     );
 }
     // Make sure the client is loaded and sign-in is complete before calling this method.
-    function execute() {
-        return gapi.client.youtube.search.list({
-            "channelType": "any",
-            "maxResults": 10,
-            "q": $("#search").val()//"best music 80's"
-        })
-            .then(function(response) {
+function execute() {
+    return gapi.client.youtube.search.list({
+        "channelType": "any",
+        "maxResults": 10,
+        "q": $("#search").val(),//"best music 80's"
+        "order": "rating",
+        "pageToken": $(".next").attr("id")
+    })
+        .then(function(response) {
             // Handle the results here (response.result has the parsed body).
             console.log("Response", response.result.items);
+            console.log("Next", response.result.nextPageToken);
             // document.getElementById("results").innerHTML = response.result.items;
             var data = response.result.items;
             data.forEach(function(element){
             document.getElementById("results").innerHTML += "<iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-            })
-            },
+            $(".next").attr("id", response.result.nextPageToken); // this assign to the button
+            // prevPageToken: "CAoQAQ"
+        })
+        },
             function(err) { console.error("Execute error", err); });
-    }
-        gapi.load("client:auth2", function() {
-            gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
-        });
+}
+    gapi.load("client:auth2", function() {
+        gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
+    });
+
+
+// Next / previous buttons
+

@@ -349,7 +349,10 @@ h1, h2, h3, h4, h5, h6 {
 
 .glow-text {
   color: #f8f8f8;
-  text-shadow: 0 0 10px #ee0611, 0 0 15px #ee0611, 0 0 20px #ee0611, 0 0 25px #ee0611;
+  text-shadow: 0 0 10px #ee0611,
+ 0 0 15px #ee0611,
+ 0 0 20px #ee0611,
+ 0 0 25px #ee0611;
 }
 
 @-webkit-keyframes gradient {
