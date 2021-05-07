@@ -37,7 +37,7 @@ body {
 }
 
 input, textarea {
-    padding: 5px;
+    padding: 3px;
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -122,6 +122,18 @@ h1,h2,h3,h4,h5,h6{
     margin-right: 10px;
     &:focus{
         box-shadow: 0 0 0 0px;
+    }
+}
+
+.navbar-collapse {
+    button{
+        width: 100px;
+    }
+    #youtubBtn {
+        display: block;
+        @media screen and (max-width: 990px) {
+            display: none;
+        }
     }
 }
 
@@ -369,15 +381,22 @@ footer {
     }
 }
 
+#youtube-window {
+    @media screen and (max-width: 990px) {
+        display: none;
+    }
+}
+
 .yt-main {
     text-align: center;
-    width: 90%;
+    width: 85%;
     margin:  0 auto;
     border-radius: 15px;
     padding: 10px;
     background: #c4c4c4;
     box-shadow: $shadow;
     padding-top: 35px;
+    padding-bottom: 35px;
     border: 1px solid #535050;
 }
 
@@ -397,5 +416,17 @@ footer {
         &:hover{
             background: #dedede;
         }
+    }
+}
+
+iframe {
+    @media screen and (max-width: 1370px) {
+        width: 280px;
+    } 
+    @media screen and (max-width: 1045px) {
+        width: 370px;
+    }
+    @media screen and (max-width: 990px) {
+        display: none;
     }
 }

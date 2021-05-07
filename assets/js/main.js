@@ -490,7 +490,7 @@ function switchTablesBtnOnReload(e){
 
 // Youtube slide up to down
 $("#youtubBtn").click(function(){
-    $("#youtube-windov").slideToggle(200);
+    $("#youtube-window").slideToggle(200);
 });
 
 ////// YOUTUBE API ///////

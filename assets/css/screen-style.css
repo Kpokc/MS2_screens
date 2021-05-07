@@ -20,7 +20,7 @@ body {
 }
 
 input, textarea {
-  padding: 5px;
+  padding: 3px;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -134,6 +134,20 @@ h1, h2, h3, h4, h5, h6 {
 .navbar-toggler:focus {
   -webkit-box-shadow: 0 0 0 0px;
           box-shadow: 0 0 0 0px;
+}
+
+.navbar-collapse button {
+  width: 100px;
+}
+
+.navbar-collapse #youtubBtn {
+  display: block;
+}
+
+@media screen and (max-width: 990px) {
+  .navbar-collapse #youtubBtn {
+    display: none;
+  }
 }
 
 .switchTablesButtons {
@@ -459,9 +473,15 @@ footer .copyrights {
   background: #dedede;
 }
 
+@media screen and (max-width: 990px) {
+  #youtube-window {
+    display: none;
+  }
+}
+
 .yt-main {
   text-align: center;
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
   border-radius: 15px;
   padding: 10px;
@@ -469,6 +489,7 @@ footer .copyrights {
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
   padding-top: 35px;
+  padding-bottom: 35px;
   border: 1px solid #535050;
 }
 
@@ -492,5 +513,23 @@ footer .copyrights {
 
 .yt-buttons .switch-btn:hover {
   background: #dedede;
+}
+
+@media screen and (max-width: 1370px) {
+  iframe {
+    width: 280px;
+  }
+}
+
+@media screen and (max-width: 1045px) {
+  iframe {
+    width: 370px;
+  }
+}
+
+@media screen and (max-width: 990px) {
+  iframe {
+    display: none;
+  }
 }
 /*# sourceMappingURL=screen-style.css.map */
