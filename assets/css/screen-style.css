@@ -475,6 +475,7 @@ footer .copyrights {
 .yt-buttons {
   margin: 25px;
   text-align: center;
+  width: 98%;
 }
 
 .yt-buttons .switch-btn {

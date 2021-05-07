@@ -427,7 +427,7 @@ function reloadeMainSection(){
 // Urgent red glowing effect
 function glowSize(){
     // select any top card to get current width
-    let card = $("li")[6];
+    let card = $("li")[5];
     // ".glow" div width equals ".card" 
     $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
 }
@@ -488,38 +488,9 @@ function switchTablesBtnOnReload(e){
     }
 }
 
+// Youtube slide up to down
 $("#youtubBtn").click(function(){
-    
-    getBackButton();
-    function getBackButton(){
-        let element = $("li");
-        for (i = 1; i <= 4; i++){
-            //console.log($(element)[i]);
-            let li = $(element)[i];
-            $(li).css("display","none");
-        }
-        $("#youtube-windov").fadeIn(0, function(){
-            $('.divToLoadInto').fadeOut(0);
-        });
-        $("#backBtn").css("display","block");
-    }
-});
-
-$("#backBtn").click(function(){
-    
-    getBackButton();
-    function getBackButton(){
-        let element = $("li");
-        for (i = 1; i <= 4; i++){
-            //console.log($(element)[i]);
-            let li = $(element)[i];
-            $(li).css("display","block");
-        }
-        $(".divToLoadInto").fadeIn(0, function(){
-            $('#youtube-windov').fadeOut(0);
-        });
-        $("#backBtn").css("display","none");
-    }
+    $("#youtube-windov").slideToggle(200);
 });
 
 ////// YOUTUBE API ///////
@@ -544,7 +515,7 @@ function loadClient() {
             // document.getElementById("results").innerHTML = response.result.items;
             var data = response.result.items;
             data.forEach(function(element){
-            document.getElementById("results").innerHTML += "<p><iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe></p>";
+            document.getElementById("results").innerHTML += "<iframe width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
             })
             },
             function(err) { console.error("Execute error", err); });

@@ -50,12 +50,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                                 <li class="nav-item">
-                                    <!--Button trigger RADIO modal -->
-                                    <button type="button" class="btn btn-primary top-menu-bttn" id="backBtn" style="display: none;">
-                                        BACK
-                                    </button>
-                                </li>
-                                <li class="nav-item">
                                     <!-- Button trigger ADD modal -->
                                     <button type="button" class="btn btn-primary top-menu-bttn" data-bs-toggle="modal"
                                         data-bs-target="#exampleModalAdd" id="addRowToDb">
@@ -95,6 +89,126 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 </nav>
             </div>
         </header>
+
+        <section id="youtube-windov" class="row screen" style="display:none;">
+            <div class="yt-header">
+                <div class="yt-search">
+                  <h1>YOUTUBE</h1>
+                  <input type="text" name="search" id="search" />
+                  <button onclick="loadClient()"><i class="fas fa-search"></i></button>
+                </div>
+              </div>
+          
+              <section class="yt-main">
+                <div id="results">
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/y-BWKxp322w"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/u0PrLVWDU4M"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/NBGJqOkjN00"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/zfgpv-uzFjI"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/Qpn-gD5WHEQ"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/undefined"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/1hPWxJWYJ38"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/N7aEr1eR04I"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/fN-FQiUbqlc"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+          
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/DsRa5S1fSj8"
+                      title="YouTube video player"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowfullscreen=""
+                    ></iframe>
+                </div>
+              </section>
+          
+              <div class="yt-buttons">
+                  <button class="switch-btn">Previous</button>
+                  <button class="switch-btn">Next</button>
+              </div>
+        </section>
 
         <!-- Switch between warehouse and drivers sections buttons. -->
         <div class="switchTablesButtons">
@@ -292,126 +406,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </main>
 
-        <section id="youtube-windov" class="row screen" style="display:none;">
-            <div class="yt-header">
-                <div class="yt-search">
-                  <h1>YOUTUBE</h1>
-                  <input type="text" name="search" id="search" />
-                  <button onclick="loadClient()"><i class="fas fa-search"></i></button>
-                </div>
-              </div>
-          
-              <section class="yt-main">
-                <div id="results">
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/y-BWKxp322w"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/u0PrLVWDU4M"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/NBGJqOkjN00"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/zfgpv-uzFjI"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/Qpn-gD5WHEQ"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/undefined"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/1hPWxJWYJ38"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/N7aEr1eR04I"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/fN-FQiUbqlc"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/DsRa5S1fSj8"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-                </div>
-              </section>
-          
-              <div class="yt-buttons">
-                  <button class="switch-btn">Previous</button>
-                  <button class="switch-btn">Next</button>
-              </div>
-        </section>
-
         
         <footer class="row">
             <div class="col-12">
@@ -467,7 +461,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <label for="message">Message:</label><br>
                         <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
                         <hr>
-                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">ADD</button>
+                        <button type="submit" class="btn btn-primary button-in-modal">ADD</button>
                         <button type="button" class="btn btn-secondary button-in-modal"
                             data-bs-dismiss="modal">CLOSE</button>
                     </form>
