@@ -515,15 +515,15 @@ footer .copyrights {
   background: #dedede;
 }
 
-@media screen and (max-width: 1370px) {
+@media screen and (min-width: 1045px) {
   iframe {
-    width: 280px;
+    width: 300px;
   }
 }
 
 @media screen and (max-width: 1045px) {
   iframe {
-    width: 370px;
+    width: 250px;
   }
 }
 

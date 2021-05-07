@@ -420,11 +420,11 @@ footer {
 }
 
 iframe {
-    @media screen and (max-width: 1370px) {
-        width: 280px;
+    @media screen and (min-width: 1045px) {
+        width: 300px;
     } 
     @media screen and (max-width: 1045px) {
-        width: 370px;
+        width: 250px;
     }
     @media screen and (max-width: 990px) {
         display: none;
