@@ -1,9 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 
+$background: #696764;
+$shadow: 0 3px 4px 0 #000014;
+$border: 1px solid #dedede;
+$blue: #1a73e8;
+$darkWhite: #dedede;
+
 @mixin button-hover {
     background-color: #f7f7f7;
-    color: #1a73e8;
-    text-shadow: 0px 1px 0px #1a73e8;
+    color: $blue;
+    text-shadow: 0px 1px 0px $blue;
     transition: 0.3s;
 }
 
@@ -14,9 +20,10 @@
     transform: translate(-50%, -50%);
 }
 
-$background: #696764;
-$shadow: 0 3px 4px 0 #000014;
-$border: 1px solid #dedede;
+@mixin shadowHoverEffect {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px 0px #000014;
+}
 
 *{
     margin: 0;
@@ -66,7 +73,7 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .bg-light {
-    background-color: #1a73e8!important;
+    background-color: $blue!important;
     box-shadow: $shadow;
     border-radius: 5px;
     .navbar-nav {
@@ -109,7 +116,7 @@ h1,h2,h3,h4,h5,h6{
         width: 49%;
         float: right;
         margin: 1px;
-        background-color: #1a73e8;
+        background-color: $blue;
         &:hover {
             @include button-hover();
         }
@@ -118,7 +125,7 @@ h1,h2,h3,h4,h5,h6{
 
 .navbar-toggler {
     box-shadow: 0 0 0 2px;
-    background: #dedede;
+    background: $darkWhite;
     margin-right: 10px;
     &:focus{
         box-shadow: 0 0 0 0px;
@@ -147,11 +154,11 @@ h1,h2,h3,h4,h5,h6{
     button{
         margin-top: 25px;
         background-color: #696764;
-        color: #f7f7f7;
+        color: #fff;
         border-radius: 5px;
         width: 120px;
         &:focus{
-            background: #1a73e8;
+            background: $blue;
         }
     }
 }
@@ -179,8 +186,7 @@ h1,h2,h3,h4,h5,h6{
     border: $border;
     border-radius: 5px;
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px 0px #000014;
+        @include shadowHoverEffect;
     }
     .urgent-status{
         display: none;
@@ -327,7 +333,7 @@ footer {
     height: 0px;
     transition: 0.3sec;
     .company, .copyrights {
-        color: #1a73e8;
+        color: $blue;
         padding: 5px;
         float: right;
         text-shadow: 1px 1px 1px #000014;
@@ -375,7 +381,7 @@ footer {
             border: 1px solid #535050;
             width: 55px;  
             &:hover{
-                background: #dedede;
+                background: $darkWhite;
             }         
         }
     }
@@ -414,17 +420,16 @@ footer {
         box-shadow: $shadow;
         width: 100px;
         &:hover{
-            background: #dedede;
+            background: $darkWhite;
         }
     }
 }
 
 .iframeToDelete {
     margin: 5px;
-    box-shadow: 0 3px 4px 0 #000014;
+    box-shadow: $shadow;
     &:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 10px 0px #000014;
+        @include shadowHoverEffect;
     }
     @media screen and (min-width: 1045px) {
         width: 300px;

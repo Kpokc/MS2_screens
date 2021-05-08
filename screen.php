@@ -90,6 +90,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </header>
 
+        <!-- Youtube section -->
         <section id="youtube-window" class="row screen" style="display:none;">
             <div class="yt-header">
                 <div class="yt-search">
@@ -101,106 +102,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
           
               <section class="yt-main">
                 <div id="results">
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/y-BWKxp322w"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/u0PrLVWDU4M"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/NBGJqOkjN00"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/zfgpv-uzFjI"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/Qpn-gD5WHEQ"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/undefined"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/1hPWxJWYJ38"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/N7aEr1eR04I"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/fN-FQiUbqlc"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
-          
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/DsRa5S1fSj8"
-                      title="YouTube video player"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowfullscreen=""
-                    ></iframe>
+                    <!-- youtube iframes loads here -->
                 </div>
               </section>
           
@@ -220,194 +122,30 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <main class="row divToLoadInto">
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
 
-                <!--Returns Picks/Receipts tables-->
+                <!--Returns Picks/Receipts cards-->
 
                 <ul style="padding-left:1rem; padding-right:1rem;">
-                    <li class="msg-card" id="109">
-                            <div class="glow" style="display: none;"></div>
-                            <div class="urgent-status">yes</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>collection : </h4>
-                                </div>
-                                <div class="card-header-inner uid-inner">
-                                    <h4 class="uid-number">UID (109)</h4>
-                                </div>
-                                <div class="card-header-inner icon-inner">
-                                    <span><i class="far fa-caret-square-down" id="closed"></i></span>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:46
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li><li class="msg-card" id="110">
-                            <div class="urgent-status">no</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>pick : </h4>
-                                </div>
-                                <div class="card-header-inner">
-                                    <h4>UID (110)</h4>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:48
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li><li class="msg-card" id="111">
-                            <div class="urgent-status">no</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>pick : UID</h4>
-                                </div>
-                                <div class="card-header-inner">
-                                    <h4>(111)</h4>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:51
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li><li class="msg-card" id="112">
-                            <div class="urgent-status">no</div>
-                            <div class="card-header">
-                                <div class="card-header-inner">
-                                    <h4>pick : UID</h4>
-                                </div>
-                                <div class="card-header-inner">
-                                    <h4>(112)</h4>
-                                </div>
-                            </div>
-
-                            <div class="card-body">
-                                <div class="body-section-left">
-                                    <div class="card-body-inner">
-                                        FrenchMarket
-                                    </div>
-                                    <div class="card-body-inner">
-                                        10:52:55
-                                    </div>
-                                    <div class="card-body-inner">
-                                        ID: 194 
-                                    </div>
-                                </div>
-
-                                <div class="body-section-right">
-                                    <div class="messege">
-                                        126665
-                                    </div>
-                                </div>
-                            </div>
-
-                        </li>              
-                    </ul>
-
-                <!-- <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
                     callPicksReceipts();
                     ?>
-                </ul> -->
+                </ul>
 
             </div>
 
+            <!--Returns Delivery/Transfers/Collections cards-->
+
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
 
-                <!-- <ul style="padding-left:1rem; padding-right:1rem;">
+                <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
                     callDeliveryCollection();
                     ?>
-                </ul> -->
-
-                <ul style="padding-left:1rem; padding-right:1rem;">
-                    <li class="msg-card" id="111">
-                        <div class="urgent-status">no</div>
-                        <div class="card-header">
-                            <div class="card-header-inner">
-                                <h4>pick : </h4>
-                            </div>
-                            <div class="card-header-inner">
-                                <h4>UID (111)</h4>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="body-section-left">
-                                <div class="card-body-inner">
-                                    FrenchMarket
-                                </div>
-                                <div class="card-body-inner">
-                                    10:52:51
-                                </div>
-                                <div class="card-body-inner">
-                                    ID: 194 
-                                </div>
-                            </div>
-
-                            <div class="body-section-right">
-                                <div class="messege">
-                                    126665
-                                </div>
-                            </div>
-                        </div>
-                    </li>              
-                    </ul>
+                </ul>
 
             </div>
         </main>
 
-        
+        <!-- Footer - swow up only when user scroll to the bottom of the page -->
         <footer class="row">
             <div class="col-12">
                 <h6 class="copyrights">Copyrights@ 2021 sslirl.com</h6>

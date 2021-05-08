@@ -495,12 +495,11 @@ $("#youtubBtn").click(function(){
 
 ////// YOUTUBE API ///////
 
+// page token
 var prevOrNextClicked = "";
-var search = "";
 
 function loadClient() {
     
-    console.log("Client v igre");
     gapi.client.setApiKey("AIzaSyA7Vvjwmyq18LBM1uW-yns8Lsey1whsWGc");
     return gapi.client.load("https://www.googleapis.com/discovery/v1/apis/youtube/v3/rest")
     .then(function() { console.log("GAPI client loaded for API"); execute();},
@@ -510,46 +509,43 @@ function loadClient() {
     // Make sure the client is loaded and sign-in is complete before calling this method.
 
 function execute() {
-    
-    console.log("poisk v igre");
-    
+
     return gapi.client.youtube.search.list({
         "channelType": "any",
         "maxResults": 10,
-        "q": $("#search").val(),//"best music 80's"
+        "q": $("#search").val(),// search field
         "order": "rating",
         "pageToken": prevOrNextClicked
     })
         .then(function(response) {
+            // remove previous search
             $(".iframeToDelete").remove();
             // Handle the results here (response.result has the parsed body).
-            console.log("Response", response.result.items);
-            console.log("Next", response.result.nextPageToken);
-            // document.getElementById("results").innerHTML = response.result.items;
             var data = response.result.items;
             data.forEach(function(element){
+            // add fetch result to HTML
             document.getElementById("results").innerHTML += "<iframe class='iframeToDelete' width='560' height='315' src='https://www.youtube.com/embed/"+element.id.videoId+"' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
             if(response.result.prevPageToken){
                 $(".prev-btn").attr("id", response.result.prevPageToken); // 'prev' page token to button
-                $(".prev-btn").attr("disabled", false);
+                $(".prev-btn").attr("disabled", false); // un disable button
             }
             else
             {
-                $(".prev-btn").attr("disabled", true);
+                $(".prev-btn").attr("disabled", true); // disable button
             }
             if(response.result.nextPageToken){
                 $(".next-btn").attr("id", response.result.nextPageToken); // 'next' page token to button
-                $(".next-btn").attr("disabled", false);
+                $(".next-btn").attr("disabled", false); // un disable button
             }
             else
             {
-                $(".next-btn").attr("disabled", true);
+                $(".next-btn").attr("disabled", true); // disable button
             }
             if(response.result.nextPageToken && response.result.prevPageToken){
                 $(".prev-btn").attr("id", response.result.prevPageToken); // 'prev' page token to button
-                $(".prev-btn").attr("disabled", false);
+                $(".prev-btn").attr("disabled", false); // un disable button
                 $(".next-btn").attr("id", response.result.nextPageToken); // 'next' page token to button
-                $(".next-btn").attr("disabled", false);
+                $(".next-btn").attr("disabled", false); // un disable button
             }
             
         })
@@ -560,13 +556,13 @@ function execute() {
         gapi.auth2.init({client_id: "146989147364-adogf5q7pois44g8qsau66p5o3g1j874.apps.googleusercontent.com"});
     });
 
+// on click pass "id" value to page "token" 
 $(".switch-btn").click(function(){
-        console.log(111 + "id ->" + $(this).attr("id"));
+        // if id has some value
         if($(this).attr("id") != ""){
             prevOrNextClicked = $(this).attr("id");
+            // call search function within page token
             loadClient();
-            console.log("variable = " + prevOrNextClicked);
-            console.log("button = " + $(this).attr("class"));
         }
         else 
         {
