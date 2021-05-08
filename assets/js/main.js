@@ -179,6 +179,9 @@ function urgentIntoRed(){
     // DELETE message input field listener (append message user wants to delete at the bottom of the delete form)
     $("#delRowFromDb").click(function(){
         $("#delRowFromDbForm").ready(function(){
+            //input id field clear
+            $("#pick_id_del").val("");
+
             $("#pick_id_del").on("input", function(){
 
                 //remove div with the table
