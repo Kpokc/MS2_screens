@@ -419,7 +419,13 @@ footer {
     }
 }
 
-iframe {
+.iframeToDelete {
+    margin: 5px;
+    box-shadow: 0 3px 4px 0 #000014;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px 0px #000014;
+    }
     @media screen and (min-width: 1045px) {
         width: 300px;
     } 

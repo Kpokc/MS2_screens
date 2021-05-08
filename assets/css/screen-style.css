@@ -349,10 +349,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .glow-text {
   color: #f8f8f8;
-  text-shadow: 0 0 10px #ee0611,
- 0 0 15px #ee0611,
- 0 0 20px #ee0611,
- 0 0 25px #ee0611;
+  text-shadow: 0 0 10px #ee0611, 0 0 15px #ee0611, 0 0 20px #ee0611, 0 0 25px #ee0611;
 }
 
 @-webkit-keyframes gradient {
@@ -518,20 +515,33 @@ footer .copyrights {
   background: #dedede;
 }
 
+.iframeToDelete {
+  margin: 5px;
+  -webkit-box-shadow: 0 3px 4px 0 #000014;
+          box-shadow: 0 3px 4px 0 #000014;
+}
+
+.iframeToDelete:hover {
+  -webkit-transform: translateY(-2px);
+          transform: translateY(-2px);
+  -webkit-box-shadow: 0 4px 10px 0px #000014;
+          box-shadow: 0 4px 10px 0px #000014;
+}
+
 @media screen and (min-width: 1045px) {
-  iframe {
+  .iframeToDelete {
     width: 300px;
   }
 }
 
 @media screen and (max-width: 1045px) {
-  iframe {
+  .iframeToDelete {
     width: 250px;
   }
 }
 
 @media screen and (max-width: 990px) {
-  iframe {
+  .iframeToDelete {
     display: none;
   }
 }
