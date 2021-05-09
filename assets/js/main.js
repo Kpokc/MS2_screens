@@ -222,6 +222,10 @@ function urgentIntoRed(){
     });
 
     $("li").dblclick(function(){
+        // bug removed JQ tried to delete "Youtube" button
+        if($(this).attr("class") == "nav-item"){
+            return false;
+        }
         // Get card uniq id
         var cardId = $(this).attr("id");
         // Clone message card
