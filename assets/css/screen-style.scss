@@ -53,6 +53,9 @@ h1,h2,h3,h4,h5,h6{
     margin: 0px;
 }
 
+/////////////// \.Global ////////////
+
+/// Time
 #time_span{
     position: absolute;
     z-index: 10;
@@ -64,14 +67,7 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-.burger-menu {
-    width: 100%;
-    text-align: right;
-    .navbar-collapse{
-        text-align: center;
-    }
-}
-
+///////////// Menu/Navigation bar ///////////////
 .bg-light {
     background-color: $blue!important;
     box-shadow: $shadow;
@@ -92,6 +88,73 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+.burger-menu {
+    width: 100%;
+    text-align: right;
+    .navbar-collapse{
+        text-align: center;
+    }
+}
+
+.navbar-toggler {
+    box-shadow: 0 0 0 2px;
+    background: $darkWhite;
+    margin-right: 10px;
+    &:focus{
+        box-shadow: 0 0 0 0px;
+    }
+}
+
+.navbar-collapse {
+    button{
+        width: 100px;
+    }
+    #youtubBtn {
+        display: block;
+        @media screen and (max-width: 990px) {
+            display: none;
+        }
+    }
+}
+
+//////////// Buttons to switch between warehouse and driver messages ///////
+.switchTablesButtons {
+    width: 100%;
+    text-align: center;
+    display: none;
+    @media screen and (max-width: 1199px){
+        display: block;
+    }
+    button{
+        margin-top: 25px;
+        background-color: #696764;
+        color: #fff;
+        border-radius: 5px;
+        width: 120px;
+        &:focus{
+            background: $blue;
+        }
+    }
+}
+
+/////// main section div //////
+.rowToReload {
+    margin-bottom: 25px;
+}
+
+/////// if DB is empty  ///////
+.zeroResult {
+    margin: 0 auto;
+    margin-top: 15px;
+    text-align: center;
+    border-radius: 5px;
+    width: 135px;
+    box-shadow: $shadow;
+    border: $border;
+    background: $background;
+}
+
+/////// modal windows /////////
 .modal {
     color: #000014;
     textarea {
@@ -123,61 +186,7 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
-.navbar-toggler {
-    box-shadow: 0 0 0 2px;
-    background: $darkWhite;
-    margin-right: 10px;
-    &:focus{
-        box-shadow: 0 0 0 0px;
-    }
-}
-
-.navbar-collapse {
-    button{
-        width: 100px;
-    }
-    #youtubBtn {
-        display: block;
-        @media screen and (max-width: 990px) {
-            display: none;
-        }
-    }
-}
-
-.switchTablesButtons {
-    width: 100%;
-    text-align: center;
-    display: none;
-    @media screen and (max-width: 1199px){
-        display: block;
-    }
-    button{
-        margin-top: 25px;
-        background-color: #696764;
-        color: #fff;
-        border-radius: 5px;
-        width: 120px;
-        &:focus{
-            background: $blue;
-        }
-    }
-}
-
-.rowToReload {
-    margin-bottom: 25px;
-}
-
-.zeroResult {
-    margin: 0 auto;
-    margin-top: 15px;
-    text-align: center;
-    border-radius: 5px;
-    width: 135px;
-    box-shadow: $shadow;
-    border: $border;
-    background: $background;
-}
-
+//////////////   Cards/Messages   //////////////
 .msg-card {
     list-style-type: none;
     margin-top: 25px;
@@ -245,6 +254,7 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+// card/message arrow Down/Up on small screen
 .icon-inner {
     position: absolute;
     .fa-caret-square-down {
@@ -259,6 +269,7 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+// card/message arrow unique id on small screen
 .uid-inner {
     position: absolute;
     .uid-number {
@@ -273,6 +284,7 @@ h1,h2,h3,h4,h5,h6{
     }
 }
 
+///// Urgent Card/Message back-ground, text, borders ////////////
 .glow {
     position: absolute;
     width: 0px;
@@ -309,6 +321,7 @@ h1,h2,h3,h4,h5,h6{
 	}
 }
 
+///// Message sent notification ///////
 .fa-thumbs-up, 
 .fa-times {
     @include position-absolute-center;
@@ -324,6 +337,7 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
 }
 
+//////// Footer //////////
 footer {
     position: fixed;
     bottom: 0;
@@ -348,7 +362,7 @@ footer {
     }
 }
 
-///////// YOUTUBE //////
+///////// YOUTUBE Section //////
 
 .yt-header {
     margin-top: 25px;
