@@ -316,7 +316,7 @@ function urgentIntoRed(){
                 // Get clicked target "id" value
                 let tr = e.target;
                 // If value equals any of "close" button or modal window it self
-                    if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("id") === "closeBttn"){
+                    if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("id") === "closeBttn" || $(tr).attr("class") === "btn-secondary"){
                         // clean unique id input field
                         $("#unique_id").val("");
                         // clean all fields

@@ -1,14 +1,11 @@
 <?php
-
 //retrieve from db
 include('callFromDb.php');
-
 //if username and password empty redirect to index.php 
 if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 {
     header("location: index.php");
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -21,25 +18,18 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     <meta name="description" content="Warehouse messenger and communication website">
     <meta name="keywords" content="N/A">
     <meta name="author" content="Pavel Makarov">
-
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/screen-style.css">
-
     <title>SSL/RHENUS</title>
 </head>
 
 <body>
-
-    <!-- Glass effect on body's background -->
-    <div class="glass"></div>
-
     <div class="container-fluid contFluid">
         <header class="row sticky-top">
             <div class="col-12">
-                <h2 id="time_span"></h2>
+                <h2 id="time_span">Time</h2>
                 <nav class="navbar navbar-expand-lg navbar-light bg-light">
                     <div class="burger-menu">
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -94,23 +84,27 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <section id="youtube-window" class="row screen" style="display:none;">
             <div class="yt-header">
                 <div class="yt-search">
-                  <h1>YOUTUBE</h1>
-                  <input type="text" name="search" id="search" />
-                  <button onclick="loadClient()"><i class="fas fa-search"></i></button>
+                    <h1>YOUTUBE</h1>
+                    <input type="text" name="search" id="search" />
+                    <button onclick="loadClient()">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-              </div>
-          
-              <section class="yt-main">
+            </div>
+
+            <section class="yt-main">
+                <h2 style="display: none;">YouTube results are here</h2>
                 <div id="results">
                     <!-- youtube iframes loads here -->
                 </div>
-              </section>
-          
-              <div class="yt-buttons">
-                  <button class="switch-btn prev-btn" id="">Previous</button>
-                  <button class="switch-btn next-btn" id="">Next</button>
-                  <hr style="color: black; margin-top: 45px;">
-              </div>
+            </section>
+
+            <!-- Previous / next buttons -->
+            <div class="yt-buttons">
+                <button class="switch-btn prev-btn">Previous</button>
+                <button class="switch-btn next-btn">Next</button>
+                <hr style="color: black; margin-top: 45px;">
+            </div>
         </section>
 
         <!-- Switch between warehouse and drivers sections buttons. -->
@@ -121,31 +115,25 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
         <main class="row divToLoadInto">
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
-
                 <!--Returns Picks/Receipts cards-->
-
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                    callPicksReceipts();
+                        callPicksReceipts();
                     ?>
                 </ul>
-
             </div>
 
             <!--Returns Delivery/Transfers/Collections cards-->
-
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
-
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
-                    callDeliveryCollection();
+                        callDeliveryCollection();
                     ?>
                 </ul>
-
             </div>
         </main>
 
-        <!-- Footer - swow up only when user scroll to the bottom of the page -->
+        <!-- Footer - show up only when user scroll to the bottom of the page -->
         <footer class="row">
             <div class="col-12">
                 <h6 class="copyrights">Copyrights@ 2021 sslirl.com</h6>
@@ -155,27 +143,27 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     </div>
 
     <!-- Modal ADD FORM-->
-    <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="exampleModalAdd" tabindex="-1" aria-labelledby="exampleModalLabelAdd" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">ADD NEW MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelAdd">ADD NEW MESSAGE</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                     <!--Hidden div message sent - response from server OK-->
-                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                    <!--Hidden div message sent - response from server OK-->
+                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                        <p>
                             <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE SENT!</p>
-                        </span>
+                            <span class="message-sent-text">MESSAGE SENT!</span>
+                        </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                        <p>
                             <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                        </p>
                     </div>
                     <form action="add.php" method="POST" id="addRowToDbForm" class="modal-form">
                         <label for="select">Select:</label>
@@ -201,8 +189,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <textarea name="message" id="message" rows="4" cols="50"></textarea><br>
                         <hr>
                         <button type="submit" class="btn btn-primary button-in-modal">ADD</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
+                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -210,32 +197,31 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </div>
     </div>
-    </div>
     <!-- \.Modal ADD FORM -->
 
     <!-- Modal DELETE FORM-->
-    <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModalDelete" tabindex="-1" aria-labelledby="exampleModalLabelDelete"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">DELETE MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelDelete">DELETE MESSAGE</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <!--Hidden div message sent - response from server OK-->
                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                        <p>
                             <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE DELETED!</p>
-                        </span>
+                            <span class="message-sent-text">MESSAGE DELETED!</span>
+                        </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                        <p>
                             <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                        </p>
                     </div>
                     <form action="delete.php" method="POST" id="delRowFromDbForm" class="modal-form">
                         <label for="pick_id_del">UD Nr:</label><br>
@@ -251,32 +237,31 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </div>
     </div>
-    </div>
     <!-- \.Modal DELETE FORM -->
 
     <!-- Modal UPDATE FORM-->
-    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabelUpdate"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">UPDATE MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelUpdate">UPDATE MESSAGE</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBttn"></button>
                 </div>
                 <div class="modal-body">
                     <!--Hidden div message sent - response from server OK-->
                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                        <p>
                             <i class='far fa-thumbs-up'></i>
-                            <p class="message-sent-text">MESSAGE UPDATED!</p>
-                        </span>
+                            <span class="message-sent-text">MESSAGE UPDATED!</span>
+                        </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
-                        <span>
+                        <p>
                             <i class="fas fa-times"></i>
-                            <p class="message-sent-text">SOMETHING WENT WRONG!</p>
-                        </span>
+                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                        </p>
                     </div>
                     <form action="update.php" method="POST" id="updateRow" class="modal-form">
                         <label for="unique_id">UID Nr:</label><br>
@@ -314,7 +299,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
                         <hr>
                         <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
-                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal" id="closeBttn">CLOSE</button>
+                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -322,16 +307,15 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </div>
     </div>
-    </div>
     <!-- \.Modal UPDATE FORM -->
 
     <!-- Modal LOGOUT FORM-->
-    <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="exampleModalLogout" tabindex="-1" aria-labelledby="exampleModalLabelLogout"
         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">LOGOUT</h5>
+                    <h5 class="modal-title" id="exampleModalLabelLogout">LOGOUT</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -349,7 +333,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     </div>
     <!-- \.Modal LOGOUT FORM -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
 
