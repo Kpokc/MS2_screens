@@ -303,6 +303,10 @@ function urgentIntoRed(){
             });
             // If "input" field changed - change mark from "Current" to "Changed" 
             $("input").on("input", function(){
+                // Bug removed - JQ was changing "Youtube" search button icon to "Changed" text if "Update" function was used before 
+                if($(this).next().is(":button")){
+                    return false;
+                }
                 $(this).next().css("color","red").text("Changed");
             });
             // If "select" field changed - change mark from "Current" to "Changed"
