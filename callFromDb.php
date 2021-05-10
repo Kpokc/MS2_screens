@@ -44,10 +44,13 @@ else {
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["job"]." : UID</h4>
+                                    <h4>".$row["job"]." : </h4>
                                 </div>
-                                <div class='card-header-inner'>
-                                    <h4>(".$row["u_id"].")</h4>
+                                <div class='card-header-inner uid-inner'>
+                                    <h4 class='uid-number'>UID - ".$row["u_id"]."</h4>
+                                </div>
+                                <div class='card-header-inner icon-inner'>
+                                    <span><i class='far fa-caret-square-down' id='closed'></i></span>
                                 </div>
                             </div>
 
@@ -117,10 +120,13 @@ else {
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
-                                    <h4>".$row["job"]." : UID</h4>
+                                    <h4>".$row["job"]." : </h4>
                                 </div>
-                                <div class='card-header-inner'>
-                                    <h4>(".$row["u_id"].")</h4>
+                                <div class='card-header-inner uid-inner'>
+                                    <h4 class='uid-number'>UID - ".$row["u_id"]."</h4>
+                                </div>
+                                <div class='card-header-inner icon-inner'>
+                                    <span><i class='far fa-caret-square-down' id='closed'></i></span>
                                 </div>
                             </div>
 

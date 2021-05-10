@@ -1,10 +1,15 @@
 <?php
 
-//if POST method detected - assign variables to session
 if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
     $_SESSION['username'];
     $_SESSION['password'];  
 };
+
+if ( isset($_GET['unsuccess']) && $_GET['unsuccess'] == 1 )
+{
+    echo '<script>alert("Incorrect Username or Password!")</script>';
+};
+
 ?>
 
 <!DOCTYPE html>
@@ -25,12 +30,12 @@ if ( $_SERVER['REQUEST_METHOD'] == 'POST' ) {
         <div class="login-logo">
             <i class="fas fa-key"></i>
         </div>
-            <form action="login.php" method="post">
+            <form action="login.php" method="POST" id="loginForm">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username">
+                <input type="text" name="username" id="username" maxlength="20" required>
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password">
-                <input type="submit" name="submit" id="submit" value="Log In">
+                <input type="submit" name="submit" id="submit" class="loginBtn" value="Log In" maxlength="20" required>
             </form>
     </div>
 </body>
