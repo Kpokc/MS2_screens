@@ -4,24 +4,19 @@ var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(
 timer();
 
 function timer(){
-    var currentTime = new Date()
-    var hours = currentTime.getHours()
-    var minutes = currentTime.getMinutes()
-    var sec = currentTime.getSeconds()
+    var currentTime = new Date();
+    var hours = currentTime.getHours();
+    var minutes = currentTime.getMinutes();
+    var sec = currentTime.getSeconds();
                 
     if (minutes < 10){
-        minutes = "0" + minutes
+        minutes = "0" + minutes;
     }
     if (sec < 10){
-        sec = "0" + sec
+        sec = "0" + sec;
     }
                 
     var t_str = hours + ":" + minutes + ":" + sec + " ";
-    if(hours > 11){
-        t_str;
-    } else {
-        t_str;
-    }
                 
     document.getElementById('time_span').innerHTML = t_str;
         setTimeout(timer,1000);
@@ -39,7 +34,7 @@ $(document).ready(function(){
 setInterval(function(){
     $(".divToLoadInto").fadeOut(300).load(" .rowToReload").fadeIn(300, function(){
         urgentIntoRed(glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0)))));
-    })
+    });
 },200000);
 
 // On resize correct ".glow" width and height and hide card body
@@ -59,14 +54,14 @@ function urgentIntoRed(){
         if(arrOfStatus[i].textContent === "yes"){
             // add text neon effect
             $(arrOfStatus[i]).siblings(".card-header").addClass("glow-text");
-            let card = $(arrOfStatus[i]).parent().addClass("borders-red");
+            var card = $(arrOfStatus[i]).parent().addClass("borders-red");
             // add glowing effect
             $(arrOfStatus[i]).prev().css("display", "block");
             $(arrOfStatus[i]).prepend((arrOfStatus[5]));
 
             // move urgent to top of the tree
-            let tableToMove = $(arrOfStatus[i]).parent(); //ul
-            let whereToMove = tableToMove.parent();
+            var tableToMove = $(arrOfStatus[i]).parent(); //ul
+            var whereToMove = tableToMove.parent();
             $(tableToMove).insertBefore($(whereToMove).children()[0]);
         }
     }
@@ -208,13 +203,13 @@ function urgentIntoRed(){
                 // Below EvenListener will check if DELETE function was aborted
                 $("#exampleModalDelete").click(function(e){
                     // Get clicked target "id" value
-                    let tr = e.target;
+                    var tr = e.target;
                     // If value equals any of "close" button or modal window it self
                         if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
                             //remove div with the table
                             $(".cardToDeleteClone").remove();
                             //input id field clear
-                            $("#pick_id_del").val("")
+                            $("#pick_id_del").val("");
                         }
                 });
             });
@@ -233,7 +228,7 @@ function urgentIntoRed(){
         // Cloned card width depends on user screen
         var cardClientWidth = $(this).innerWidth();
         // Add css styling to clone and add a class to delete it later
-        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");;
+        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");
         // Trigger DELETE button
         $("#delRowFromDb").trigger("click");
         // Insert uniq id into delete input field
@@ -246,13 +241,13 @@ function urgentIntoRed(){
         // Below EvenListener will check if DELETE function was aborted
         $("#exampleModalDelete").click(function(e){
             // Get clicked target "id" value
-            let tr = e.target;
+            var tr = e.target;
             // If value equals any of "close" button or modal window it self
                 if($(tr).attr("id") === "exampleModalDelete" || $(tr).attr("id") === "closeBttn"){
                     //remove div with the table
                     $(".cardToDeleteClone").remove();
                     //input id field clear
-                    $("#pick_id_del").val("")
+                    $("#pick_id_del").val("");
                 }
         });
     });
@@ -279,11 +274,11 @@ function urgentIntoRed(){
                 for (i = 0; i < arrayli.length; i++){
                     if($(arrayli[i]).attr("id") === cardId){
                         // Get all text from "li"
-                        let k = $(arrayli[i]).text();
+                        var k = $(arrayli[i]).text();
                         // Replace all whitespace in string "k" with single space
                         k = k.replace(/\s+/g, ' ');
                         // Split "k" into array
-                        let textArray = k.split(" ");
+                        var textArray = k.split(" ");
                         $("#urgent_upd").val(textArray[1]);
                         $("#select_upd").val(textArray[2]);
                         $("#vendor_upd").val(textArray[6]);
@@ -322,7 +317,7 @@ function urgentIntoRed(){
             // Listen if procedure was aborted 
             $("#exampleModalUpdate").click(function(e){
                 // Get clicked target "id" value
-                let tr = e.target;
+                var tr = e.target;
                 // If value equals any of "close" button or modal window it self
                     if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("id") === "closeBttn" || $(tr).attr("class") === "btn-secondary"){
                         // clean unique id input field
@@ -438,7 +433,7 @@ function reloadeMainSection(){
 // Urgent red glowing effect
 function glowSize(){
     // select any top card to get current width
-    let card = $("li")[5];
+    var card = $("li")[5];
     // ".glow" div width equals ".card" 
     $(".glow").innerWidth(($(card).innerWidth())).innerHeight(($(card).innerHeight()));
 }
@@ -458,13 +453,13 @@ function hideShowCardBody(){
 function iconPosition(){
     if(window.innerWidth < 415){
         // get current width on the screen 
-    let cardWidth = $(".card-header").innerWidth();
+    var cardWidth = $(".card-header").innerWidth();
     // 47px average icon + padding + margin attributes
-    let coordinates = cardWidth - 60;
+    var coordinates = cardWidth - 60;
     // add position to icon
     $(".fa-caret-square-down").css("left",coordinates);
     // UID coordinates
-    let coordinates2 = (cardWidth/2) -30;
+    var coordinates2 = (cardWidth/2) -30;
     $(".uid-number").css("left",coordinates2);
     }
     if(window.innerWidth > 415){
@@ -559,7 +554,7 @@ function execute() {
                 $(".next-btn").attr("disabled", false); // un disable button
             }
             
-        })
+        });
         },
             function(err) { console.error("Execute error", err); });
 }
