@@ -41,13 +41,14 @@ else {
                   while($row = $result->fetch_assoc()) {
                     // Insert data to <li> card
                     echo "<li class='msg-card' id='".$row["u_id"]."'>
+                            <div class='glow' style='display: none;'></div>
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
                                     <h4>".$row["job"]." : </h4>
                                 </div>
                                 <div class='card-header-inner uid-inner'>
-                                    <h4 class='uid-number'>UID - ".$row["u_id"]."</h4>
+                                    <h4 class='uid-number'>UID (".$row["u_id"].")</h4>
                                 </div>
                                 <div class='card-header-inner icon-inner'>
                                     <span><i class='far fa-caret-square-down' id='closed'></i></span>
@@ -56,7 +57,7 @@ else {
 
                             <div class='card-body'>
                                 <div class='body-section-left'>
-                                    <div class='card-body-vendor'>
+                                    <div class='card-body-inner'>
                                         ".$row["vendor"]."
                                     </div>
                                     <div class='card-body-inner'>
@@ -117,13 +118,14 @@ else {
                 if ($result->num_rows > 0) {
                   while($row = $result->fetch_assoc()) {
                     echo "<li class='msg-card' id='".$row["u_id"]."'>
+                            <div class='glow' style='display: none;'></div>
                             <div class='urgent-status'>".$row["urgent"]."</div>
                             <div class='card-header'>
                                 <div class='card-header-inner'>
                                     <h4>".$row["job"]." : </h4>
                                 </div>
                                 <div class='card-header-inner uid-inner'>
-                                    <h4 class='uid-number'>UID - ".$row["u_id"]."</h4>
+                                    <h4 class='uid-number'>UID (".$row["u_id"].")</h4>
                                 </div>
                                 <div class='card-header-inner icon-inner'>
                                     <span><i class='far fa-caret-square-down' id='closed'></i></span>
@@ -132,7 +134,7 @@ else {
 
                             <div class='card-body'>
                                 <div class='body-section-left'>
-                                    <div class='.card-body-inner'>
+                                    <div class='card-body-inner'>
                                         ".$row["vendor"]."
                                     </div>
                                     <div class='card-body-inner'>

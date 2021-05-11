@@ -32,10 +32,10 @@ if ( isset($_GET['unsuccess']) && $_GET['unsuccess'] == 1 )
         </div>
             <form action="login.php" method="POST" id="loginForm">
                 <label for="username">Username</label>
-                <input type="text" name="username" id="username" maxlength="20" required>
+                <input type="text" name="username" id="username" required>
                 <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-                <input type="submit" name="submit" id="submit" class="loginBtn" value="Log In" maxlength="20" required>
+                <input type="password" name="password" id="password" required>
+                <input type="submit" name="submit" id="submit" class="loginBtn" value="Log In" required>
             </form>
     </div>
 </body>

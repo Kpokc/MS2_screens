@@ -10,7 +10,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,13 +17,12 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     <meta name="description" content="Warehouse messenger and communication website">
     <meta name="keywords" content="N/A">
     <meta name="author" content="Pavel Makarov">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="assets/css/screen-style.css">
+    <script src="https://apis.google.com/js/api.js"></script>
     <title>SSL/RHENUS</title>
 </head>
-
 <body>
     <div class="container-fluid contFluid">
         <header class="row sticky-top">
@@ -79,33 +77,26 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 </nav>
             </div>
         </header>
-
-        <!-- Youtube section -->
+        
         <section id="youtube-window" class="row screen" style="display:none;">
             <div class="yt-header">
                 <div class="yt-search">
-                    <h1>YOUTUBE</h1>
-                    <input type="text" name="search" id="search" />
-                    <span style="display: none;"></span>
-                    <button onclick="loadClient()">
-                        <i class="fas fa-search"></i>
-                    </button>
+                  <h1>YOUTUBE</h1>
+                  <input type="text" name="search" id="search" /><span style="display: none;"></span>
+                  <button onclick="loadClient()"><i class="fas fa-search"></i></button>
                 </div>
-            </div>
-
-            <section class="yt-main">
-                <h2 style="display: none;">YouTube results are here</h2>
+              </div>
+              <section class="yt-main">
+                 <h2 style="display: none;">YouTube results are here</h2>
                 <div id="results">
-                    <!-- youtube iframes loads here -->
+                    <!--Youtube frames here-->
                 </div>
-            </section>
-
-            <!-- Previous / next buttons -->
-            <div class="yt-buttons">
-                <button class="switch-btn prev-btn" disabled>Previous</button>
-                <button class="switch-btn next-btn" disabled>Next</button>
-                <hr style="color: black; margin-top: 45px;">
-            </div>
+              </section>
+              <div class="yt-buttons">
+                  <button class="switch-btn prev-btn" disabled>Previous</button>
+                  <button class="switch-btn next-btn" disabled>Next</button>
+                  <hr style="color: black; margin-top: 45px;">
+              </div>
         </section>
 
         <!-- Switch between warehouse and drivers sections buttons. -->
@@ -116,15 +107,13 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
         <main class="row divToLoadInto">
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionOne">
-                <!--Returns Picks/Receipts cards-->
+                <!--Returns Picks/Receipts tables-->
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
                         callPicksReceipts();
                     ?>
                 </ul>
             </div>
-
-            <!--Returns Delivery/Transfers/Collections cards-->
             <div class="col-xxl-6 col-xl-6 col-12 rowToReload sectionTwo">
                 <ul style="padding-left:1rem; padding-right:1rem;">
                     <?php
@@ -133,8 +122,6 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 </ul>
             </div>
         </main>
-
-        <!-- Footer - show up only when user scroll to the bottom of the page -->
         <footer class="row">
             <div class="col-12">
                 <h6 class="copyrights">Copyrights@ 2021 sslirl.com</h6>
@@ -152,8 +139,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <!--Hidden div message sent - response from server OK-->
-                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                     <!--Hidden div message sent - response from server OK-->
+                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class='far fa-thumbs-up'></i>
                             <span class="message-sent-text">MESSAGE SENT!</span>
@@ -178,7 +165,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
 
                         <label for="pick_id">Job ID:</label><br>
                         <input type="number" name="pick_id" id="pick_id" required><br><br>
-                        <label for="vendor">Vendor:</label><span></span><br>
+                        <label for="vendor">Vendor:</label><br>
                         <input type="text" name="vendor" id="vendor" required><br><br>
                         <label for="urgent">Urgent Status:</label>
                         <select class="bottom-select" id="urgent" name="urgent">
@@ -189,11 +176,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <label for="message">Message:</label><br>
                         <textarea name="message" id="message" rows="4" cols="50" required></textarea><br>
                         <hr>
-                        <button type="submit" class="btn btn-primary button-in-modal">ADD</button>
                         <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-primary button-in-modal">ADD</button>
                     </form>
-                </div>
-                <div class="modal-footer">
                 </div>
             </div>
         </div>
@@ -228,9 +213,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <label for="pick_id_del">UID Nr:</label><br>
                         <input type="number" name="pick_id" id="pick_id_del" required><br>
                         <hr>
+                        <button type="button" class="btn btn-secondary button-in-modal"data-bs-dismiss="modal">CLOSE</button>
                         <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -266,7 +250,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     </div>
                     <form action="update.php" method="POST" id="updateRow" class="modal-form">
                         <label for="unique_id">UID Nr:</label><br>
-                        <input type="number" name="unique_id" id="unique_id" required><span></span>
+                        <input type="number" name="unique_id" id="unique_id" required>
                         <br><br>
                         <label for="select">Select:</label>
                         <select class="top-select" id="select_upd" name="select">
@@ -299,8 +283,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <aside class="current-data-5">Current</aside>
                         <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
                         <hr>
-                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
                         <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
+                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -322,9 +306,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                 <div class="modal-body">
                     <form action="logout.php" method="POST">
                         <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOG OUT?</p>
+                        <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
                         <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
-                        <button type="button" class="btn btn-secondary button-in-modal"
-                            data-bs-dismiss="modal">CLOSE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -334,11 +317,10 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     </div>
     <!-- \.Modal LOGOUT FORM -->
 
-    <script src="https://code.jquery.com/jquery-3.6.0.js"
-        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
-
+    
 </body>
 
 </html>

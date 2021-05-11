@@ -51,17 +51,19 @@ $("input").on("input", function(){
     // Get current text
     var prevText = $(this).prev().prev().text();
     var inputLength = $(this).val();
-    if (inputLength.length > 15){
+    if (inputLength.length > 16){
         // Do nothing if includes below text
-        if(prevText.includes(" - 15 Characters maximum!")){
-            
+        $(this).siblings(":last").attr("disabled", true);
+        if(prevText.includes(" - 16 Characters maximum!")){
+            // do nothing
         } else {
         // Add text, add CSS style
-        $(this).prev().prev().text(prevText + " - 15 Characters maximum!").css("color","red");
+        $(this).prev().prev().text(prevText + " - 16 Characters maximum!").css("color","red");
         $(this).css("color","red");
         }
-    } else if (inputLength.length <= 15){
+    } else if (inputLength.length <= 16){
         // Return back text that was ther in first place
+        $(this).siblings(":last").attr("disabled", false);
         prevText = $(this).prev().prev().text();
         $(this).prev().prev().text(prevText.substring(0,7)).css("color","black");
         $(this).css("color","black");
