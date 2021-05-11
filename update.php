@@ -29,11 +29,26 @@ else {
     $urg_status = $_POST["urgent"];
     $vendor = $_POST["vendor"];
     $message = $_POST["message"];
-        
-    $sql = "UPDATE message 
+    
+    
+    $sqlCheck = "SELECT u_id FROM message WHERE u_id = $unique_id";
+    $result = $conn->query($sqlCheck);
+
+    if ($result->num_rows > 0){
+        // Main query
+        $sql = "UPDATE message 
             SET pick_id = '$pick_id', job = '$job', urgent = '$urg_status', vendor = '$vendor', msg = '$message'
             WHERE u_id = '$unique_id'";
-     
+        mysqli_query($conn, $sql);
+        $conn->close();
+        // Update server response to positive
+        var_dump(http_response_code(200));
+    } else{
+        // Update server response to Error
+        var_dump(http_response_code(400));
+        $conn->close();
+    }
+
     if(mysqli_query($conn, $sql)){
         $conn->close();
         // Update server response to positive

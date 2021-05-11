@@ -177,9 +177,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         </select><br><br>
 
                         <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id" required><span></span><br><br>
-                        <label for="vendor">Vendors Name:</label><span></span><br>
-                        <input type="text" name="vendor" id="vendor" required><span></span><br><br>
+                        <input type="number" name="pick_id" id="pick_id" required><br><br>
+                        <label for="vendor">Vendor:</label><span></span><br>
+                        <input type="text" name="vendor" id="vendor" required><br><br>
                         <label for="urgent">Urgent Status:</label>
                         <select class="bottom-select" id="urgent" name="urgent">
                             <option value="no">No</option>
@@ -225,8 +225,8 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         </p>
                     </div>
                     <form action="delete.php" method="POST" id="delRowFromDbForm" class="modal-form">
-                        <label for="pick_id_del">UD Nr:</label><br>
-                        <input type="number" name="pick_id" id="pick_id_del" required><span></span><br>
+                        <label for="pick_id_del">UID Nr:</label><br>
+                        <input type="number" name="pick_id" id="pick_id_del" required><br>
                         <hr>
                         <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
                         <button type="button" class="btn btn-secondary button-in-modal"
@@ -283,7 +283,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <input type="number" name="pick_id" id="pick_id_upd" required>
                         <aside class="current-data-2">Current</aside>
                         <br><br>
-                        <label for="vendor">Vendors Name:</label><br>
+                        <label for="vendor">Vendor:</label><br>
                         <input type="text" name="vendor" id="vendor_upd" required>
                         <aside class="current-data-3">Current</aside>
                         <br><br>

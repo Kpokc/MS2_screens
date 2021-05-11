@@ -48,16 +48,24 @@ $( window ).resize(function(){
 
 // Warn user if input length more than 15 characters
 $("input").on("input", function(){
-
+    // Get current text
+    var prevText = $(this).prev().prev().text();
     var inputLength = $(this).val();
     if (inputLength.length > 15){
-        $(this).next().text("15 Characters maximum!").css("color","red");
+        // Do nothing if includes below text
+        if(prevText.includes(" - 15 Characters maximum!")){
+            
+        } else {
+        // Add text, add CSS style
+        $(this).prev().prev().text(prevText + " - 15 Characters maximum!").css("color","red");
         $(this).css("color","red");
+        }
     } else if (inputLength.length <= 15){
-        $(this).next().text("").css("color","black");
+        // Return back text that was ther in first place
+        prevText = $(this).prev().prev().text();
+        $(this).prev().prev().text(prevText.substring(0,7)).css("color","black");
         $(this).css("color","black");
     }
-    
 });
 
 //Highlight urgent messages by red color and push them up in dom tree
