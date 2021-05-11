@@ -46,6 +46,20 @@ $( window ).resize(function(){
         switchTablesButtons(switchTablesBtnOnReload(window.innerWidth));
 });
 
+// Warn user if input length more than 15 characters
+$("input").on("input", function(){
+
+    var inputLength = $(this).val();
+    if (inputLength.length > 15){
+        $(this).next().text("15 Characters maximum!").css("color","red");
+        $(this).css("color","red");
+    } else if (inputLength.length <= 15){
+        $(this).next().text("").css("color","black");
+        $(this).css("color","black");
+    }
+    
+});
+
 //Highlight urgent messages by red color and push them up in dom tree
 function urgentIntoRed(){
     var arrOfStatus = $(".urgent-status");
@@ -131,7 +145,6 @@ function urgentIntoRed(){
 
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
-
         // Prevent form to refresh page
         event.preventDefault();
         // Prevent from double execution
