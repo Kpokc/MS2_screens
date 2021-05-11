@@ -104,7 +104,7 @@ h1, h2, h3, h4, h5, h6 {
 
 @media screen and (max-width: 990px) {
   .navbar-collapse #youtubBtn {
-    display: none;
+    margin: 0 auto;
   }
 }
 
@@ -438,7 +438,7 @@ footer .copyrights {
 }
 
 .yt-header .yt-search {
-  width: 50%;
+  width: 85%;
   margin: 0 auto;
   background-color: red;
   border-radius: 15px;
@@ -472,12 +472,6 @@ footer .copyrights {
   background: #dedede;
 }
 
-@media screen and (max-width: 990px) {
-  #youtube-window {
-    display: none;
-  }
-}
-
 .yt-main {
   text-align: center;
   width: 85%;
@@ -492,13 +486,13 @@ footer .copyrights {
   border: 1px solid #535050;
 }
 
-.yt-buttons {
-  margin: 25px;
+.ytbuttons {
+  margin-top: 25px;
   text-align: center;
-  width: 98%;
+  width: 100%;
 }
 
-.yt-buttons .switch-btn {
+.ytbuttons .switch-btn {
   padding: 5px;
   text-transform: uppercase;
   -webkit-transform: translateX(-5px);
@@ -510,7 +504,7 @@ footer .copyrights {
   width: 100px;
 }
 
-.yt-buttons .switch-btn:hover {
+.ytbuttons .switch-btn:hover {
   background: #dedede;
 }
 
@@ -527,21 +521,27 @@ footer .copyrights {
           box-shadow: 0 4px 10px 0px #000014;
 }
 
-@media screen and (min-width: 1045px) {
+@media screen and (max-width: 1980px) {
+  .iframeToDelete {
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 1240px) {
   .iframeToDelete {
     width: 300px;
   }
 }
 
-@media screen and (max-width: 1045px) {
+@media screen and (max-width: 990px) {
   .iframeToDelete {
-    width: 250px;
+    width: 240px;
   }
 }
 
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 440px) {
   .iframeToDelete {
-    display: none;
+    width: 200px;
   }
 }
 /*# sourceMappingURL=screen-style.css.map */

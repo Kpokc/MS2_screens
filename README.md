@@ -35,7 +35,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
  
 ## Skeleton ##
 
-> - [Wireframes]() 
+> - [Wireframe here](https://github.com/Kpokc/MS2_screens/blob/main/files/MS2%20Wireframe.png) 
 > - [SQL tables tables here](https://github.com/Kpokc/MS2_screens/blob/main/files/pick_test%20db.pdf)
 > - One-page website with **4** modal windows, and **1** toggle section.
 > - Website with login session, background refresh functions (automatic - 200 sec period and each time user add/delete/update request).
@@ -101,7 +101,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 
 ## Testing ##
 
-[Testing here](https://github.com/Kpokc/MS2_screens/blob/main/files/test.md) 
+[Test.md here](https://github.com/Kpokc/MS2_screens/blob/main/files/test.md) 
 ---
 ### index. ###
 

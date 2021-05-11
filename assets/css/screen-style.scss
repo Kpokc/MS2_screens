@@ -112,7 +112,8 @@ h1,h2,h3,h4,h5,h6{
     #youtubBtn {
         display: block;
         @media screen and (max-width: 990px) {
-            display: none;
+            //display: none;
+            margin: 0 auto;
         }
     }
 }
@@ -372,7 +373,7 @@ footer {
         text-shadow: 0 1px 2px #000;
     }
     .yt-search {
-        width: 50%;
+        width: 85%;
         margin: 0 auto;
         background-color: red;
         border-radius: 15px;
@@ -401,8 +402,9 @@ footer {
 }
 
 #youtube-window {
+    //--bs-gutter-x : 0px;
     @media screen and (max-width: 990px) {
-        display: none;
+        //display: none;
     }
 }
 
@@ -419,10 +421,10 @@ footer {
     border: 1px solid #535050;
 }
 
-.yt-buttons {
-    margin: 25px;
+.ytbuttons {
+    margin-top: 25px;
     text-align: center;
-    width: 98%;
+    width: 100%;
     .switch-btn{
         padding: 5px;
         text-transform: uppercase;
@@ -444,13 +446,16 @@ footer {
     &:hover {
         @include shadowHoverEffect;
     }
-    @media screen and (min-width: 1045px) {
+    @media screen and (max-width: 1980px) {
+        width: 340px;
+    }
+    @media screen and (max-width: 1240px) {
         width: 300px;
-    } 
-    @media screen and (max-width: 1045px) {
-        width: 250px;
     }
     @media screen and (max-width: 990px) {
-        display: none;
+        width: 240px;
+    }
+    @media screen and (max-width: 440px) {
+        width: 200px;
     }
 }
