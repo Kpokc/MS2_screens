@@ -114,43 +114,6 @@ function urgentIntoRed(){
         }
     });
 
-     // Login (button)
-     $(".loginBtn").submit(function(event){
-
-        // Prevent Form to refresh page
-        event.preventDefault();
-        // Prevent From to double execution
-        event.stopImmediatePropagation();
-        
-        // Get uniq_id from input field
-        var formData = {
-            username : $("#username").val(),
-            password : $("password").val()
-        };
-            // send request to delete.php
-            $.ajax({
-                type: "POST",
-                url: "login.php",
-                data: formData,
-                dataType: "json",
-                encode: true,
-                    // Get response from server
-                    complete: function(response){
-                        // Response OK (SQL query executed)
-                        if(response.status == "200"){
-                            window.location.replace("screen.php");
-                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
-                            //reloadeMainSection(messageSent($(".cardToDeleteClone").remove(clean($("#pick_id_del").val("")))));
-                        } else {
-                            window.location.replace("index.php");
-                            // Response BAD (SQL query wasn't executed)
-                            //Call back - 1. unique_id = "" 2.call function clean() 3. delete cloned card 4. call function messageSent 5.function reload main section
-                            //reloadeMainSection(messageNotSent($(".cardToDeleteClone").remove(clean($("#pick_id_del").val("")))));
-                        }
-                    },
-            });
-    });
-
     // Add message to DB
     $("#addRowToDbForm").submit(function(event){
         // Prevent form to refresh page
