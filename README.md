@@ -30,18 +30,20 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - As a **user**, I want to update the message.
 - As a **user**, I want to highlight a message.
 - As a **user**, I want to select music from Youtube.
+
+#### By####
  
 ## Skeleton ##
 
-> - [Wireframes](https://): 
-> - SQL tables.
+> - [Wireframes]() 
+> - [SQL tables tables here](https://github.com/Kpokc/MS2_screens/blob/main/files/pick_test%20db.pdf)
 > - One-page website with **4** modal windows, and **1** toggle section.
 > - Website with login session, background refresh functions (automatic - 200 sec period and each time user add/delete/update request).
 > - Fixed navigation bar.
 > - Main section with requests retrieved from the database.
 > - Footer with Copyright info and Social Media icons
-> - Toggle section - Youtube data API (youtube search and video manipulation).
-> - Toggle section - CSS rule set to show this section only on devices wider than 990px. Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...). 
+> - **Toggle section - Youtube data API (youtube search and video manipulation).**
+> - **Toggle section - CSS rule set to show Youtube section only on devices wider than 990px. Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).**
 
 
 ## Features ##
@@ -55,18 +57,19 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - Easy navigation that collapses on mobile displays and sticks on desktop.
 - Functional ADD / DELETE / UPDATE / LOGOUT forms.
 - Youtube API for video search.
+**Please NOTE! Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).**
   
     1. After username and password are entered and the "Login" button is pressed - if data is correct, username and password are going to be assigned to session variables. This will allow the user to retrieve data from DB and manipulate.  
     2. **"ADD"** button - User can add request to the website (all required fields must be filled).
     3. **"DELETE"** button - User can delete request by providing UID number. Example [ UID (125) ]. Or by double-click on request. A request will pop up at the bottom of the "DELETE" form.
     4. **"UPDATE"** button - User can delete request by providing UID number. Example [ UID (125) ]. All "UPDATE" form fields will show the current data of the request. If any data changed by a user, the side status note (Current) is going to change for (Changed). The request will pop up at the bottom of the "UPDATE" form.
     5. **"LOGOUT"** button - Logout / Cancel modal window pops up.
-    6. **"YOUTUBE"** button - Toggles down (from top menu) section where user can search for any youtube video and play it. Website refreshes only request section, this allows to play any long video. (requested by the warehouse to listen to podcasts or music on the TV screen). 
+    6. **"YOUTUBE"** button - Toggles down (from top menu) section where user can search for any youtube video and play it. Website refreshes in the background and only "Request section", this allows to play any video without interruption. (requested by the warehouse to listen podcasts or music on the TV screen). 
 
 ### Future Features ###
 
-- Reload function each time data was manipulated within the database 
-- Chat section where users can create chat rooms.
+- Reload function which will reload main section for all users each time data added to DB. 
+- Chat section where users can create chat rooms, communicate, and leave messages.
 - Push notifications.
 
 ---
@@ -91,12 +94,14 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - [Font Awesome:](https://fontawesome.com/) - To add icons to the site.
 - [Git](https://git-scm.com/) - For version control.
 - [GitHub:](https://github.com/) - To store the project's code after being pushed from Git.
-- [Balsamiq:](https://balsamiq.com/) - To create the Wireframes.
+- [Balsamiq:](https://balsamiq.com/) - To create the Wireframe.
 - [HTML Validator](https://validator.w3.org/nu/) - HTML validator.
 - [CSS Validator](https://validator.w3.org/) - CSS validator.
 ---
 
 ## Testing ##
+
+[Testing here](https://github.com/Kpokc/MS2_screens/blob/main/files/test.md) 
 ---
 ### index. ###
 
