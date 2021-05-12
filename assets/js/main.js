@@ -32,7 +32,7 @@ $(document).ready(function(){
     //When document loaded call below function
     urgentIntoRed(glowSize(iconPosition(hideShowCardBody())));
     // Switch between warehouse and drivers sections and focus
-    switchTablesButtons(switchTablesBtnOnReload(window.innerWidth));
+    switchSectionAndFocus();
 });
 
 // Reload page every 200 seconds. (to keep user session up)
@@ -47,8 +47,10 @@ $( window ).resize(function(){
         glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0))));
         // after each window resize flip arrow icon back to normal position
         $(".fa-caret-square-down").attr("id","closed").css("transform","rotateX(0deg)");
-        // Switch between warehouse and drivers sections plus focus and 'display none block' for one of the sections
-        switchTablesButtons(switchTablesBtnOnReload());
+        // Switch between warehouse and drivers sections 
+        if(window.innerWidth > 990){
+            switchSectionAndFocus();  
+          }
 });
 
 // Warn user if input length more than 16 characters
@@ -530,31 +532,28 @@ function iconPosition(){
 }
 
 // switch between warehouse and drivers sections buttons
-function switchTablesButtons(){
-    $(".switch").click(function(){
-        if($(this).attr("id") == "warehouse"){
-            $(".sectionOne").css("display","block");
-            $(".sectionTwo").css("display","none");
-        }
-        if($(this).attr("id") == "drivers"){
-            $(".sectionOne").css("display","none");
-            $(".sectionTwo").css("display","block");
-        }
-    });
-}
-
-// Switch between and focus when first time loaded
-function switchTablesBtnOnReload(e){
-    if (e < 1199){
+function switchSectionAndFocus(){
+    if(window.innerWidth <1201){
         $("#warehouse").focus();
         $(".sectionOne").css("display","block");
         $(".sectionTwo").css("display","none");
-    }
-    if (e > 1199){
+    } else if (window.innerWidth > 1201){
         $(".sectionOne").css("display","block");
         $(".sectionTwo").css("display","block");
     }
 }
+
+// Switch any of buttons pressed
+$(".switch").click(function(){
+    var tr = $(this).attr("id");
+    if(tr === "warehouse"){
+        $(".sectionOne").css("display","block");
+        $(".sectionTwo").css("display","none");
+    } else if (tr === "drivers"){
+        $(".sectionOne").css("display","none");
+        $(".sectionTwo").css("display","block");
+    }
+});
 
 // Youtube slide from up to down
 $("#youtubBtn").click(function(){
