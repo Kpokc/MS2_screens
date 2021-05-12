@@ -42,8 +42,8 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 > - Fixed navigation bar.
 > - Main section with requests retrieved from the database.
 > - Footer with Copyright info and Social Media icons
-> - **Toggle section - Youtube data API (youtube search and video manipulation).**
-> - **Toggle section - CSS rule set to show Youtube section only on devices wider than 990px. Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).**
+> - Toggle section - Youtube data API (youtube search and video manipulation).
+> - Toggle section - CSS rule set to show Youtube section only on devices wider than 990px. Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).
 
 
 ## Features ##
@@ -57,7 +57,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - Easy navigation that collapses on mobile displays and sticks on desktop.
 - Functional ADD / DELETE / UPDATE / LOGOUT forms.
 - Youtube API for video search.
-**Please NOTE! Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).**
+Please NOTE! Due to company rules - floor staff is not allowed to listen to music or videos nor watching videos on their/company devices during the work (loading, unloading, picking, receiving, etc...).
   
     1. After username and password are entered and the "Login" button is pressed - if data is correct, username and password are going to be assigned to session variables. This will allow the user to retrieve data from DB and manipulate.  
     2. **"ADD"** button - User can add request to the website (all required fields must be filled).

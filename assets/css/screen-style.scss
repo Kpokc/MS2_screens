@@ -112,7 +112,6 @@ h1,h2,h3,h4,h5,h6{
     #youtubBtn {
         display: block;
         @media screen and (max-width: 990px) {
-            //display: none;
             margin: 0 auto;
         }
     }
@@ -321,6 +320,10 @@ h1,h2,h3,h4,h5,h6{
 	}
 }
 
+.modal-form {
+    clear: both !important;
+}
+
 ///// Message sent notification ///////
 .fa-thumbs-up, 
 .fa-times {
@@ -387,13 +390,19 @@ footer {
             border: 1px solid;
             box-shadow: inset 0 1px 2px #cebebe;
             outline: none;
+            @media screen and (max-width: 440px) {
+                width: 65%;
+            }
         }
         button {
             padding: 5px;
             text-transform: uppercase;
             transform: translateX(-5px);
             border: 1px solid #535050;
-            width: 55px;  
+            width: 55px;
+            @media screen and (max-width: 440px) {
+                padding: 3px;
+            } 
             &:hover{
                 background: $darkWhite;
             }         
@@ -401,28 +410,22 @@ footer {
     }
 }
 
-#youtube-window {
-    //--bs-gutter-x : 0px;
-    @media screen and (max-width: 990px) {
-        //display: none;
+.yt-main {
+    width: 100%;
+    .yt-board{
+        width: 85%;
+        margin:  0 auto;
+        text-align: center;
+        border-radius: 15px;
+        background: #c4c4c4;
+        box-shadow: $shadow;
+        border: 1px solid #535050;
     }
 }
 
-.yt-main {
-    text-align: center;
-    width: 85%;
-    margin:  0 auto;
-    border-radius: 15px;
-    padding: 10px;
-    background: #c4c4c4;
-    box-shadow: $shadow;
-    padding-top: 35px;
-    padding-bottom: 35px;
-    border: 1px solid #535050;
-}
-
 .ytbuttons {
-    margin-top: 25px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     text-align: center;
     width: 100%;
     .switch-btn{
@@ -442,6 +445,7 @@ footer {
 
 .iframeToDelete {
     margin: 5px;
+    margin-top: 25px;
     box-shadow: $shadow;
     &:hover {
         @include shadowHoverEffect;

@@ -375,6 +375,10 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+.modal-form {
+  clear: both !important;
+}
+
 .fa-thumbs-up,
 .fa-times {
   position: absolute;
@@ -459,6 +463,12 @@ footer .copyrights {
   outline: none;
 }
 
+@media screen and (max-width: 440px) {
+  .yt-header .yt-search input {
+    width: 65%;
+  }
+}
+
 .yt-header .yt-search button {
   padding: 5px;
   text-transform: uppercase;
@@ -468,26 +478,34 @@ footer .copyrights {
   width: 55px;
 }
 
+@media screen and (max-width: 440px) {
+  .yt-header .yt-search button {
+    padding: 3px;
+  }
+}
+
 .yt-header .yt-search button:hover {
   background: #dedede;
 }
 
 .yt-main {
-  text-align: center;
+  width: 100%;
+}
+
+.yt-main .yt-board {
   width: 85%;
   margin: 0 auto;
+  text-align: center;
   border-radius: 15px;
-  padding: 10px;
   background: #c4c4c4;
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
-  padding-top: 35px;
-  padding-bottom: 35px;
   border: 1px solid #535050;
 }
 
 .ytbuttons {
-  margin-top: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   text-align: center;
   width: 100%;
 }
@@ -510,6 +528,7 @@ footer .copyrights {
 
 .iframeToDelete {
   margin: 5px;
+  margin-top: 25px;
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
 }

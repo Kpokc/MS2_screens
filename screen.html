@@ -78,27 +78,30 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
             </div>
         </header>
         
-        <section id="youtube-window" class="row screen" style="display:none;">
+        <section id="youtube-window" class="row screen" style="display: none">
             <div class="yt-header">
                 <div class="yt-search">
-                  <h1>YOUTUBE</h1>
-                  <input type="text" name="search" id="search" /><span style="display: none;"></span>
-                  <button onclick="loadClient()"><i class="fas fa-search"></i></button>
+                    <h1>YOUTUBE</h1>
+                    <input type="text" name="search" id="search" />
+                    <button onclick="loadClient()">
+                        <i class="fas fa-search"></i>
+                    </button>
                 </div>
-              </div>
-              <section class="yt-main">
-                 <h2 style="display: none;">YouTube results are here</h2>
-                <div id="results">
-                    <!--Youtube frames here-->
-                    <iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/dUnJC25xdws" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/8DkkfGH69ho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/ukaZ-b6OIAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/SImTsjDSkJc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/pVbLfyOWPXA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/JFStuIk0tvE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/xMxsDQeTwpk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/KEVxNxSKYQI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/mbFPVw5lGso" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe><iframe class="iframeToDelete" width="560" height="315" src="https://www.youtube.com/embed/H5-_DUF7lkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+            <div class="yt-main">
+                <div class="yt-board">
+                    <h2 style="display: none">YouTube results are here</h2>
+                    <div id="results">
+
+                        <!--Youtube frames here-->
+                  
+                    </div>
+                    <div class="ytbuttons">
+                        <button class="switch-btn prev-btn" disabled>Previous</button>
+                        <button class="switch-btn next-btn" disabled>Next</button>
+                    </div>
                 </div>
-                <div class="ytbuttons">
-                    <button class="switch-btn prev-btn" disabled>Previous</button>
-                    <button class="switch-btn next-btn" disabled>Next</button>
-                    <hr style="color: black; margin-top: 45px;">
-                </div>
-              </section>
-              
+            </div>
         </section>
 
         <!-- Switch between warehouse and drivers sections buttons. -->
@@ -137,22 +140,28 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelAdd">ADD NEW MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelAdd">
+                        ADD NEW MESSAGE
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                     <!--Hidden div message sent - response from server OK-->
-                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
+                    <!--Hidden div message sent - response from server OK-->
+                    <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class='far fa-thumbs-up'></i>
-                            <span class="message-sent-text">MESSAGE SENT!</span>
+                            <span class="message-sent-text">
+                                MESSAGE SENT!
+                            </span>
                         </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class="fas fa-times"></i>
-                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                            <span class="message-sent-text">
+                                SOMETHING WENT WRONG!
+                            </span>
                         </p>
                     </div>
                     <form action="add.php" method="POST" id="addRowToDbForm" class="modal-form">
@@ -166,9 +175,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         </select><br><br>
 
                         <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id" required><br><br>
+                        <input type="number" name="pick_id" id="pick_id" class="inp1" required><br><br>
                         <label for="vendor">Vendor:</label><br>
-                        <input type="text" name="vendor" id="vendor" required><br><br>
+                        <input type="text" name="vendor" id="vendor" class="inp2" required><br><br>
                         <label for="urgent">Urgent Status:</label>
                         <select class="bottom-select" id="urgent" name="urgent">
                             <option value="no">No</option>
@@ -193,7 +202,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelDelete">DELETE MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelDelete">
+                        DELETE MESSAGE
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -201,19 +212,23 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class='far fa-thumbs-up'></i>
-                            <span class="message-sent-text">MESSAGE DELETED!</span>
+                            <span class="message-sent-text">
+                                MESSAGE DELETED!
+                            </span>
                         </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class="fas fa-times"></i>
-                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                            <span class="message-sent-text">
+                                SOMETHING WENT WRONG!
+                            </span>
                         </p>
                     </div>
                     <form action="delete.php" method="POST" id="delRowFromDbForm" class="modal-form">
                         <label for="pick_id_del">UID Nr:</label><br>
-                        <input type="number" name="pick_id" id="pick_id_del" required><br>
+                        <input type="number" name="pick_id" id="pick_id_del" class="inp3" required><br>
                         <hr>
                         <button type="button" class="btn btn-secondary button-in-modal"data-bs-dismiss="modal">CLOSE</button>
                         <button type="submit" class="btn btn-primary button-in-modal" id="deleteRow">DELETE</button>
@@ -232,7 +247,9 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelUpdate">UPDATE MESSAGE</h5>
+                    <h5 class="modal-title" id="exampleModalLabelUpdate">
+                        UPDATE MESSAGE
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeBttn"></button>
                 </div>
                 <div class="modal-body">
@@ -240,19 +257,23 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                     <div class='modal-body ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class='far fa-thumbs-up'></i>
-                            <span class="message-sent-text">MESSAGE UPDATED!</span>
+                            <span class="message-sent-text">
+                                MESSAGE UPDATED!
+                            </span>
                         </p>
                     </div>
                     <!--Hidden div message not sent - response from server ERROR-->
                     <div class='modal-body not-ok-div' style='padding: 5rem; display:none;'>
                         <p>
                             <i class="fas fa-times"></i>
-                            <span class="message-sent-text">SOMETHING WENT WRONG!</span>
+                            <span class="message-sent-text">
+                                SOMETHING WENT WRONG!
+                            </span>
                         </p>
                     </div>
                     <form action="update.php" method="POST" id="updateRow" class="modal-form">
                         <label for="unique_id">UID Nr:</label><br>
-                        <input type="number" name="unique_id" id="unique_id" required>
+                        <input type="number" name="unique_id" id="unique_id" class="inp3" required>
                         <br><br>
                         <label for="select">Select:</label>
                         <select class="top-select" id="select_upd" name="select">
@@ -266,11 +287,11 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <br><br>
 
                         <label for="pick_id">Job ID:</label><br>
-                        <input type="number" name="pick_id" id="pick_id_upd" required>
+                        <input type="number" name="pick_id" id="pick_id_upd" class="inp1" required>
                         <aside class="current-data-2">Current</aside>
                         <br><br>
                         <label for="vendor">Vendor:</label><br>
-                        <input type="text" name="vendor" id="vendor_upd" required>
+                        <input type="text" name="vendor" id="vendor_upd" class="inp2" required>
                         <aside class="current-data-3">Current</aside>
                         <br><br>
                         <label for="urgent">Urgent Status:</label>
@@ -286,7 +307,7 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
                         <textarea name="message" id="message_upd" rows="4" cols="50"></textarea><br>
                         <hr>
                         <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
-                        <button type="submit" class="btn btn-primary addRow button-in-modal" id="addRow">UPDATE</button>
+                        <button type="submit" class="btn btn-primary button-in-modal" id="addRow">UPDATE</button>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -302,12 +323,16 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabelLogout">LOGOUT</h5>
+                    <h5 class="modal-title" id="exampleModalLabelLogout">
+                        LOGOUT
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <form action="logout.php" method="POST">
-                        <p style="text-align: center;">ARE YOU SURE YOU WANT TO LOG OUT?</p>
+                        <p style="text-align: center;">
+                            ARE YOU SURE YOU WANT TO LOG OUT?
+                        </p>
                         <button type="button" class="btn btn-secondary button-in-modal" data-bs-dismiss="modal">CLOSE</button>
                         <button type="submit" class="btn btn-primary button-in-modal">LOGOUT</button>
                     </form>
@@ -320,8 +345,17 @@ if(!isset($_SESSION['login_user']) and !isset($_SESSION['login_pass']))
     <!-- \.Modal LOGOUT FORM -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="assets/js/main.js"></script>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="assets/js/main.js"></script>
+    
+    <!--Passive event listeners-->
+    <script>
+        jQuery.event.special.touchstart = {
+          setup: function( _, ns, handle ) {
+              this.addEventListener("touchstart", handle, { passive: !ns.includes("noPreventDefault") });
+          }
+        };
+    </script>
     
 </body>
 
