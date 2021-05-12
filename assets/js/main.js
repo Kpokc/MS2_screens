@@ -50,7 +50,10 @@ $( window ).resize(function(){
         // Switch between warehouse and drivers sections 
         if(window.innerWidth > 990){
             switchSectionAndFocus();  
-          }
+        }
+        if(window.innerWidth < 440){
+            $(".sectionTwo").css("display","none");  
+        }
 });
 
 // Warn user if input length more than 16 characters
