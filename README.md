@@ -1,7 +1,7 @@
 # MS2_screens 
 # Warehouse TV Screen Messenger
 
-<h1 align="Center"><img src="assets/files/responsive_img/ms2ScreenImg.jpg"></h1>
+<h1 align="Center"><img src="files/ms2ScreenImg.jpg"></h1>
 
 -   A live demo can be found [here](http://ms2.sslsupports.com/).
 -   Username/Password - on request.
