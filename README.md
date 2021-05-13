@@ -80,48 +80,48 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - Easy navigation that collapses on mobile displays and sticks on desktop.
 - Functional ADD / DELETE / UPDATE / LOGOUT forms.
 - Youtube API for video search.
-  
-    1. Login.
-    1.1. When username and password are entered, and the "Login" button is pressed - if data is correct, username and password are going to be assigned to PHP session variables. This will allow the user to retrieve/delete/update data from SQL DB depending on granted permissions.  
-    1.2. Username or/and Password - incorrect, then notification message pop up "Incorrect Username or Password!".
+ 
+1. **"Login."**"
+    1. When username and password are entered, and the "Login" button is pressed - if data is correct, username and password are going to be assigned to PHP session variables. This will allow the user to retrieve/delete/update data from SQL DB depending on granted permissions.  
+    1. Username or/and Password - incorrect, then notification message pop up "Incorrect Username or Password!".
     *Above checked via PHP and SQL functions. PHP opens a new connection to DB and performs a query against the database.
     If the result is **"true"** - the user is logged in and his data assigned to session variables.
     If the result is **false** - login.php forward the user to index.php and send "unsuccess=1" message to that page, where **isset $_GET** is set to catch this message and call user alert message.*
 
-    2. **"ADD request"** 
-    2.1. ADD button - modal window and form pop up. Where users can select and provide information regarding the request.
-    2.2. Insert fields - input event listener set up to check, if the length of the user input string is not exceeding 16 characters. **
-    2.3. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
+1. **"ADD request"** 
+    1. ADD button - modal window and form pop up. Where users can select and provide information regarding the request.
+    1. Insert fields - input event listener set up to check, if the length of the user input string is not exceeding 16 characters. `**`
+    1. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
     
-    3. **"DELETE request"** 
-    3.1. DELETE button - modal window and form pop up. Where the user can select which request to delete.
-    3.2. UID Insert field - user must provide "UID" number *[number is in the brackets:  UID (**156**) in this case it is **156** ]*. ** ' *** ' ****'
-    3.3. User can DELETE any request by double click on it, UID number automatically forwards into insert field. ***
-    3.4. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
+1. **"DELETE request"** 
+    1. DELETE button - modal window and form pop up. Where the user can select which request to delete.
+    1. UID Insert field - user must provide "UID" number *[number is in the brackets:  UID (**156**) in this case it is **156** ]*. `** ' *** ' ****'`
+    1. User can DELETE any request by double click on it, UID number automatically forwards into insert field. ***
+    1. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
     
-    4. **"UPDATE"** 
-    4.1. UPDATE button - modal window and form pop up. Where the user can select which request to update.
-    4.2. UID Insert field - user must provide "UID" number *[number is in the brackets:  UID (**156**) in this case it is **156** ]*. ** ' *** ' ****'
-    4.3. All insert, select, textarea fields are updates with data from the selected request.
-    4.4. If any input, select, textare fields are changed aside label turns into red and change text from "Current" to "Changed".
-    4.5. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
+1. **"UPDATE"** 
+    1. UPDATE button - modal window and form pop up. Where the user can select which request to update.
+    1. UID Insert field - user must provide "UID" number *[number is in the brackets:  UID (**156**) in this case it is **156** ]*. `** ' *** ' ****'`
+    1. All insert, select, textarea fields are updates with data from the selected request.
+    1. If any input, select, textare fields are changed aside label turns into red and change text from "Current" to "Changed".
+    1. If transaction aborted: input fields, textarea - all data missing. Labels turn back to normal condition.
     
-    5. **"LOGOUT"**
-    5.1 LOGOUT button - modal window and form pop up. Where users can select to stay or leave the website.
+1. **"LOGOUT"**
+    1. LOGOUT button - modal window and form pop up. Where users can select to stay or leave the website.
     
-    6. **"YOUTUBE"** 
-    6.1. YOUTUBE button - Toggles down Youtube section.
-    6.2. User can use the search field to retrieve Youtube videos.
-    6.3. "Previous" and "Next" buttons added for pagination (10 videos per page).
+1. **"YOUTUBE"** 
+    1. YOUTUBE button - Toggles down Youtube section.
+    1. User can use the search field to retrieve Youtube videos.
+    1. "Previous" and "Next" buttons added for pagination (10 videos per page).
     
 >   ***
 >   *Applies to all: The Website refreshes every 200 seconds to keep the user session on. Also on the user side, the website refreshes every time user uses ADD / DELETE / UPDATE options. Refreshing happens only for the main section (where all requests are displayed). This was done on warehouse request - to be able to listen to the Youtube videos without interruption. (Youtube videos stops to play every whole website refresh)*
 >   ***
->    ** *If any input field length exceeds 16 characters bottom "ADD/DELETE/UPDATE" button disables - so a user can't send a request to DB (This rule is applied to prevent error on SQL side when user string length is greater than set in DB). Input characters and label becomes red, label text show alert message a user "- 16 Characters maximum!".*
+>    `**` *If any input field length exceeds 16 characters bottom "ADD/DELETE/UPDATE" button disables - so a user can't send a request to DB (This rule is applied to prevent error on SQL side when user string length is greater than set in DB). Input characters and label becomes red, label text show alert message a user "- 16 Characters maximum!".*
 >   ***
->    *** *Selected request will appear under the form*
+>    `***` *Selected request will appear under the form*
 >   ***
->    ****  Before processing all data to DB, I am doing a small check if the requested row exists. This check prevents situations when the response from the server is "OK", but SQL query didn't execute. 
+>    `****`  Before processing all data to DB, I am doing a small check if the requested row exists. This check prevents situations when the response from the server is "OK", but SQL query didn't execute. 
 -- SQL executes a query against the table with a reference of UID that the user provides. If the retrieved result is greater than zero,  only then SQL will execute a query with all data. With help of php I am assigning "200" number to the server response. If the checking query is an error, the main query won't execute and I am assigning "400" to the server response. Then after JQuery is going to catch responses and depending on the number in it, show to the users if a request was sent or not. (In this case, I am assigning numbers to server response myself, because in "goddady" hosting I am getting back "200" response each time php establishes a connection to DB, no matter if a query was executed or not.) *
 >   ***
 
