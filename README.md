@@ -7,9 +7,9 @@
 -   Username/Password - on request.
 
 -   Project in work photo 1 [here](files/wh1.jpg)
--   Project in work photo 1 [here](files/wh2.jpg)
+-   Project in work photo 2 [here](files/wh2.jpg)
 
--   Youtube video [here]().
+-   Youtube video [here](https://youtu.be/7wfgEVOGkBs).
 
 ---
 ## Content ##
