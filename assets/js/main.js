@@ -343,13 +343,17 @@ function urgentIntoRed(){
                         let k = $(arrayli[i]).text();
                         // Replace all whitespace in string "k" with single space
                         k = k.replace(/\s+/g, ' ');
+                        var messageK ="";
                         // Split "k" into array
                         let textArray = k.split(" ");
                         $("#urgent_upd").val(textArray[1]);
                         $("#select_upd").val(textArray[2]);
                         $("#vendor_upd").val(textArray[6]);
                         $("#pick_id_upd").val(textArray[9]);
-                        $("#message_upd").val(textArray[10]);
+                        for (i = 10; i < textArray.length; i ++){
+                            messageK += textArray[i] + " ";
+                        }
+                        $("#message_upd").val(messageK);
 
                         // Clone message card
                         var cardToDelete = $(arrayli[i]).clone();
