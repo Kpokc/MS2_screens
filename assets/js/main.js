@@ -392,6 +392,7 @@ function urgentIntoRed(){
                 let tr = e.target;
                 // If value equals any of "close" button or modal window it self
                     if($(tr).attr("id") === "exampleModalUpdate" || $(tr).attr("class") === "btn btn-secondary button-in-modal" || $(tr).attr("class") === "btn-close"){
+                        $(".cardToDeleteClone").remove();
                         backToNormalLabel();
                         // clean unique id input field
                         $("#unique_id").val("");
