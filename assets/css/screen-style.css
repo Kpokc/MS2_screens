@@ -192,12 +192,12 @@ h1, h2, h3, h4, h5, h6 {
 .msg-card {
   list-style-type: none;
   margin-top: 25px;
+  border: 1px solid #dedede;
+  border-radius: 5px;
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
   -webkit-transition: 0.3s;
   transition: 0.3s;
-  border: 1px solid #dedede;
-  border-radius: 5px;
 }
 
 .msg-card:hover {
@@ -531,6 +531,9 @@ footer .copyrights {
   margin-top: 25px;
   -webkit-box-shadow: 0 3px 4px 0 #000014;
           box-shadow: 0 3px 4px 0 #000014;
+  box-shadow: 0 3px 4px 0 #000014;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .iframeToDelete:hover {

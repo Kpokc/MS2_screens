@@ -21,8 +21,12 @@ $darkWhite: #dedede;
 }
 
 @mixin shadowHoverEffect {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px 0px #000014;
+    box-shadow: $shadow;
+    transition: 0.3s;
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px 0px #000014;
+    }
 }
 
 *{
@@ -189,13 +193,9 @@ h1,h2,h3,h4,h5,h6{
 .msg-card {
     list-style-type: none;
     margin-top: 25px;
-    box-shadow: $shadow;
-    transition: 0.3s;
     border: $border;
     border-radius: 5px;
-    &:hover {
-        @include shadowHoverEffect;
-    }
+    @include shadowHoverEffect;
     .urgent-status{
         display: none;
     }
@@ -447,19 +447,17 @@ footer {
     margin: 5px;
     margin-top: 25px;
     box-shadow: $shadow;
-    &:hover {
-        @include shadowHoverEffect;
-    }
-    @media screen and (max-width: 1980px) {
-        width: 340px;
-    }
-    @media screen and (max-width: 1240px) {
-        width: 300px;
-    }
-    @media screen and (max-width: 990px) {
-        width: 240px;
-    }
-    @media screen and (max-width: 440px) {
-        width: 200px;
-    }
+    @include shadowHoverEffect;
+        @media screen and (max-width: 1980px) {
+            width: 340px;
+        }
+        @media screen and (max-width: 1240px) {
+            width: 300px;
+        }
+        @media screen and (max-width: 990px) {
+            width: 240px;
+        }
+        @media screen and (max-width: 440px) {
+            width: 200px;
+        }
 }

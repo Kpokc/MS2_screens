@@ -115,7 +115,9 @@ The website was designed for three types of users: "Admin" (warehouse office), "
     1. "Previous" and "Next" buttons added for pagination (10 videos per page).
     
 >   ***
->   *Applies to all: The Website refreshes every 200 seconds to keep the user session on. Also on the user side, the website refreshes every time user uses ADD / DELETE / UPDATE options. Refreshing happens only for the main section (where all requests are displayed). This was done on warehouse request - to be able to listen to the Youtube videos without interruption. (Youtube videos stops to play every whole website refresh)*
+>   *Applies to all: 
+    1.  The Website refreshes every 200 seconds to keep the user session on. Also on the user side, the website refreshes every time user uses ADD / DELETE / UPDATE options. Refreshing happens only for the main section (where all requests are displayed). This was done on warehouse request - to be able to listen to the Youtube videos without interruption. (Youtube videos stops to play every whole website refresh)*
+    2. When in mobile mode: Job reference [Receipt / Pick etc...], UID number and arrow icon - adjust automatically depending on users screen width.
 >   ***
 >    `**` *If any input field length exceeds 16 characters bottom "ADD/DELETE/UPDATE" button disables - so a user can't send a request to DB (This rule is applied to prevent error on SQL side when user string length is greater than set in DB). Input characters and label becomes red, label text show alert message a user "- 16 Characters maximum!".*
 >   ***
