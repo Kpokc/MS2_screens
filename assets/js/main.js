@@ -31,9 +31,9 @@ function timer(){
 $(document).ready(function(){
     //When document loaded call below function
     urgentIntoRed(glowSize(iconPosition(hideShowCardBody())));
-    // Switch between warehouse and drivers sections and focus
     switchSectionAndFocus();
 });
+
 
 // Reload page every 200 seconds. (to keep user session up)
 setInterval(function(){
@@ -47,9 +47,8 @@ $( window ).resize(function(){
         glowSize(iconPosition(hideShowCardBody($(".glow").innerWidth(0))));
         // after each window resize flip arrow icon back to normal position
         $(".fa-caret-square-down").attr("id","closed").css("transform","rotateX(0deg)");
-        // Switch between warehouse and drivers sections 
         if(window.innerWidth > 990){
-            switchSectionAndFocus();  
+          switchSectionAndFocus();  
         }
         if(window.innerWidth < 440){
             $(".sectionTwo").css("display","none");  
@@ -187,6 +186,7 @@ function urgentIntoRed(){
         $("#exampleModalAdd").click(function(e){
         // Get clicked target "id" value
         let tr = e.target;
+        console.log($(tr).attr("class"));
             // If value equals any of "close" button or modal window it self
             if($(tr).attr("id") === "exampleModalAdd" || $(tr).attr("class") === "btn btn-secondary button-in-modal" || $(tr).attr("class") === "btn-close"){
                 //input id fields to clear
@@ -254,6 +254,7 @@ function urgentIntoRed(){
                 for (i = 0; i < arrayli.length; i++){
                     if($(arrayli[i]).attr("id") === cardId){
                         // Clone message card
+                        console.log($(arrayli[i]));
                         var cardToDelete = $(arrayli[i]).clone();
                         // Cloned card width depends on user screen
                         var cardClientWidth = $(arrayli[i]).innerWidth();
@@ -327,8 +328,8 @@ function urgentIntoRed(){
         // Wait till form loads
         $("#updateRow").ready(function(){
             // Listen for digits
+           ;
             $("#unique_id").on("input", function(){
-
                 // clean all fields
                 clean();
 
@@ -340,6 +341,16 @@ function urgentIntoRed(){
                 for (i = 0; i < arrayli.length; i++){
                     if($(arrayli[i]).attr("id") === cardId){
                         // Get all text from "li"
+                        console.log($(arrayli[i]));
+                        // Clone message card
+                        var cardToDelete = $(arrayli[i]).clone();
+                        // Cloned card width depends on user screen
+                        var cardClientWidth = $(arrayli[i]).innerWidth();
+                        // Add css styling to clone and add a class to delete it later
+                        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");
+                        // Add card to modal window
+                        $("#exampleModalUpdate").append(cardToDelete);
+                        
                         let k = $(arrayli[i]).text();
                         // Replace all whitespace in string "k" with single space
                         k = k.replace(/\s+/g, ' ');
@@ -354,15 +365,7 @@ function urgentIntoRed(){
                             messageK += textArray[i] + " ";
                         }
                         $("#message_upd").val(messageK);
-
-                        // Clone message card
-                        var cardToDelete = $(arrayli[i]).clone();
-                        // Cloned card width depends on user screen
-                        var cardClientWidth = $(arrayli[i]).innerWidth();
-                        // Add css styling to clone and add a class to delete it later
-                        cardToDelete.innerWidth(cardClientWidth).css("margin","0 auto").addClass("cardToDeleteClone").css("box-shadow","0 3px 10px 5px #1a73e8").css("color","#f5f5f5");
-                        // Add card to modal window
-                        $("#exampleModalUpdate").append(cardToDelete);
+                        
                     }
                 }
             });
@@ -550,7 +553,6 @@ function switchSectionAndFocus(){
     }
 }
 
-// Switch any of buttons pressed
 $(".switch").click(function(){
     var tr = $(this).attr("id");
     if(tr === "warehouse"){
