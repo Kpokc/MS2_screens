@@ -7,10 +7,13 @@ $blue: #1a73e8;
 $darkWhite: #dedede;
 
 @mixin button-hover {
-    background-color: #f7f7f7;
-    color: $blue;
-    text-shadow: 0px 1px 0px $blue;
-    transition: 0.3s;
+    background-color: $blue;
+    &:hover {
+        background-color: #f7f7f7;
+        color: $blue;
+        text-shadow: 0px 1px 0px $blue;
+        transition: 0.3s;
+    }
 }
 
 @mixin position-absolute-center {
@@ -20,7 +23,8 @@ $darkWhite: #dedede;
     transform: translate(-50%, -50%);
 }
 
-@mixin shadowHoverEffect {
+// apply to requests and iframe
+@mixin shadow-shadowHover-effects {
     box-shadow: $shadow;
     transition: 0.3s;
     &:hover {
@@ -80,12 +84,9 @@ h1,h2,h3,h4,h5,h6{
         margin: 0 auto;
     }
     .top-menu-bttn {
-        background-color: transparent;
         border-color: transparent;
         margin: 0px 10px;
-            &:hover{
-                @include button-hover();
-            }
+        @include button-hover();
             &:focus{
                 box-shadow: 0 0 0 0px;
             }
@@ -182,10 +183,7 @@ h1,h2,h3,h4,h5,h6{
     .button-in-modal {
         width: 48%;
         margin: 1px;
-        background-color: $blue;
-        &:hover {
-            @include button-hover();
-        }
+        @include button-hover();
     }
 }
 
@@ -195,7 +193,7 @@ h1,h2,h3,h4,h5,h6{
     margin-top: 25px;
     border: $border;
     border-radius: 5px;
-    @include shadowHoverEffect;
+    @include shadow-shadowHover-effects;
     .urgent-status{
         display: none;
     }
@@ -447,7 +445,7 @@ footer {
     margin: 5px;
     margin-top: 25px;
     box-shadow: $shadow;
-    @include shadowHoverEffect;
+    @include shadow-shadowHover-effects;
         @media screen and (max-width: 1980px) {
             width: 340px;
         }

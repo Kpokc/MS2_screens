@@ -55,9 +55,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .bg-light .top-menu-bttn {
-  background-color: transparent;
   border-color: transparent;
   margin: 0px 10px;
+  background-color: #1a73e8;
 }
 
 .bg-light .top-menu-bttn:hover {
