@@ -12,10 +12,10 @@ else {
     function callPicksReceipts(){
 	            
                 //DB variables
-            	$hostname="localhost";
+            	$hostname="f80b6byii2vwv8cx.chr7pe7iynqr.eu-west-1.rds.amazonaws.com";
             	$username = $_SESSION['login_user'];
                 $password = $_SESSION['login_pass'];
-            	$dbname="pick_test";
+            	$dbname="isfxtxolqppnqivp";
 
 	            //Connect To Database
             	mysqli_connect($hostname,$username, $password) or die ("<html><script language='JavaScript'>alert('Unable to connect to database! Please try again later.')</script></html>");
