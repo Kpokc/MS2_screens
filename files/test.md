@@ -67,3 +67,4 @@ The following table captures the functional testing performed on the website to 
 **Solution** - If statement updated to check if provided UID number exists in the database. If SQL response is positive - Update query executes.
 - Trying to Add / Delete/ Update - could not receive a correct response from the server.
 **Solution** - To change [HTTP Response](https://www.php.net/manual/en/function.http-response-code.php) depending on SQL query result (if response > 0 - 200, else 400). Then catch response with [complete: function (data)](https://stackoverflow.com/questions/23283276/execute-function-after-ajax-call-is-complete) and throughout if statement call correct function.
+- PHP INI - to send correct time (user current time) into "time" table, but not current server time.

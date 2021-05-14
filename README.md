@@ -156,6 +156,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 
 ### Frameworks, Libraries & Programs Used
 
+- [VSCode](https://code.visualstudio.com/) - Code editor.
 - [jQuery:](https://code.jquery.com/) - JavaScript library. 
 - [SCSS](https://sass-lang.com/) - CSS extension.
 - [Bootstrap v4.5.3:](https://getbootstrap.com/docs/4.5/getting-started/introduction/) - Bootstrap was used to assist with the responsiveness and styling of the website.
@@ -167,6 +168,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 - [Balsamiq:](https://balsamiq.com/) - To create the Wireframe.
 - [HTML Validator](https://validator.w3.org/nu/) - HTML validator.
 - [CSS Validator](https://validator.w3.org/) - CSS validator.
+- [JSHint](https://jshint.com/) - JS validator.
 ---
 
 ## Testing ##
