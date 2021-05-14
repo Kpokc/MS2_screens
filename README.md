@@ -3,7 +3,7 @@
 
 <h1 align="Center"><img src="files/ms2ScreenImg.jpg"></h1>
 
--   A live demo can be found [here](http://ms2.sslsupports.com/).
+-   A live demo can be found [here](https://sslsupports.com/).
 -   Username/Password - on request.
 
 -   Project in work photo 1 [here](files/wh1.jpg)
@@ -64,9 +64,9 @@ The website was designed for three types of users: "Admin" (warehouse office), "
  
 ## Skeleton ##
 
-> - [Wireframe Desktop](http://ms2.sslsupports.com/assets/wireframes/desktopWireframe.png) 
-> - [Wireframe Tablet](http://ms2.sslsupports.com/assets/wireframes/tabletWireframe.png)
-> - [Wireframe Mobile](http://ms2.sslsupports.com/assets/wireframes/mobileWireframe.png)
+> - [Wireframe Desktop](https://sslsupports.com/assets/wireframes/desktopWireframe.png) 
+> - [Wireframe Tablet](https://sslsupports.com/assets/wireframes/tabletWireframe.png)
+> - [Wireframe Mobile](https://sslsupports.com/assets/wireframes/mobileWireframe.png)
 > - [SQL tables here](https://github.com/Kpokc/MS2_screens/blob/main/files/pick_test%20db.pdf)
 > - One-page website with **4** modal windows, and **1** toggle section.
 > - Website with login session, background refresh functions (automatic - 200 sec period and each time user add/delete/update request).
