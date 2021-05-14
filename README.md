@@ -80,6 +80,7 @@ The website was designed for three types of users: "Admin" (warehouse office), "
 
 ---
 ### Features Implemented ###
+- Two types of the user were set up: 1. Admin - granted all DML and DQL privileges; 2. WH floor - DML [Update, Delete] and DQL
 - Login session to control SQL DB granted privileges.
 - SQL database with "user" and "message" tables.
 - Responsive mobile-first design using a [Bootstrap](https://getbootstrap.com/) framework.
